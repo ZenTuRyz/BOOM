@@ -76,9 +76,9 @@ def sendMessageWithMention(to, mid):
         
 def helpmessage():
     helpMessage = "╭══⚠คำสั่งเฉพาะบัญชีนี้เทานั้น⚠" + "\n" + \
-                  "║⭐คำสั่ง ➠ จะแสดงคำสั่ง" + "\n" + \
-                  "║⭐คำสั่ง2 ➠ จะแสดงคำสั่งชุดที่ 2" + "\n" + \
-                  "║⭐!Speed ➠ จะแสดงความเร็วบอท" + "\n" + \
+                  "║⭐help ➠ จะแสดงคำสั่ง" + "\n" + \
+                  "║⭐help2 ➠ จะแสดงคำสั่งชุดที่ 2" + "\n" + \
+                  "║⭐sp ➠ จะแสดงความเร็วบอท" + "\n" + \
                   "║⭐เช็คค่า ➠ จะแสดงคำสั่งตั่งค่า" + "\n" + \
                   "║⭐บอท ➠ จะแสดงข้อมูลบอท" + "\n" + \
                   "║⭐เทส ➠ เชคว่าบอทหลุดไหม" + "\n" + \
@@ -287,12 +287,12 @@ def lineBot(op):
                 if text is None:
                     return
 #==============================================================================#
-                if text.lower() == 'คำสั่ง':
+                if text.lower() == 'help':
                     helpMessage = helpmessage()
                     nadya.sendMessage(to, str(helpMessage))
                     nadya.sendContact(to, "")
                     nadya.sendMessage(to, "")
-                elif text.lower() == 'คำสั่ง2':
+                elif text.lower() == 'help2':
                     helpTextToSpeech = helptexttospeech()
                     nadya.sendMessage(to, str(helpTextToSpeech))
                 elif text.lower() == 'translate':
@@ -314,6 +314,7 @@ def lineBot(op):
                     nadya.sendMessage(to,"█████████▒... 90.0%")
                     nadya.sendMessage(to,"███████████..100.0%")
                     nadya.sendMessage(to,"บอทยังอยู่ดีไม่หลุด 😂")
+                    nadya.sendMessage(to,"ถ้าหลุดแปลว่าบินนะ 555+")
                 elif "name " in msg.text.lower():
                     spl = re.split("name ",msg.text,flags=re.IGNORECASE)
                     if spl[0] == "":
@@ -366,7 +367,7 @@ def lineBot(op):
                         nadya.sendText(msg.to,"ลบรันเสร็ดแล้ว(｀・ω・´)")
                     else:
                         nadya.sendText(msg.to,"拒绝了全部的邀请。")
-                elif text.lower() == '!speed':
+                elif text.lower() == 'sp':
                     start = time.time()
                     nadya.sendMessage(to, "⚡ความเร็วบอทอยู่ที่⚡")
                     elapsed_time = time.time() - start
@@ -402,7 +403,7 @@ def lineBot(op):
 #==============================================================================#
                 elif text.lower() == 'เช็คค่า':
                     try:
-                        ret_ = "[ ตั้งค่า ]"
+                        ret_ = "[ ข้อมูลการตั้งค่า ]"
                         if settings["autoAdd"] == True: ret_ += "\nบล็อคแอดออโต้✔"
                         else: ret_ += "\nบล็อคแอดออโต้✘"
                         if settings["autoJoin"] == True: ret_ += "\nเข้ากลุ่มออโต้ ✔"
@@ -521,7 +522,7 @@ def lineBot(op):
                 elif text.lower() == 'รูป':
                     me = nadya.getContact(nadyaMID)
                     nadya.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
-                elif text.lower() == 'ควย':
+                elif text.lower() == 'vid':
                     me = nadya.getContact(nadyaMID)
                     nadya.sendVideoWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus + "/vp")
                 elif text.lower() == 'ปก':
@@ -578,7 +579,7 @@ def lineBot(op):
                         for ls in lists:
                             contact = nadya.getContact(ls)
                             nadya.sendMessage(msg.to, "\n" + contact.statusMessage)
-                elif msg.text.lower().startswith("ดิส "):
+                elif msg.text.lower().startswith("pic "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
                         mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -773,7 +774,7 @@ def lineBot(op):
                         gQr = "Tertutup"
                         gTicket = "Tidak ada"
                     else:
-                        gQr = "เชคกลุ่ม"
+                        gQr = "เช็คกลุ่ม"
                         gTicket = "https://line.me/R/ti/g/{}".format(str(nadya.reissueGroupTicket(group.id)))
                     path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
                     ret_ = "╔══[ ข้อมูลกลุ่ม ]"
@@ -790,7 +791,7 @@ def lineBot(op):
                 elif text.lower() == 'สมาชิก':
                     if msg.toType == 2:
                         group = nadya.getGroup(to)
-                        ret_ = "╔══[ จำนวน List ]"
+                        ret_ = "╔══[ จำนวนสมาชิกทั้งหมด Members List ]"
                         no = 0 + 1
                         for mem in group.members:
                             ret_ += "\n╠ {}. {}".format(str(no), str(mem.displayName))
@@ -799,7 +800,7 @@ def lineBot(op):
                         nadya.sendMessage(to, str(ret_))
                 elif text.lower() == 'กลุ่มทั้งหมด':
                         groups = nadya.groups
-                        ret_ = "╔══[ กลุ่ม List ]"
+                        ret_ = "╔══[ รายชื่อกลุ่มทั้งหมด Groups List ]"
                         no = 0 + 1
                         for gid in groups:
                             group = nadya.getGroup(gid)
@@ -946,14 +947,14 @@ def lineBot(op):
                             zx = {'S':xlen, 'E':xlen2, 'M':cmem[x].mid}
                             zx2.append(zx)
                             zxc += pesan2
-                        text = xpesan+ zxc + "\nออกมาเร็วจะแอบทำไม\n" + readTime
+                        text = xpesan+ zxc + "\nอ่านแล้วไม่ตอบหรอเดะโบกเลย\n" + readTime
                         try:
                             nadya.sendMessage(receiver, text, contentMetadata={'MENTION':str('{"MENTIONEES":'+json.dumps(zx2).replace(' ','')+'}')}, contentType=0)
                         except Exception as error:
                             print (error)
                         pass
                     else:
-                        nadya.sendMessage(receiver,"Lurking has not been set.")
+                        nadya.sendMessage(receiver,"ยังไม่ได้เปิดอ่าน")
 #==============================================================================#
                 elif msg.text.lower().startswith("say-af "):
                     sep = text.split(" ")
@@ -2108,7 +2109,7 @@ def lineBot(op):
                     A = hasil.text
                     nadya.sendMessage(msg.to, A)
 #==============================================================================#   
-                elif text.lower() == 'kalender':
+                elif text.lower() == 'calender':
                     tz = pytz.timezone("Asia/Makassar")
                     timeNow = datetime.now(tz=tz)
                     day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
