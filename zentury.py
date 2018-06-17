@@ -778,19 +778,22 @@ def lineBot(op):
                             group.preventedJoinByTicket = True
                             nadya.updateGroup(group)
                             nadya.sendMessage(to, "ปิดลิ้งสำเร็จ(｀・ω・´)")
-                elif text.lower() == 'ข้อมูลกลุ่ม':
+                 elif text.lower() == 'ข้อมูลกลุ่ม':
                     group = nadya.getGroup(to)
                     try:
                         gCreator = group.creator.displayName
                     except:
-                        gCreator = "Tidak ditemukan"
+                        gCreator = "ไม่พบผู้สร้าง"
                     if group.invitee is None:
                         gPending = "0"
                     else:
                         gPending = str(len(group.invitee))
                     if group.preventedJoinByTicket == True:
-                        gQr = "Tertutup"
-                        gTicket = "Tidak ada"
+                        gQr = "ปิด"
+                        gTicket = "ลิ้งถูกปิดอยู่.."
+                    else:
+                        gQr = "เปิด"
+                        gTicket = "https://line.me/R/ti/g/{}".format(str(nadya.reissueGroupTicket(group.id)))
                     else:
                         gQr = "เช็คกลุ่ม"
                         gTicket = "https://line.me/R/ti/g/{}".format(str(nadya.reissueGroupTicket(group.id)))
