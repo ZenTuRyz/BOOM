@@ -2370,7 +2370,7 @@ def lineBot(op):
                          if settings['detectMention'] == True:
                              contact = nadya.getContact(msg._from)
                              cName = contact.displayName
-                             balas = ["Self Auto Replied: แท็กทำไมเดะโบกเลย ☠"]
+                             balas = ["Self Auto Replied: แทคทำไมเดะโบกเลย ☠"]
                              ret_ = "" + random.choice(balas)
                              name = re.findall(r'@(\w+)', msg.text)
                              mention = ast.literal_eval(msg.contentMetadata["MENTION"])
@@ -2386,6 +2386,8 @@ def lineBot(op):
             	nadya.sendMessage(to, "เช็คจังเลยกลัวบอทหลุดหรอ 😜")
             if msg.text in ["แตก","แตก1","แตก 1","แตก!","แตก !","แตก 1!"]:
             	nadya.sendMessage(to, "สวยพี่สวย 😜")
+            if msg.text in ["แตก","โอม","โอมมี่","ohm"]:
+            	nadya.sendMessage(to, "Selfbot Auto Replied: โอมไม่อยู่ 😜")
 #==============================================================================#
         if op.type == 55:
             print ("[ 55 ] NOTIFIED READ MESSAGE")
