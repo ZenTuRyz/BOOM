@@ -87,12 +87,14 @@ def helpmessage():
                   "║⭐ชื่อ ➠ ชื่อเรา" + "\n" + \
                   "║⭐ตัส ➠ ตัสเรา" + "\n" + \
                   "║⭐รูป ➠ รูปเรา" + "\n" + \
+		  "║⭐รูปวิดีโอ ➠ รูปเรา" + "\n" + \
                   "║⭐ปก ➠ ปกเรา" + "\n" + \
                   "║⭐Me @ ➠ ลงคทคนอื่น" + "\n" + \
                   "║⭐มิด @ ➠ ลงmidคนอื่น" + "\n" + \
                   "║⭐ชื่อ @ ➠ ลงชื่อคนอื่น" + "\n" + \
                   "║⭐ตัส @ ➠ ลงตัสคนอื่น" + "\n" + \
-                  "║⭐pic @ ➠ ลงรูปคนอื่น" + "\n" + \
+                  "║⭐ดิส @ ➠ ลงรูปคนอื่น" + "\n" + \
+                  "║⭐ดิสวิดีโอ @ ➠ ลงรูปคนอื่น" + "\n" + \
                   "║⭐Vk ➠ เตะแล้วดึงกลับ" + "\n" + \
                   "║⭐Zt ➠ แทคชื่อร่องหน" + "\n" + \
                   "║⭐Zc ➠ ดูmidคนใส่ร่องหน" "\n" + \
@@ -371,7 +373,7 @@ def lineBot(op):
                     nadya.sendMessage(to, "⚡ความเร็วบอทอยู่ที่⚡")
                     elapsed_time = time.time() - start
                     nadya.sendMessage(to,format(str(elapsed_time)))
-                elif text.lower() == 'logot':
+                elif text.lower() == 'logout':
                     nadya.sendMessage(to, "กำลัง Logout บอทกรุณารอสักครู่...")
                     time.sleep(5)
                     nadya.sendMessage(to, "Logout เสร็จสิ้น..(｀・ω・´)")
@@ -521,7 +523,7 @@ def lineBot(op):
                 elif text.lower() == 'รูป':
                     me = nadya.getContact(nadyaMID)
                     nadya.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
-                elif text.lower() == 'vid':
+                elif text.lower() == 'รูปวิดีโอ':
                     me = nadya.getContact(nadyaMID)
                     nadya.sendVideoWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus + "/vp")
                 elif text.lower() == 'ปก':
@@ -578,7 +580,7 @@ def lineBot(op):
                         for ls in lists:
                             contact = nadya.getContact(ls)
                             nadya.sendMessage(msg.to, "\n" + contact.statusMessage)
-                elif msg.text.lower().startswith("pic "):
+                elif msg.text.lower().startswith("ดิส "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
                         mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -589,6 +591,18 @@ def lineBot(op):
                                 lists.append(mention["M"])
                         for ls in lists:
                             path = "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus
+                            nadya.sendImageWithURL(msg.to, str(path))
+		elif msg.text.lower().startswith("ดิสวิดีโอ "):
+                    if 'MENTION' in msg.contentMetadata.keys()!= None:
+                        names = re.findall(r'@(\w+)', text)
+                        mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                        mentionees = mention['MENTIONEES']
+                        lists = []
+                        for mention in mentionees:
+                            if mention["M"] not in lists:
+                                lists.append(mention["M"])
+                        for ls in lists:
+                            path = "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus + "/vp"
                             nadya.sendImageWithURL(msg.to, str(path))
                 elif msg.text.lower().startswith("ข้อมูล "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
@@ -620,7 +634,7 @@ def lineBot(op):
                         for ls in lists:
                             path = "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus
                             nadya.sendImageWithURL(msg.to, str(path))
-                elif msg.text.lower().startswith(".cover "):
+                elif msg.text.lower().startswith("ดิสปก "):
                     if line != None:
                         if 'MENTION' in msg.contentMetadata.keys()!= None:
                             names = re.findall(r'@(\w+)', text)
@@ -659,7 +673,11 @@ def lineBot(op):
                         nadya.sendMessage(msg.to, "Gagal restore profile")
                         
 #==============================================================================#
-                elif msg.text.lower().startswith("เตะ "):
+		elif text.lower() == '@':
+                    group = nadya.getGroup(to)
+                    GS = group.creator.mid
+			nadya.sendMessage(to, "คนนี้ไงคนสร้างกลุ่ม 😜")
+		elif msg.text.lower().startswith("บิน "):
                     targets = []
                     key = eval(msg.contentMetadata["MENTION"])
                     key["MENTIONEES"][0]["M"]
@@ -670,6 +688,7 @@ def lineBot(op):
                             nadya.kickoutFromGroup(msg.to,[target])
                         except:
                             nadya.sendText(msg.to,"Error")
+			nadya.sendMessage(to, "บินไปไอสัส 😜")
                 elif msg.text.lower().startswith("love1 "):
                     targets = []
                     key = eval(msg.contentMetadata["MENTION"])
@@ -954,6 +973,8 @@ def lineBot(op):
                         pass
                     else:
                         nadya.sendMessage(receiver,"ยังไม่ได้เปิดอ่าน")
+            if msg.text in ["Speed","speed","Sp","sp",".Sp",".sp",".Speed",".speed","!sp","!Sp","!Speed","!speed"]:
+            	nadya.sendMessage(to, "แรงแล้วพี่แรงแล้ว 😜")
 #==============================================================================#
                 elif msg.text.lower().startswith("say-af "):
                     sep = text.split(" ")
