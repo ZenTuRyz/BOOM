@@ -510,7 +510,6 @@ def lineBot(op):
                 elif text.lower() == 'groupcreator':
                     group = nadya.getGroup(to)
                     GS = group.creator.mid
-			nadya.sendMessage(to, "คนนี้ไงคนสร้างกลุ่ม 😜")
                 elif "Mc " in msg.text:
                     mmid = msg.text.replace("Mc ","")
                     nadya.sendContact(to, mmid)
