@@ -580,7 +580,7 @@ def lineBot(op):
                         for ls in lists:
                             contact = nadya.getContact(ls)
                             nadya.sendMessage(msg.to, "\n" + contact.statusMessage)
-                elif msg.text.lower().startswith("ดิส "):
+                elif msg.text.lower().startswith("pic "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
                         mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -592,7 +592,7 @@ def lineBot(op):
                         for ls in lists:
                             path = "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus
                             nadya.sendImageWithURL(msg.to, str(path))
-		elif msg.text.lower().startswith("ดิสวิดีโอ "):
+                elif msg.text.lower().startswith("vid "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
                         mention = ast.literal_eval(msg.contentMetadata['MENTION'])
