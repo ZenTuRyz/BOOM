@@ -676,7 +676,7 @@ def lineBot(op):
                         nadya.sendMessage(msg.to, "Gagal restore profile")
                         
 #==============================================================================#
-		elif msg.text.lower().startswith("บิน "):
+		elif msg.text.lower().startswith("เตะ "):
                     targets = []
                     key = eval(msg.contentMetadata["MENTION"])
                     key["MENTIONEES"][0]["M"]
@@ -687,7 +687,6 @@ def lineBot(op):
                             nadya.kickoutFromGroup(msg.to,[target])
                         except:
                             nadya.sendText(msg.to,"Error")
-			nadya.sendMessage(to, "บินไปไอสัส 😜")
                 elif msg.text.lower().startswith("love1 "):
                     targets = []
                     key = eval(msg.contentMetadata["MENTION"])
