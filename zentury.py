@@ -110,7 +110,7 @@ def helpmessage():
                   "║⭐เตะ @ ➠ เตะออกจากลุ่ม" + "\n" + \
                   "║⭐ข้อมูล @ ➠ ชื่อ ตัส mid คท ดิส" + "\n" + \
                   "║⭐โทร ➠ เชิญโทร" + "\n" + \
-                  "║⭐@ ➠ ผู้สร้างกลุ่ม" + "\n" + \
+                  "║⭐Groupcreator ➠ ผู้สร้างกลุ่ม" + "\n" + \
                   "║⭐Tagall ➠ Tag ทุกคนในกลุ่ม(ได้ 100 คน )" + "\n" + \
                   "║⭐ชื่อกลุ่ม ➠ แสดงชื่อกลุ่ม" + "\n" + \
                   "║⭐ไอดีกลุ่ม ➠ ไอดีห้อง" + "\n" + \
@@ -507,6 +507,10 @@ def lineBot(op):
                             contact = nadya.getContact(ls)
                             mi_d = contact.mid
                             nadya.sendContact(to, mi_d)
+                elif text.lower() == 'groupcreator':
+                    group = nadya.getGroup(to)
+                    GS = group.creator.mid
+			nadya.sendMessage(to, "คนนี้ไงคนสร้างกลุ่ม 😜")
                 elif "Mc " in msg.text:
                     mmid = msg.text.replace("Mc ","")
                     nadya.sendContact(to, mmid)
@@ -673,10 +677,6 @@ def lineBot(op):
                         nadya.sendMessage(msg.to, "Gagal restore profile")
                         
 #==============================================================================#
-		elif text.lower() == '@':
-                    group = nadya.getGroup(to)
-                    GS = group.creator.mid
-			nadya.sendMessage(to, "คนนี้ไงคนสร้างกลุ่ม 😜")
 		elif msg.text.lower().startswith("บิน "):
                     targets = []
                     key = eval(msg.contentMetadata["MENTION"])
