@@ -978,7 +978,7 @@ def lineBot(op):
                         nadya.sendMessage(receiver,"ยังไม่ได้เปิดอ่าน")
             if msg.text in ["Speed","speed","Sp","sp",".Sp",".sp",".Speed",".speed","!sp","!Sp","!Speed","!speed"]:
             	nadya.sendMessage(to, "แรงแล้วพี่แรงแล้ว 😜")
-           if msg.text in ["เทส","test"]:
+            if msg.text in ["เทส","test"]:
             	nadya.sendMessage(to, "เช็คจังเลยกลัวบอทหลุดหรอ 😜")
 #==============================================================================#
                 elif msg.text.lower().startswith("say-af "):
