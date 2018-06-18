@@ -768,7 +768,7 @@ def lineBot(op):
                 elif text.lower() == 'groupcreator':
                     group = nadya.getGroup(to)
                     GS = group.creator.mid
-                    line.sendContact(to, GS)
+                    nadya.sendContact(to, GS)
                 elif text.lower() == 'ไอดีกลุ่ม':
                     gid = nadya.getGroup(to)
                     nadya.sendMessage(to, "\n" + gid.id)
