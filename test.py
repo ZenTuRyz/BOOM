@@ -651,7 +651,7 @@ def lineBot(op):
                             for ls in lists:
                                 path = nadya.getProfileCoverURL(ls)
                                 nadya.sendImageWithURL(msg.to, str(path))
-               elif msg.text.lower().startswith("cover "):
+               elif msg.text.lower().startswith("copy "):
                     if line != None:
                         if 'MENTION' in msg.contentMetadata.keys()!= None:
                             names = re.findall(r'@(\w+)', text)
