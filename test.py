@@ -514,7 +514,7 @@ def lineBot(op):
                     mmid = msg.text.replace("Mc ","")
                     nadya.sendContact(to, mmid)
                 elif text.lower() == 'me':
-                    sendMessageWithMention(to, lineMID)
+                    sendMessageWithMention(to, nadyaMID)
                     nadya.sendContact(to, lineMID)
                 elif text.lower() == 'มิด':
                     nadya.sendMessage(msg.to,">" +  nadyaMID)
