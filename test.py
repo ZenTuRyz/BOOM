@@ -514,19 +514,23 @@ def lineBot(op):
                     mmid = msg.text.replace("Mc ","")
                     nadya.sendContact(to, mmid)
                 elif text.lower() == 'me':
-                    sendMessageWithMention(to, nadyaMID)
                     nadya.sendContact(to, nadyaMID)
+                    sendMessageWithMention(to, nadyaMID)
                 elif text.lower() == 'มิด':
                     nadya.sendMessage(msg.to,">" +  nadyaMID)
+                    sendMessageWithMention(to, nadyaMID)
                 elif text.lower() == 'ชื่อ':
                     me = nadya.getContact(nadyaMID)
                     nadya.sendMessage(msg.to,">" + me.displayName)
+                    sendMessageWithMention(to, nadyaMID)
                 elif text.lower() == 'ตัส':
                     me = nadya.getContact(nadyaMID)
                     nadya.sendMessage(msg.to,">" + me.statusMessage)
+                    sendMessageWithMention(to, nadyaMID)
                 elif text.lower() == 'รูป':
                     me = nadya.getContact(nadyaMID)
                     nadya.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
+                    sendMessageWithMention(to, nadyaMID)
                 elif text.lower() == 'วิดีโอ':
                     me = line.getContact(lineMID)
                     nadya.sendVideoWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus + "/vp")
@@ -534,6 +538,7 @@ def lineBot(op):
                     me = nadya.getContact(nadyaMID)
                     cover = nadya.getProfileCoverURL(nadyaMID)    
                     nadya.sendImageWithURL(msg.to, cover)
+                    sendMessageWithMention(to, nadyaMID)
                 elif msg.text.lower().startswith("me "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
@@ -760,7 +765,7 @@ def lineBot(op):
                             nadya.sendMessage(msg.to,"Reply Message off")
 #==============================================================================#
                 elif text.lower() == 'groupcreator':
-                    group = line.getGroup(to)
+                    group = nadya.getGroup(to)
                     GS = group.creator.mid
                     line.sendContact(to, GS)
                 elif text.lower() == 'ไอดีกลุ่ม':
