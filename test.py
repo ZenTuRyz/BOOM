@@ -651,20 +651,21 @@ def lineBot(op):
                             for ls in lists:
                                 path = nadya.getProfileCoverURL(ls)
                                 nadya.sendImageWithURL(msg.to, str(path))
-               elif msg.text.lower().startswith("copy "):
-                    if line != None:
-                        if 'MENTION' in msg.contentMetadata.keys()!= None:
-                            names = re.findall(r'@(\w+)', text)
-                            mention = ast.literal_eval(msg.contentMetadata['MENTION'])
-                            mentionees = mention['MENTIONEES']
-                            lists = []
-                            for mention in mentionees:
-                                if mention["M"] not in lists:
-                                    lists.append(mention["M"])
-                            for ls in lists:
-                                path = line.getProfileCoverURL(ls)
-                                nadya.sendImageWithURL(msg.to, str(path))
-                elif text.lower() == 'load':
+                elif msg.text.lower().startswith("clone "):
+                    if 'MENTION' in msg.contentMetadata.keys()!= None:
+                        names = re.findall(r'@(\w+)', text)
+                        mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                        mentionees = mention['MENTIONEES']
+                        for mention in mentionees:
+                            contact = mention["M"]
+                            break
+                        try:
+                            nadya.cloneContactProfile(contact)
+                            nadya.sendMessage(msg.to, "Berhasil clone member tunggu beberapa saat sampai profile berubah")
+                        except:
+                            nadya.sendMessage(msg.to, "Gagal clone member")
+                            
+                elif text.lower() == 'restore':
                     try:
                         nadyaProfile.displayName = str(myProfile["displayName"])
                         nadyaProfile.statusMessage = str(myProfile["statusMessage"])
