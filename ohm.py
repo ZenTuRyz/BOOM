@@ -75,70 +75,74 @@ def sendMessageWithMention(to, mid):
         logError(error)
         
 def helpmessage():
-    helpMessage = "╭══⚠คำสั่งเฉพาะบัญชีนี้เทานั้น⚠" + "\n" + \
-                  "║⭐help ➠ จะแสดงคำสั่ง" + "\n" + \
-                  "║⭐help2 ➠ จะแสดงคำสั่งชุดที่ 2" + "\n" + \
-                  "║⭐sp ➠ จะแสดงความเร็วบอท" + "\n" + \
-                  "║⭐เช็คค่า ➠ จะแสดงคำสั่งตั่งค่า" + "\n" + \
-                  "║⭐บอท ➠ จะแสดงข้อมูลบอท" + "\n" + \
-                  "║⭐เทส ➠ เชคว่าบอทหลุดไหม" + "\n" + \
-                  "║⭐Me ➠ คทเรา" + "\n" + \
-                  "║⭐มิด ➠ MIdเรา" + "\n" + \
-                  "║⭐ชื่อ ➠ ชื่อเรา" + "\n" + \
-                  "║⭐ตัส ➠ ตัสเรา" + "\n" + \
-                  "║⭐รูป ➠ รูปเรา" + "\n" + \
-                  "║⭐รูปวิดีโอ ➠ รูปวิดีโอเรา" + "\n" + \
-                  "║⭐ปก ➠ ปกเรา" + "\n" + \
-                  "║⭐Me @ ➠ ลงคทคนอื่น" + "\n" + \
-                  "║⭐มิด @ ➠ ลงmidคนอื่น" + "\n" + \
-                  "║⭐ชื่อ @ ➠ ลงชื่อคนอื่น" + "\n" + \
-                  "║⭐ตัส @ ➠ ลงตัสคนอื่น" + "\n" + \
-                  "║⭐ดิส @ ➠ ลงดิสคนอื่น" + "\n" + \
-                  "║⭐ดิสวีดีโอ @ ➠ ลงดิสวีดีโอคนอื่น" + "\n" + \
-                  "║⭐Vk ➠ เตะแล้วดึงกลับ" + "\n" + \
-                  "║⭐Zt ➠ แทคชื่อร่องหน" + "\n" + \
-                  "║⭐Zc ➠ ดูmidคนใส่ร่องหน" "\n" + \
-                  "║⭐Zm ➠ ดู คท คนใส่ร่องหน" + "\n" + \
-                  "║⭐Copy @ ➠ ก็อปปกคนอื่น" + "\n" +\
-                  "║⭐Love on/off ➠ เปิดเลียนแบบ" + "\n" + \
-                  "║⭐Love1 ➠ เพิ่มเลียนแบบ" + "\n" + \
-                  "║⭐Love2 ➠ ลบเลียนแบบ" + "\n" + \
-                  "║⭐รีบอท ➠ บอทจะเริมทำงานใหม่" + "\n" + \
-                  "║⭐ออน ➠ เวลาทำงานบอท" + "\n" + \
-                  "║⭐พูด(ข้อความ) ➠ สั่งสิริพูด" + "\n" + \
-                  "║⭐name (ชื่อ) ➠ เปรี่ยนชื่อ" + "\n" + \
-                  "║⭐เตะ @ ➠ เตะออกจากลุ่ม" + "\n" + \
-                  "║⭐ข้อมูล @ ➠ ชื่อ ตัส mid คท ดิส" + "\n" + \
-                  "║⭐โทร ➠ เชิญโทร" + "\n" + \
-                  "║⭐แอดกลุ่ม ➠ ผู้สร้างกลุ่ม" + "\n" + \
-                  "║⭐แทค ➠ แทคได้100คน" + "\n" + \
-                  "║⭐ชื่อกลุ่ม ➠ แสดงชื่อกลุ่ม" + "\n" + \
-                  "║⭐ไอดีกลุ่ม ➠ ไอดีห้อง" + "\n" + \
-                  "║⭐รูปกลุ่ม ➠ ปกกลุ่ม" + "\n" + \
-                  "║⭐กลุ่มทั้งหมด ➠ ดูรายชื่อกลุ่ม" + "\n" + \
-                  "║⭐ข้อมูลกลุ่ม ➠ ข้อมูลกลุ่ม" + "\n" + \
-                  "║⭐สมาชิก ➠ รายในห้อง" + "\n" + \
-                  "║⭐สมาชิก ➠ รายชื่อในห้อง" + "\n" + \
-                  "║⭐เปิดอ่าน ➠ ตั้งเวลา" + "\n" + \
-                  "║⭐ปิดอ่าน ➠ ปิดเวลา" + "\n" + \
-                  "║⭐อ่าน ➠ ดูคนอ่าน" + "\n" + \
-                  "║⭐ลบเวลา ➠ ลบเวลาคนอ่าน" + "\n" + \
-                  "║⭐ยกเลิก ➠ ยกเลิกค้างเชินกลุ่ม" + "\n" + \
-                  "║⭐ลิ้งกลุ่ม ➠ ขอลิ่งกลุ่ม" + "\n" + \
-                  "╰════⚜by : ꧁OHM꧂ ⚜"
+    helpMessage = " ⚠คำสั่งช่วยเหลือ⚠" + "\n" + \
+                  " ⭐help ➠ จะแสดงคำสั่ง" + "\n" + \
+                  " ⭐help2 ➠ จะแสดงคำสั่งชุดที่ 2" + "\n" + \
+                  " ⭐รีบอท ➠ บอทจะเริมทำงานใหม่" + "\n" + \
+		  " ⚠คำสั่งสถานะ⚠" + "\n" + \
+                  " ⭐sp ➠ จะแสดงความเร็วบอท" + "\n" + \
+                  " ⭐เช็คค่า ➠ จะแสดงคำสั่งตั่งค่า" + "\n" + \
+                  " ⭐บอท ➠ จะแสดงข้อมูลบอท" + "\n" + \
+                  " ⭐เทส ➠ เชคว่าบอทหลุดไหม" + "\n" + \
+                  " ⭐Me ➠ คทเรา" + "\n" + \
+                  " ⭐มิด ➠ MIdเรา" + "\n" + \
+                  " ⭐ชื่อ ➠ ชื่อเรา" + "\n" + \
+                  " ⭐ตัส ➠ ตัสเรา" + "\n" + \
+                  " ⭐รูป ➠ รูปเรา" + "\n" + \
+                  " ⭐รูปวิดีโอ ➠ รูปวิดีโอเรา" + "\n" + \
+                  " ⭐ปก ➠ ปกเรา" + "\n" + \
+                  " ⭐ออน ➠ เวลาทำงานบอท" + "\n" + \
+		  " ⚠คำสั่งสถานะคนอื่น⚠" + "\n" + \
+                  " ⭐Me @ ➠ ลงคทคนอื่น" + "\n" + \
+                  " ⭐มิด @ ➠ ลงmidคนอื่น" + "\n" + \
+                  " ⭐ชื่อ @ ➠ ลงชื่อคนอื่น" + "\n" + \
+                  " ⭐ตัส @ ➠ ลงตัสคนอื่น" + "\n" + \
+                  " ⭐ดิส @ ➠ ลงดิสคนอื่น" + "\n" + \
+                  " ⭐ดิสวีดีโอ @ ➠ ลงดิสวีดีโอคนอื่น" + "\n" + \
+                  " ⭐Copy @ ➠ ก็อปปกคนอื่น" + "\n" +\
+		  " ⚠คำสั่งใช้ในกลุ่ม⚠" + "\n" + \
+                  " ⭐Vk ➠ เตะแล้วดึงกลับ" + "\n" + \
+                  " ⭐Zt ➠ แทคชื่อร่องหน" + "\n" + \
+                  " ⭐Zc ➠ ดูmidคนใส่ร่องหน" "\n" + \
+                  " ⭐Zm ➠ ดู คท คนใส่ร่องหน" + "\n" + \
+                  " ⭐เตะ @ ➠ เตะออกจากลุ่ม" + "\n" + \
+                  " ⭐ข้อมูล @ ➠ ชื่อ ตัส mid คท ดิส" + "\n" + \
+                  " ⭐โทร ➠ เชิญโทร" + "\n" + \
+                  " ⭐Groupcreator ➠ ผู้สร้างกลุ่ม" + "\n" + \
+                  " ⭐แทค ➠ แทคได้100คน" + "\n" + \
+                  " ⭐ชื่อกลุ่ม ➠ แสดงชื่อกลุ่ม" + "\n" + \
+                  " ⭐ไอดีกลุ่ม ➠ ไอดีห้อง" + "\n" + \
+                  " ⭐รูปกลุ่ม ➠ ปกกลุ่ม" + "\n" + \
+                  " ⭐กลุ่มทั้งหมด ➠ ดูรายชื่อกลุ่ม" + "\n" + \
+                  " ⭐ข้อมูลกลุ่ม ➠ ข้อมูลกลุ่ม" + "\n" + \
+                  " ⭐สมาชิก ➠ รายในห้อง" + "\n" + \
+                  " ⭐สมาชิก ➠ รายชื่อในห้อง" + "\n" + \
+                  " ⭐เปิดอ่าน ➠ ตั้งเวลา" + "\n" + \
+                  " ⭐ปิดอ่าน ➠ ปิดเวลา" + "\n" + \
+                  " ⭐อ่าน ➠ ดูคนอ่าน" + "\n" + \
+                  " ⭐ลบเวลา ➠ ลบเวลาคนอ่าน" + "\n" + \
+                  " ⭐ยกเลิก ➠ ยกเลิกค้างเชินกลุ่ม" + "\n" + \
+                  " ⭐ลิ้งกลุ่ม ➠ ขอลิ่งกลุ่ม" + "\n" + \
+		  "⚠คำสั่งอื่นๆ⚠" + "\n" + \
+                  " ⭐Love on/off ➠ เปิดเลียนแบบ" + "\n" + \
+                  " ⭐Love1 ➠ เพิ่มเลียนแบบ" + "\n" + \
+                  " ⭐Love2 ➠ ลบเลียนแบบ" + "\n" + \
+                  " ⭐พูด(ข้อความ) ➠ สั่งสิริพูด" + "\n" + \
+                  " ⭐name (ชื่อ) ➠ เปรี่ยนชื่อ" + "\n" + \
+                  "Created by : ꧁OHM꧂ "
     return helpMessage
     
 def helptexttospeech():
-    helpTextToSpeech =   "╭════⚠คำสั่งชุดที่ 2⚠" + "\n" + \
-                         "║⭐Tag on/off ➠ ตอบกลับแทค" + "\n" + \
-                         "║⭐Tag2 on/off ➠ แทคส่งรูป" + "\n" + \
-                         "║⭐กลุ่ม on/off ➠ เข้ากลุ่มออโต้" + "\n" + \
-                         "║⭐อ่าน on/off ➠ อ่านออโต้" + "\n" + \
-                         "║⭐แชท on/off ➠ ออกแชทรวมออโต้" + "\n" + \
-                         "║⭐Autoblock on/off ➠ ออโต้บล็อค" + "\n" + \
-                         "║⭐สติกเกอร์ on/off ➠ แชร์ลิ้งสติกเกอร์" + "\n" + \
-                         "║⭐เปิดลิ้ง/ปิดลิ้ง ➠ เปิดปิดลิ่งกลุ่ม" + "\n" + \
-                         "╰════⚜by : ꧁OHM꧂ ⚜"
+    helpTextToSpeech =   " ⚠คำสั่งชุดที่ 2⚠" + "\n" + \
+                         " ⭐Tag on/off ➠ ตอบกลับแทค" + "\n" + \
+                         " ⭐Tag2 on/off ➠ แทคส่งรูป" + "\n" + \
+                         " ⭐กลุ่ม on/off ➠ เข้ากลุ่มออโต้" + "\n" + \
+                         " ⭐อ่าน on/off ➠ อ่านออโต้" + "\n" + \
+                         " ⭐แชท on/off ➠ ออกแชทรวมออโต้" + "\n" + \
+                         " ⭐Autoblock on/off ➠ ออโต้บล็อค" + "\n" + \
+                         " ⭐สติกเกอร์ on/off ➠ แชร์ลิ้งสติกเกอร์" + "\n" + \
+                         " ⭐เปิดลิ้ง/ปิดลิ้ง ➠ เปิดปิดลิ่งกลุ่ม" + "\n" + \
+                  "Created by : ꧁OHM꧂ "
     return helpTextToSpeech
 
 def helptranslate():
@@ -302,7 +306,7 @@ def lineBot(op):
                     nadya.sendMessage(to, str(helpTranslate))
 #==============================================================================#
                 elif "ผส" == msg.text.lower():
-                    nadya.sendMessage(to,"ผู้สร้างบอท\n⚜ ꧁OHM꧂  ⚜")
+                    nadya.sendMessage(to,"ผู้สร้างบอท\n ꧁OHM꧂  ")
                 elif "เทส" == msg.text.lower():
                     nadya.sendMessage(to,"LOADING:▒...0%")
                     nadya.sendMessage(to,"█▒... 10.0%")
@@ -512,24 +516,30 @@ def lineBot(op):
                     nadya.sendContact(to, mmid)
                 elif text.lower() == 'me':
                     nadya.sendContact(to, nadyaMID)
+                    sendMessageWithMention(to, nadyaMID)
                 elif text.lower() == 'มิด':
                     nadya.sendMessage(msg.to,">" +  nadyaMID)
+                    sendMessageWithMention(to, nadyaMID)
                 elif text.lower() == 'ชื่อ':
                     me = nadya.getContact(nadyaMID)
                     nadya.sendMessage(msg.to,">" + me.displayName)
+                    sendMessageWithMention(to, nadyaMID)
                 elif text.lower() == 'ตัส':
                     me = nadya.getContact(nadyaMID)
                     nadya.sendMessage(msg.to,">" + me.statusMessage)
+                    sendMessageWithMention(to, nadyaMID)
                 elif text.lower() == 'รูป':
                     me = nadya.getContact(nadyaMID)
                     nadya.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
-                elif text.lower() == 'รูปวีดีโอ':
-                    me = nadya.getContact(nadyaMID)
+                    sendMessageWithMention(to, nadyaMID)
+                elif text.lower() == 'วิดีโอ':
+                    me = line.getContact(lineMID)
                     nadya.sendVideoWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus + "/vp")
                 elif text.lower() == 'ปก':
                     me = nadya.getContact(nadyaMID)
                     cover = nadya.getProfileCoverURL(nadyaMID)    
                     nadya.sendImageWithURL(msg.to, cover)
+                    sendMessageWithMention(to, nadyaMID)
                 elif msg.text.lower().startswith("me "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
@@ -647,7 +657,7 @@ def lineBot(op):
                             for ls in lists:
                                 path = nadya.getProfileCoverURL(ls)
                                 nadya.sendImageWithURL(msg.to, str(path))
-                elif msg.text.lower().startswith("copy "):
+                elif msg.text.lower().startswith("clone "):
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
                         mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -661,7 +671,7 @@ def lineBot(op):
                         except:
                             nadya.sendMessage(msg.to, "Gagal clone member")
                             
-                elif text.lower() == 'load':
+                elif text.lower() == 'restore':
                     try:
                         nadyaProfile.displayName = str(myProfile["displayName"])
                         nadyaProfile.statusMessage = str(myProfile["statusMessage"])
@@ -671,7 +681,29 @@ def lineBot(op):
                         nadya.sendMessage(msg.to, "Berhasil restore profile tunggu beberapa saat sampai profile berubah")
                     except:
                         nadya.sendMessage(msg.to, "Gagal restore profile")
-                        
+                elif msg.text.lower().startswith("cloneprofile "):
+                    if 'MENTION' in msg.contentMetadata.keys()!= None:
+                        names = re.findall(r'@(\w+)', text)
+                        mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                        mentionees = mention['MENTIONEES']
+                        for mention in mentionees:
+                            contact = mention["M"]
+                            break
+                        try:
+                            nadya.cloneContactProfile(contact)
+                            nadya.sendMessage(msg.to, "Berhasil clone member tunggu beberapa saat sampai profile berubah")
+                        except:
+                            nadya.sendMessage(msg.to, "Gagal clone member")
+                elif text.lower() == 'restoreprofile':
+                    try:
+                        nadyaProfile.displayName = str(myProfile["displayName"])
+                        nadyaProfile.statusMessage = str(myProfile["statusMessage"])
+                        nadyaProfile.pictureStatus = str(myProfile["pictureStatus"])
+                        nadya.updateProfileAttribute(8, lineProfile.pictureStatus)
+                        nadya.updateProfile(lineProfile)
+                        nadya.sendMessage(msg.to, "Berhasil restore profile tunggu beberapa saat sampai profile berubah")
+                    except:
+                        nadya.sendMessage(msg.to, "Gagal restore profile")
 #==============================================================================#
                 elif msg.text.lower().startswith("เตะ "):
                     targets = []
@@ -733,7 +765,7 @@ def lineBot(op):
                             settings["mimic"]["status"] = False
                             nadya.sendMessage(msg.to,"Reply Message off")
 #==============================================================================#
-                elif text.lower() == 'แอดกลุ่ม ':
+                elif text.lower() == 'groupcreator':
                     group = nadya.getGroup(to)
                     GS = group.creator.mid
                     nadya.sendContact(to, GS)
@@ -2388,6 +2420,62 @@ def lineBot(op):
             	nadya.sendMessage(to, "สวยพี่สวย 😜")
             if msg.text in ["โอม","โอมมี่","ohm"]:
             	nadya.sendMessage(to, "Selfbot Auto Replied: โอมไม่อยู่ 😜")
+#==============================================================================#
+        if op.type == 26:
+            print ("[ 26 ] RECEIVE MESSAGE")
+            msg = op.message
+            text = msg.text
+            msg_id = msg.id
+            receiver = msg.to
+            sender = msg._from
+            if msg.toType == 0:
+                if sender != line.profile.mid:
+                    to = sender
+                else:
+                    to = receiver
+            else:
+                to = receiver
+                if settings["autoRead"] == True:
+                    nadya.sendChatChecked(to, msg_id)
+                if to in read["readPoint"]:
+                    if sender not in read["ROM"][to]:
+                        read["ROM"][to][sender] = True
+                if sender in settings["mimic"]["target"] and settings["mimic"]["status"] == True and settings["mimic"]["target"][sender] == True:
+                    text = msg.text
+                    if text is not None:
+                        nadya.sendMessage(msg.to,text)
+                if msg.contentType == 0 and sender not in lineMID and msg.toType == 2:
+                    if 'MENTION' in msg.contentMetadata.keys()!= None:
+                        names = re.findall(r'@(\w+)', text)
+                        mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                        mentionees = mention['MENTIONEES']
+                        lists = []
+                        for mention in mentionees:
+                            if lineMID in mention["M"]:
+                              if settings["detectMention"] == True:
+                                 sendMention(receiver, sender, "", "????")
+
+        if op.type == 17:
+           print ("MEMBER JOIN TO GROUP")
+           if settings["Sambutan"] == True:
+             if op.param2 in lineMID:
+                 return
+             ginfo = line.getGroup(op.param1)
+             contact = line.getContact(op.param2)
+             image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
+             nadya.sendMessage(op.param1,"Hi " + line.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\njangan lupa tikung aim\nDan Semoga Betah Disini ye ^_^")
+             nadya.sendImageWithURL(op.param1,image)
+
+        if op.type == 15:
+           print ("MEMBER LEAVE TO GROUP")
+           if settings["Sambutan"] == True:
+             if op.param2 in lineMID:
+                 return
+             ginfo = line.getGroup(op.param1)
+             contact = line.getContact(op.param2)
+             image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
+             nadya.sendImageWithURL(op.param1,image)
+             nadya.sendMessage(op.param1,"Good Bye " + line.getContact(op.param2).displayName + "\nSee You Next Time . . . (p′︵‵。)")
 #==============================================================================#
         if op.type == 55:
             print ("[ 55 ] NOTIFIED READ MESSAGE")
