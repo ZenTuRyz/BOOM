@@ -100,7 +100,8 @@ def helpmessage():
                   "⭐ตัส @ ➠ ลงตัสคนอื่น" + "\n" + \
                   "⭐ดิส @ ➠ ลงดิสคนอื่น" + "\n" + \
                   "⭐ดิสวีดีโอ @ ➠ ลงดิสวีดีโอคนอื่น" + "\n" + \
-                  "⭐Copy @ ➠ ก็อปปกคนอื่น" + "\n" +\
+                  "⭐cover @ ➠ ก็อปปกคนอื่น" + "\n" +\
+                  "⭐clone @ ➠ ก็อปปกคนอื่นมาใส่" + "\n" +\
 		  " ⚠คำสั่งใช้ในกลุ่ม⚠" + "\n" + \
                   "⭐Vk ➠ เตะแล้วดึงกลับ" + "\n" + \
                   "⭐Zt ➠ แทคชื่อร่องหน" + "\n" + \
@@ -153,6 +154,7 @@ def helpohm():
                          "⭐ohm:sp ➠ ความเร็วบอท" + "\n" + \
                          "⭐ohm:kick @ ➠ เตะ" + "\n" + \
                          "⭐ohm:test ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
+                         "⭐ohm:tagall ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
                   "Created by : ꧁OHM꧂ "
     return helpTextToSpeech
 
@@ -2476,6 +2478,20 @@ def lineBot(op):
                             nadya.kickoutFromGroup(msg.to,[target])
                         except:
                             nadya.sendText(msg.to,"Error")
+            if msg.text in ["ohm:tagall"]:
+                    group = nadya.getGroup(msg.to)
+                    nama = [contact.mid for contact in group.members]
+                    k = len(nama)//100
+                    for a in range(k+1):
+                        txt = u''
+                        s=0
+                        b=[]
+                        for i in group.members[a*100 : (a+1)*100]:
+                            b.append({"S":str(s), "E" :str(s+6), "M":i.mid})
+                            s += 7
+                            txt += u'@Alin \n'
+                        nadya.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
+                        nadya.sendMessage(to, "จำนวนสมาชิก {} คน".format(str(len(nama))))          
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
