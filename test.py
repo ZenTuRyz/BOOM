@@ -429,13 +429,13 @@ def lineBot(op):
                 elif text.lower() == 'autoblock on':
                     settings["autoAdd"] = True
                     nadya.sendMessage(to, "เปิดระบบออโต้บล็อคแล้ว(｀・ω・´)")
-                elif text.lower() == 'autoblock off':
+                elif text.lower() == 'กลุ่ม off':
                     settings["autoAdd"] = False
                     nadya.sendMessage(to, "ปิดระบบออโต้บล็อคแล้ว(｀・ω・´)")
-                elif text.lower() == 'AutoJoin on':
+                elif text.lower() == 'กลุ่ม on':
                     settings["AutoJoin"] = True
                     nadya.sendMessage(to, "เปิดระบบออโต้เข้ากลุ่มแล้ว(｀・ω・´)")
-                elif text.lower() == 'AutoJoin off':
+                elif text.lower() == 'กลุ่ม off':
                     settings["AutoJoin"] = False
                     nadya.sendMessage(to, "ปิดระบบเข้ากลุ่มออโต้แล้ว(｀・ω・´)")
                 elif text.lower() == 'แชท on':
@@ -644,7 +644,7 @@ def lineBot(op):
                         for ls in lists:
                             path = "http://dl.profile.line-cdn.net/" + nadya.getContact(ls).pictureStatus
                             nadya.sendImageWithURL(msg.to, str(path))
-                elif msg.text.lower().startswith(".cover "):
+                elif msg.text.lower().startswith("cover "):
                     if line != None:
                         if 'MENTION' in msg.contentMetadata.keys()!= None:
                             names = re.findall(r'@(\w+)', text)
@@ -854,7 +854,7 @@ def lineBot(op):
                         ret_ += "\n╚══[ จำนวน {} กลุ่ม ]".format(str(len(groups)))
                         nadya.sendMessage(to, str(ret_))
 #==============================================================================#          
-                elif text.lower() == 'แทค':
+                elif text.lower() == 'tagall':
                     group = nadya.getGroup(msg.to)
                     nama = [contact.mid for contact in group.members]
                     k = len(nama)//100
@@ -2402,7 +2402,7 @@ def lineBot(op):
                          if settings['detectMention'] == True:
                              contact = nadya.getContact(msg._from)
                              cName = contact.displayName
-                             balas = ["Self Auto Replied: แทคทำไมเดะโบกเลย ☠"]
+                             balas = ["Selfbot Auto Replied: แทคทำไมเดะโบกเลย ☠"]
                              ret_ = "" + random.choice(balas)
                              name = re.findall(r'@(\w+)', msg.text)
                              mention = ast.literal_eval(msg.contentMetadata["MENTION"])
@@ -2420,6 +2420,18 @@ def lineBot(op):
             	nadya.sendMessage(to, "สวยพี่สวย 😜")
             if msg.text in ["โอม","โอมมี่","ohm"]:
             	nadya.sendMessage(to, "Selfbot Auto Replied: โอมไม่อยู่ 😜")
+            if msg.text in ["ohm:groupcreator"]:
+                    group = nadya.getGroup(to)
+                    GS = group.creator.mid
+                    nadya.sendContact(to, GS)
+            	nadya.sendMessage(to, "นี่ไงคนสร้างกลุ่ม")
+            if msg.text in ["บอท","bot"]:
+            	nadya.sendMessage(to, "บอทยังออนไลน์อยู่ 😜")
+            if msg.text in ["ohm:ออน"]:
+                    timeNow = time.time()
+                    runtime = timeNow - botStart
+                    runtime = format_timespan(runtime)
+                    nadya.sendMessage(to, "ระยะเวลาการทำงานของบอท\n{}".format(str(runtime)))
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
@@ -2444,38 +2456,38 @@ def lineBot(op):
                     text = msg.text
                     if text is not None:
                         nadya.sendMessage(msg.to,text)
-                if msg.contentType == 0 and sender not in lineMID and msg.toType == 2:
+                if msg.contentType == 0 and sender not in nadyaMID and msg.toType == 2:
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
                         mention = ast.literal_eval(msg.contentMetadata['MENTION'])
                         mentionees = mention['MENTIONEES']
                         lists = []
                         for mention in mentionees:
-                            if lineMID in mention["M"]:
+                            if nadyaMID in mention["M"]:
                               if settings["detectMention"] == True:
                                  sendMention(receiver, sender, "", "????")
 
         if op.type == 17:
            print ("MEMBER JOIN TO GROUP")
            if settings["Sambutan"] == True:
-             if op.param2 in lineMID:
+             if op.param2 in nadyaMID:
                  return
-             ginfo = line.getGroup(op.param1)
-             contact = line.getContact(op.param2)
+             ginfo = nadya.getGroup(op.param1)
+             contact = nadya.getContact(op.param2)
              image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
-             nadya.sendMessage(op.param1,"Hi " + line.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\njangan lupa tikung aim\nDan Semoga Betah Disini ye ^_^")
+             nadya.sendMessage(op.param1,"Hi " + line.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\nTEST")
              nadya.sendImageWithURL(op.param1,image)
 
         if op.type == 15:
            print ("MEMBER LEAVE TO GROUP")
            if settings["Sambutan"] == True:
-             if op.param2 in lineMID:
+             if op.param2 in nadyaMID:
                  return
-             ginfo = line.getGroup(op.param1)
-             contact = line.getContact(op.param2)
+             ginfo = nadya.getGroup(op.param1)
+             contact = nadya.getContact(op.param2)
              image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
              nadya.sendImageWithURL(op.param1,image)
-             nadya.sendMessage(op.param1,"Good Bye " + line.getContact(op.param2).displayName + "\nSee You Next Time . . . (p′︵‵。)")
+             nadya.sendMessage(op.param1,"Good Bye " + nadya.getContact(op.param2).displayName + "\nSee You Next Time")
 #==============================================================================#
         if op.type == 55:
             print ("[ 55 ] NOTIFIED READ MESSAGE")
