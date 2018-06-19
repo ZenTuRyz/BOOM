@@ -155,6 +155,7 @@ def helpohm():
                          "⭐ohm:kick @ ➠ เตะ" + "\n" + \
                          "⭐ohm:test ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
                          "⭐ohm:tagall ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
+                         "⭐ohm:ohm ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
                   "Created by : ꧁OHM꧂ "
     return helpTextToSpeech
 
@@ -315,7 +316,7 @@ def lineBot(op):
                     helpTextToSpeech = helptexttospeech()
                     nadya.sendMessage(to, str(helpTextToSpeech))
                 elif text.lower() == 'help3':
-                    helpTextToSpeech = helpohm()
+                    helpOhm = helpohm()
                     nadya.sendMessage(to, str(helpOhm))
                 elif text.lower() == 'translate':
                     helpTranslate = helptranslate()
@@ -910,7 +911,7 @@ def lineBot(op):
                             read['ROM'][msg.to] = {}
                             with open('read.json', 'w') as fp:
                                 json.dump(read, fp, sort_keys=True, indent=4)
-                                nadya.sendMessage(msg.to,"Lurking already on")
+                                nadya.sendMessage(msg.to,"Selfbot: เปิดอ่านอยู่")
                     else:
                         try:
                             del read['readPoint'][msg.to]
@@ -940,7 +941,7 @@ def lineBot(op):
                         if bln == str(k): bln = bulan[k-1]
                     readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
                     if msg.to not in read['readPoint']:
-                        nadya.sendMessage(msg.to,"Lurking already off")
+                        nadya.sendMessage(msg.to,"Selfbot: ปิดอ่านอยู่")
                     else:
                         try:
                             del read['readPoint'][msg.to]
@@ -2467,7 +2468,7 @@ def lineBot(op):
                     nadya.sendMessage(to, "⚡ความเร็วบอทอยู่ที่⚡")
                     elapsed_time = time.time() - start
                     nadya.sendMessage(to,format(str(elapsed_time)))
-            if msg.text in ["ohm:kick"]:
+            if msg.text in ["ohm:kick "]:
                     targets = []
                     key = eval(msg.contentMetadata["MENTION"])
                     key["MENTIONEES"][0]["M"]
@@ -2492,6 +2493,23 @@ def lineBot(op):
                             txt += u'@Alin \n'
                         nadya.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
                         nadya.sendMessage(to, "จำนวนสมาชิก {} คน".format(str(len(nama))))          
+            if msg.text in ["ohm:ohm"]:
+            	nadya.sendMessage(to, "ME")
+                nadya.sendContact(to, nadyaMID)
+                sendMessageWithMention(to, nadyaMID)
+            	nadya.sendMessage(to, "ชื่อ")
+                me = nadya.getContact(nadyaMID)
+                nadya.sendMessage(msg.to,">" + me.displayName)
+            	nadya.sendMessage(to, "ตัส")
+                me = nadya.getContact(nadyaMID)
+                nadya.sendMessage(msg.to,">" + me.statusMessage)
+            	nadya.sendMessage(to, "รูป")
+                me = nadya.getContact(nadyaMID)
+                nadya.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
+            	nadya.sendMessage(to, "ปก")
+                me = nadya.getContact(nadyaMID)
+                cover = nadya.getProfileCoverURL(nadyaMID)    
+                nadya.sendImageWithURL(msg.to, cover)
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
