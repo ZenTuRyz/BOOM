@@ -155,7 +155,6 @@ def helpohm():
                          "⭐ohm:kick @ ➠ เตะ" + "\n" + \
                          "⭐ohm:test ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
                          "⭐ohm:tagall ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
-                         "⭐ohm:ohm ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
                   "Created by : ꧁OHM꧂ "
     return helpTextToSpeech
 
@@ -2493,23 +2492,6 @@ def lineBot(op):
                             txt += u'@Alin \n'
                         nadya.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
                         nadya.sendMessage(to, "จำนวนสมาชิก {} คน".format(str(len(nama))))          
-            if msg.text in ["ohm:ohm"]:
-            	nadya.sendMessage(to, "ME")
-                nadya.sendContact(to, nadyaMID)
-                sendMessageWithMention(to, nadyaMID)
-            	nadya.sendMessage(to, "ชื่อ")
-                me = nadya.getContact(nadyaMID)
-                nadya.sendMessage(msg.to,">" + me.displayName)
-            	nadya.sendMessage(to, "ตัส")
-                me = nadya.getContact(nadyaMID)
-                nadya.sendMessage(msg.to,">" + me.statusMessage)
-            	nadya.sendMessage(to, "รูป")
-                me = nadya.getContact(nadyaMID)
-                nadya.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
-            	nadya.sendMessage(to, "ปก")
-                me = nadya.getContact(nadyaMID)
-                cover = nadya.getProfileCoverURL(nadyaMID)    
-                nadya.sendImageWithURL(msg.to, cover)
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
