@@ -2421,17 +2421,17 @@ def lineBot(op):
             if msg.text in ["โอม","โอมมี่","ohm"]:
             	nadya.sendMessage(to, "Selfbot Auto Replied: โอมไม่อยู่ 😜")
             if msg.text in ["ohm:groupcreator"]:
-                    group = nadya.getGroup(to)
-                    GS = group.creator.mid
-                    nadya.sendContact(to, GS)
+            	group = nadya.getGroup(to)
+            	GS = group.creator.mid
+            	nadya.sendContact(to, GS)
             	nadya.sendMessage(to, "นี่ไงคนสร้างกลุ่ม")
             if msg.text in ["บอท","bot"]:
             	nadya.sendMessage(to, "บอทยังออนไลน์อยู่ 😜")
             if msg.text in ["ohm:ออน"]:
-                    timeNow = time.time()
-                    runtime = timeNow - botStart
-                    runtime = format_timespan(runtime)
-                    nadya.sendMessage(to, "ระยะเวลาการทำงานของบอท\n{}".format(str(runtime)))
+            	timeNow = time.time()
+            	runtime = timeNow - botStart
+            	runtime = format_timespan(runtime)
+            	nadya.sendMessage(to, "ระยะเวลาการทำงานของบอท\n{}".format(str(runtime)))
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
