@@ -1,6 +1,6 @@
 {
     "autoAdd": false,
-    "autoJoin": true,
+    "autoJoin": false,
     "autoJoinTicket": false,
     "autoLeave": false,
     "autoRead": false,
