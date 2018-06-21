@@ -2557,8 +2557,7 @@ def lineBot(op):
                     hasil = translator.translate(isi, dest='he')
                     A = hasil.text
                     nadya.sendMessage(msg.to, A)
-
-#==============================================================================#
+#==============================================================================#   
         if op.type == 55:
             print ("[ 55 ] NOTIFIED READ MESSAGE")
             try:
