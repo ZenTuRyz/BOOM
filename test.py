@@ -141,22 +141,23 @@ def helptexttospeech():
                          "⭐กลุ่ม on/off ➠ เข้ากลุ่มออโต้" + "\n" + \
                          "⭐อ่าน on/off ➠ อ่านออโต้" + "\n" + \
                          "⭐แชท on/off ➠ ออกแชทรวมออโต้" + "\n" + \
-                         "⭐Autoblock on/off ➠ ออโต้บล็อค" + "\n" + \
+                         "⭐block on/off ➠ ออโต้บล็อค" + "\n" + \
                          "⭐สติกเกอร์ on/off ➠ แชร์ลิ้งสติกเกอร์" + "\n" + \
                          "⭐เปิดลิ้ง/ปิดลิ้ง ➠ เปิดปิดลิ่งกลุ่ม" + "\n" + \
                   "Created by : ꧁OHM꧂ "
     return helpTextToSpeech
 
 def helpohm():
-    helpOhm =   " ⚠คำสั่งชุดที่ 3⚠" + "\n" + \
-                         "⭐ohm:groupcreator ➠ ผู้สร้างกลุ่ม" + "\n" + \
-                         "⭐ohm:online ➠ เวลาในการทำงาน" + "\n" + \
-                         "⭐ohm:sp ➠ ความเร็วบอท" + "\n" + \
-                         "⭐ohm:kick @ ➠ เตะ" + "\n" + \
-                         "⭐ohm:test ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
-                         "⭐ohm:tagall ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
+    helpOhm =   " ⚠ OHM HELP ⚠" + "\n" + \
+                         "⭐!help ➠ แสดงคำสั่ง" + "\n" + \
+                         "⭐!ohm ➠ แสดงคำสั่ง" + "\n" + \
+                         "⭐!groupcreator ➠ ผู้สร้างกลุ่ม" + "\n" + \
+                         "⭐!online ➠ เวลาในการทำงาน" + "\n" + \
+                         "⭐!sp ➠ ความเร็วบอท" + "\n" + \
+                         "⭐!test ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
+                         "⭐!tagall ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
                   "Created by : ꧁OHM꧂ "
-    return helpTextToSpeech
+    return helpOhm
 
 def helptranslate():
     helpTranslate =    "╔══[ T R A N S L A T E ]" + "\n" + \
@@ -394,9 +395,10 @@ def lineBot(op):
                     elapsed_time = time.time() - start
                     nadya.sendMessage(to,format(str(elapsed_time)))
                 elif text.lower() == 'รีบอท':
-                    nadya.sendMessage(to, "กำลังให้บอท Logout กรุณารอสักครู่.....")
+                    nadya.sendMessage(to, "กำลังรีบอทกรุณารอสักครู่.....")
                     time.sleep(5)
-                    nadya.sendMessage(to, "Logout เสร็จสิ้น..(｀・ω・´)")
+                    nadya.sendMessage(to, "รีบอทเสร็จสิ้น..(｀・ω・´)")
+                    nadya.sendMessage(to, "กรุณาให้บอทล็อกอินใหม่อีกครั้ง  (｀・ω・´)")
                     restartBot()
                 elif text.lower() == 'ออน':
                     timeNow = time.time()
@@ -442,10 +444,10 @@ def lineBot(op):
                         nadya.sendMessage(to, str(ret_))
                     except Exception as e:
                         nadya.sendMessage(msg.to, str(e))
-                elif text.lower() == 'autoblock on':
+                elif text.lower() == 'block on':
                     settings["autoAdd"] = True
                     nadya.sendMessage(to, "เปิดระบบออโต้บล็อคแล้ว(｀・ω・´)")
-                elif text.lower() == 'กลุ่ม off':
+                elif text.lower() == 'block off':
                     settings["autoAdd"] = False
                     nadya.sendMessage(to, "ปิดระบบออโต้บล็อคแล้ว(｀・ω・´)")
                 elif text.lower() == 'กลุ่ม on':
@@ -785,6 +787,7 @@ def lineBot(op):
                     group = nadya.getGroup(to)
                     GS = group.creator.mid
                     nadya.sendContact(to, GS)
+                    nadya.sendMessage(to, "นี่ไงคนสร้างกลุ่ม")
                 elif text.lower() == 'ไอดีกลุ่ม':
                     gid = nadya.getGroup(to)
                     nadya.sendMessage(to, "\n" + gid.id)
@@ -867,7 +870,7 @@ def lineBot(op):
                             group = nadya.getGroup(gid)
                             ret_ += "\n╠ {}. {} | {}".format(str(no), str(group.name), str(len(group.members)))
                             no += 1
-                        ret_ += "\n╚══[ จำนวน {} กลุ่ม ]".format(str(len(groups)))
+                        ret_ += "\n╚══[ มีกลุ่มทั้งหมด {} กลุ่ม ]".format(str(len(groups)))
                         nadya.sendMessage(to, str(ret_))
 #==============================================================================#          
                 elif text.lower() == 'tagall':
@@ -1016,6 +1019,391 @@ def lineBot(op):
                         pass
                     else:
                         nadya.sendMessage(receiver,"Selfbot: ยังไม่ได้เปิดอ่าน")
+#==============================================================================#
+                elif text.lower() == 'calender':
+                    tz = pytz.timezone("Asia/Makassar")
+                    timeNow = datetime.now(tz=tz)
+                    day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
+                    hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+                    bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
+                    hr = timeNow.strftime("%A")
+                    bln = timeNow.strftime("%m")
+                    for i in range(len(day)):
+                        if hr == day[i]: hasil = hari[i]
+                    for k in range(0, len(bulan)):
+                        if bln == str(k): bln = bulan[k-1]
+                    readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
+                    nadya.sendMessage(msg.to, readTime)                 
+                elif "screenshotwebsite" in msg.text.lower():
+                    sep = text.split(" ")
+                    query = text.replace(sep[0] + " ","")
+                    with requests.session() as web:
+                        r = web.get("http://rahandiapi.herokuapp.com/sswebAPI?key=betakey&link={}".format(urllib.parse.quote(query)))
+                        data = r.text
+                        data = json.loads(data)
+                        nadya.sendImageWithURL(to, data["result"])
+                elif "checkdate" in msg.text.lower():
+                    sep = msg.text.split(" ")
+                    tanggal = msg.text.replace(sep[0] + " ","")
+                    r=requests.get('https://script.google.com/macros/exec?service=AKfycbw7gKzP-WYV2F5mc9RaR7yE3Ve1yN91Tjs91hp_jHSE02dSv9w&nama=ervan&tanggal='+tanggal)
+                    data=r.text
+                    data=json.loads(data)
+                    ret_ = "╔══[ D A T E ]"
+                    ret_ += "\n╠ Date Of Birth : {}".format(str(data["data"]["lahir"]))
+                    ret_ += "\n╠ Age : {}".format(str(data["data"]["usia"]))
+                    ret_ += "\n╠ Birthday : {}".format(str(data["data"]["ultah"]))
+                    ret_ += "\n╠ Zodiak : {}".format(str(data["data"]["zodiak"]))
+                    ret_ += "\n╚══[ Success ]"
+                    nadya.sendMessage(to, str(ret_))
+                elif "instagraminfo" in msg.text.lower():
+                    sep = text.split(" ")
+                    search = text.replace(sep[0] + " ","")
+                    with requests.session() as web:
+                        web.headers["User-Agent"] = random.choice(settings["userAgent"])
+                        r = web.get("https://www.instagram.com/{}/?__a=1".format(search))
+                        try:
+                            data = json.loads(r.text)
+                            ret_ = "╔══[ Profile Instagram ]"
+                            ret_ += "\n╠ Nama : {}".format(str(data["user"]["full_name"]))
+                            ret_ += "\n╠ Username : {}".format(str(data["user"]["username"]))
+                            ret_ += "\n╠ Bio : {}".format(str(data["user"]["biography"]))
+                            ret_ += "\n╠ Pengikut : {}".format(format_number(data["user"]["followed_by"]["count"]))
+                            ret_ += "\n╠ Diikuti : {}".format(format_number(data["user"]["follows"]["count"]))
+                            if data["user"]["is_verified"] == True:
+                                ret_ += "\n╠ Verifikasi : Sudah"
+                            else:
+                                ret_ += "\n╠ Verifikasi : Belum"
+                            if data["user"]["is_private"] == True:
+                                ret_ += "\n╠ Akun Pribadi : Iya"
+                            else:
+                                ret_ += "\n╠ Akun Pribadi : Tidak"
+                            ret_ += "\n╠ Total Post : {}".format(format_number(data["user"]["media"]["count"]))
+                            ret_ += "\n╚══[ https://www.instagram.com/{} ]".format(search)
+                            path = data["user"]["profile_pic_url_hd"]
+                            nadya.sendImageWithURL(to, str(path))
+                            nadya.sendMessage(to, str(ret_))
+                        except:
+                            nadya.sendMessage(to, "Pengguna tidak ditemukan")
+                elif "instagrampost" in msg.text.lower():
+                    separate = msg.text.split(" ")
+                    user = msg.text.replace(separate[0] + " ","")
+                    profile = "https://www.instagram.com/" + user
+                    with requests.session() as x:
+                        x.headers['user-agent'] = 'Mozilla/5.0'
+                        end_cursor = ''
+                        for count in range(1, 999):
+                            print('PAGE: ', count)
+                            r = x.get(profile, params={'max_id': end_cursor})
+                        
+                            data = re.search(r'window._sharedData = (\{.+?});</script>', r.text).group(1)
+                            j    = json.loads(data)
+                        
+                            for node in j['entry_data']['ProfilePage'][0]['user']['media']['nodes']: 
+                                if node['is_video']:
+                                    page = 'https://www.instagram.com/p/' + node['code']
+                                    r = x.get(page)
+                                    url = re.search(r'"video_url": "([^"]+)"', r.text).group(1)
+                                    print(url)
+                                    nadya.sendVideoWithURL(msg.to,url)
+                                else:
+                                    print (node['display_src'])
+                                    nadya.sendImageWithURL(msg.to,node['display_src'])
+                            end_cursor = re.search(r'"end_cursor": "([^"]+)"', r.text).group(1)
+                elif "searchimage" in msg.text.lower():
+                    separate = msg.text.split(" ")
+                    search = msg.text.replace(separate[0] + " ","")
+                    with requests.session() as web:
+                        web.headers["User-Agent"] = random.choice(settings["userAgent"])
+                        r = web.get("http://rahandiapi.herokuapp.com/imageapi?key=betakey&q={}".format(urllib.parse.quote(search)))
+                        data = r.text
+                        data = json.loads(data)
+                        if data["result"] != []:
+                            items = data["result"]
+                            path = random.choice(items)
+                            a = items.index(path)
+                            b = len(items)
+                            nadya.sendImageWithURL(to, str(path))
+                elif "searchyoutube" in msg.text.lower():
+                    sep = text.split(" ")
+                    search = text.replace(sep[0] + " ","")
+                    params = {"search_query": search}
+                    with requests.session() as web:
+                        web.headers["User-Agent"] = random.choice(settings["userAgent"])
+                        r = web.get("https://www.youtube.com/results", params = params)
+                        soup = BeautifulSoup(r.content, "html5lib")
+                        ret_ = "╔══[ Youtube Result ]"
+                        datas = []
+                        for data in soup.select(".yt-lockup-title > a[title]"):
+                            if "&lists" not in data["href"]:
+                                datas.append(data)
+                        for data in datas:
+                            ret_ += "\n╠══[ {} ]".format(str(data["title"]))
+                            ret_ += "\n╠ https://www.youtube.com{}".format(str(data["href"]))
+                        ret_ += "\n╚══[ Total {} ]".format(len(datas))
+                        nadya.sendMessage(to, str(ret_))
+                elif "searchmusic" in msg.text.lower():
+                    sep = text.split(" ")
+                    search = text.replace(sep[0] + " ","")
+                    params = {'songname': search}
+                    with requests.session() as web:
+                        web.headers["User-Agent"] = random.choice(settings["userAgent"])
+                        r = web.get("https://ide.fdlrcn.com/workspace/yumi-apis/joox?" + urllib.parse.urlencode(params))
+                        try:
+                            data = json.loads(r.text)
+                            for song in data:
+                                ret_ = "╔══[ Music ]"
+                                ret_ += "\n╠ Nama lagu : {}".format(str(song[0]))
+                                ret_ += "\n╠ Durasi : {}".format(str(song[1]))
+                                ret_ += "\n╠ Link : {}".format(str(song[4]))
+                                ret_ += "\n╚══[ reading Audio ]"
+                                nadya.sendMessage(to, str(ret_))
+                                nadya.sendAudioWithURL(to, song[3])
+                        except:
+                            nadya.sendMessage(to, "Musik tidak ditemukan")
+                elif "searchlyric" in msg.text.lower():
+                    sep = text.split(" ")
+                    search = text.replace(sep[0] + " ","")
+                    params = {'songname': search}
+                    with requests.session() as web:
+                        web.headers["User-Agent"] = random.choice(settings["userAgent"])
+                        r = web.get("https://ide.fdlrcn.com/workspace/yumi-apis/joox?" + urllib.parse.urlencode(params))
+                        try:
+                            data = json.loads(r.text)
+                            for song in data:
+                                songs = song[5]
+                                lyric = songs.replace('ti:','Title - ')
+                                lyric = lyric.replace('ar:','Artist - ')
+                                lyric = lyric.replace('al:','Album - ')
+                                removeString = "[1234567890.:]"
+                                for char in removeString:
+                                    lyric = lyric.replace(char,'')
+                                ret_ = "╔══[ Lyric ]"
+                                ret_ += "\n╠ Nama lagu : {}".format(str(song[0]))
+                                ret_ += "\n╠ Durasi : {}".format(str(song[1]))
+                                ret_ += "\n╠ Link : {}".format(str(song[4]))
+                                ret_ += "\n╚══[ Finish ]\n{}".format(str(lyric))
+                                nadya.sendMessage(to, str(ret_))
+                        except:
+                            nadya.sendMessage(to, "Lirik tidak ditemukan")
+            elif msg.contentType == 7:
+                if settings["สติกเกอร์"] == True:
+                    stk_id = msg.contentMetadata['STKID']
+                    stk_ver = msg.contentMetadata['STKVER']
+                    pkg_id = msg.contentMetadata['STKPKGID']
+                    ret_ = "╔══( ข้อมูลสติกเกอร์ )"
+                    ret_ += "\n╠ สติกเกอร์ id : {}".format(stk_id)
+                    ret_ += "\n╠ แพคเกจสติกเกอร์ : {}".format(pkg_id)
+                    ret_ += "\n╠ เวอร์ชั่นสติกเกอร: {}".format(stk_ver)
+                    ret_ += "\n╠ ลิ้งสติกเกอร์ : line://shop/detail/{}".format(pkg_id)
+                    ret_ += "\n╚══( ข้อมูลสติกเกอร์ )"
+                    nadya.sendMessage(to, str(ret_))
+                    
+            elif msg.contentType == 13:
+                if settings["copy"] == True:
+                    _name = msg.contentMetadata["displayName"]
+                    copy = msg.contentMetadata["mid"]
+                    groups = nadya.getGroup(msg.to)
+                    targets = []
+                    for s in groups.members:
+                        if _name in s.displayName:
+                            print ("[Target] Copy")
+                            break                             
+                        else:
+                            targets.append(copy)
+                    if targets == []:
+                        nadya.sendText(msg.to, "Not Found...")
+                        pass
+                    else:
+                        for target in targets:
+                            try:
+                                nadya.cloneContactProfile(target)
+                                nadya.sendMessage(msg.to, "Berhasil clone member tunggu beberapa saat sampai profile berubah")
+                                settings['copy'] = False
+                                break
+                            except:
+                                     msg.contentMetadata = {'mid': target}
+                                     settings["copy"] = False
+                                     break                     
+                    
+                    
+#==============================================================================#
+        if op.type == 26:
+            print ("[ 26 ] RECEIVE MESSAGE")
+            msg = op.message
+            text = msg.text
+            msg_id = msg.id
+            receiver = msg.to
+            sender = msg._from
+            if msg.toType == 0:
+                if sender != nadya.profile.mid:
+                    to = sender
+                else:
+                    to = receiver
+            else:
+                to = receiver
+                if settings["autoRead"] == True:
+                    nadya.sendChatChecked(to, msg_id)
+                if to in read["readPoint"]:
+                    if sender not in read["ROM"][to]:
+                        read["ROM"][to][sender] = True
+                if sender in settings["mimic"]["target"] and settings["mimic"]["status"] == True and settings["mimic"]["target"][sender] == True:
+                    text = msg.text
+                    if text is not None:
+                        nadya.sendMessage(msg.to,text)
+                if msg.contentType == 0 and sender not in nadyaMID and msg.toType == 2:
+                    if "MENTION" in list(msg.contentMetadata.keys())!= None:
+                        if settings['Tag2'] == True:
+                             contact = nadya.getContact(msg._from)
+                             cName = contact.pictureStatus
+                             balas = ["http://dl.profile.line-cdn.net/" + cName]
+                             ret_ = random.choice(balas)
+                             mention = ast.literal_eval(msg.contentMetadata["MENTION"])
+                             mentionees = mention["MENTIONEES"]
+                             for mention in mentionees:
+                                   if mention["M"] in nadyaMID:
+                                          nadya.sendImageWithURL(to,ret_)
+                                          break
+                if msg.contentType == 0 and sender not in nadyaMID and msg.toType == 2:
+                    if "MENTION" in list(msg.contentMetadata.keys()) != None:
+                         if settings['detectMention'] == True:
+                             contact = nadya.getContact(msg._from)
+                             cName = contact.displayName
+                             balas = ["Selfbot Auto Replied: แทคทำไมเดะโบกเลย ☠"]
+                             ret_ = "" + random.choice(balas)
+                             name = re.findall(r'@(\w+)', msg.text)
+                             mention = ast.literal_eval(msg.contentMetadata["MENTION"])
+                             mentionees = mention['MENTIONEES']
+                             for mention in mentionees:
+                                   if mention['M'] in nadyaMID:
+                                          nadya.sendMessage(to,ret_)
+                                          sendMessageWithMention(to, contact.mid)
+                                          break
+            if msg.text in ["Speed","speed","Sp","sp",".Sp",".sp",".Speed",".speed","!sp","!Sp","!Speed","!speed"]:
+            	nadya.sendMessage(to, "แรงแล้วพี่แรงแล้ว 😜")
+            if msg.text in ["เทส","test"]:
+            	nadya.sendMessage(to, "เช็คจังเลยกลัวบอทหลุดหรอ 😜")
+            if msg.text in ["แตก","แตก1","แตก 1","แตก!","แตก !","แตก 1!"]:
+            	nadya.sendMessage(to, "สวยพี่สวย 😜")
+            if msg.text in ["โอม","โอมมี่","ohm"]:
+            	nadya.sendMessage(to, "Selfbot Auto Replied: โอมไม่อยู่ 😜")
+            if msg.text in ["บอท","bot"]:
+            	nadya.sendMessage(to, "บอทยังออนไลน์อยู่ 😜")
+#==============================================================================#
+            if msg.text in ["!groupcreator","!Groupcreator"]:
+            	group = nadya.getGroup(to)
+            	GS = group.creator.mid
+            	nadya.sendContact(to, GS)
+            	nadya.sendMessage(to, "นี่ไงคนสร้างกลุ่ม")
+            if msg.text in ["!online","!Online"]:
+            	timeNow = time.time()
+            	runtime = timeNow - botStart
+            	runtime = format_timespan(runtime)
+            	nadya.sendMessage(to, "ระยะเวลาการทำงานของบอท\n{}".format(str(runtime)))
+            if msg.text in ["!test","!Test"]:
+                    nadya.sendMessage(to,"LOADING:▒...0%")
+                    nadya.sendMessage(to,"█▒... 10.0%")
+                    nadya.sendMessage(to,"██▒... 20.0%")
+                    nadya.sendMessage(to,"███▒... 30.0%")
+                    nadya.sendMessage(to,"████▒... 40.0%")
+                    nadya.sendMessage(to,"█████▒... 50.0%")
+                    nadya.sendMessage(to,"██████▒... 60.0%")
+                    nadya.sendMessage(to,"███████▒... 70.0%")
+                    nadya.sendMessage(to,"████████▒... 80.0%")
+                    nadya.sendMessage(to,"█████████▒... 90.0%")
+                    nadya.sendMessage(to,"███████████..100.0%")
+                    nadya.sendMessage(to,"บอทยังอยู่ดีไม่หลุด 😂")
+            if msg.text in ["!sp","!Sp"]:
+                    start = time.time()
+                    nadya.sendMessage(to, "⚡ความเร็วบอทอยู่ที่⚡")
+                    elapsed_time = time.time() - start
+                    nadya.sendMessage(to,format(str(elapsed_time)))
+            if msg.text in ["!tagall","!Tagall"]:
+                    group = nadya.getGroup(msg.to)
+                    nama = [contact.mid for contact in group.members]
+                    k = len(nama)//100
+                    for a in range(k+1):
+                        txt = u''
+                        s=0
+                        b=[]
+                        for i in group.members[a*100 : (a+1)*100]:
+                            b.append({"S":str(s), "E" :str(s+6), "M":i.mid})
+                            s += 7
+                            txt += u'@Alin \n'
+                        nadya.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
+                        nadya.sendMessage(to, "จำนวนคนในการแทค {} คน".format(str(len(nama))))      
+            if msg.text in ["!help","!Help"]:
+                    helpOhm = helpohm()
+                    nadya.sendMessage(to, str(helpOhm))
+            if msg.text in ["!ohm","!Ohm"]:
+                    nadya.sendMessage(to, "ME")
+                    nadya.sendContact(to, nadyaMID)
+                    nadya.sendMessage(to, "STATUS")
+                    me = nadya.getContact(nadyaMID)
+                    nadya.sendMessage(msg.to,">" + me.statusMessage)
+                    nadya.sendMessage(to, "PICTURE PROFILE")
+                    me = nadya.getContact(nadyaMID)
+                    nadya.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
+                    nadya.sendMessage(to, "COVER PROFILE")
+                    me = nadya.getContact(nadyaMID)
+                    cover = nadya.getProfileCoverURL(nadyaMID)    
+                    nadya.sendImageWithURL(msg.to, cover)
+                    sendMessageWithMention(to, nadyaMID)
+#==============================================================================#
+        if op.type == 26:
+            print ("[ 26 ] RECEIVE MESSAGE")
+            msg = op.message
+            text = msg.text
+            msg_id = msg.id
+            receiver = msg.to
+            sender = msg._from
+            if msg.toType == 0:
+                if sender != line.profile.mid:
+                    to = sender
+                else:
+                    to = receiver
+            else:
+                to = receiver
+                if settings["autoRead"] == True:
+                    nadya.sendChatChecked(to, msg_id)
+                if to in read["readPoint"]:
+                    if sender not in read["ROM"][to]:
+                        read["ROM"][to][sender] = True
+                if sender in settings["mimic"]["target"] and settings["mimic"]["status"] == True and settings["mimic"]["target"][sender] == True:
+                    text = msg.text
+                    if text is not None:
+                        nadya.sendMessage(msg.to,text)
+                if msg.contentType == 0 and sender not in nadyaMID and msg.toType == 2:
+                    if 'MENTION' in msg.contentMetadata.keys()!= None:
+                        names = re.findall(r'@(\w+)', text)
+                        mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                        mentionees = mention['MENTIONEES']
+                        lists = []
+                        for mention in mentionees:
+                            if nadyaMID in mention["M"]:
+                              if settings["detectMention"] == True:
+                                 sendMention(receiver, sender, "", "????")
+
+        if op.type == 17:
+           print ("MEMBER JOIN TO GROUP")
+           if settings["Sambutan"] == True:
+             if op.param2 in nadyaMID:
+                 return
+             ginfo = nadya.getGroup(op.param1)
+             contact = nadya.getContact(op.param2)
+             image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
+             nadya.sendMessage(op.param1,"Hi " + nadya.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\nTEST")
+             nadya.sendImageWithURL(op.param1,image)
+
+        if op.type == 15:
+           print ("MEMBER LEAVE TO GROUP")
+           if settings["Sambutan"] == True:
+             if op.param2 in nadyaMID:
+                 return
+             ginfo = nadya.getGroup(op.param1)
+             contact = nadya.getContact(op.param2)
+             image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
+             nadya.sendImageWithURL(op.param1,image)
+             nadya.sendMessage(op.param1,"Good Bye " + nadya.getContact(op.param2).displayName + "\nSee You Next Time")
 #==============================================================================#
                 elif msg.text.lower().startswith("say-af "):
                     sep = text.split(" ")
@@ -2169,385 +2557,7 @@ def lineBot(op):
                     hasil = translator.translate(isi, dest='he')
                     A = hasil.text
                     nadya.sendMessage(msg.to, A)
-#==============================================================================#   
-                elif text.lower() == 'calender':
-                    tz = pytz.timezone("Asia/Makassar")
-                    timeNow = datetime.now(tz=tz)
-                    day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
-                    hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
-                    bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
-                    hr = timeNow.strftime("%A")
-                    bln = timeNow.strftime("%m")
-                    for i in range(len(day)):
-                        if hr == day[i]: hasil = hari[i]
-                    for k in range(0, len(bulan)):
-                        if bln == str(k): bln = bulan[k-1]
-                    readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
-                    nadya.sendMessage(msg.to, readTime)                 
-                elif "screenshotwebsite" in msg.text.lower():
-                    sep = text.split(" ")
-                    query = text.replace(sep[0] + " ","")
-                    with requests.session() as web:
-                        r = web.get("http://rahandiapi.herokuapp.com/sswebAPI?key=betakey&link={}".format(urllib.parse.quote(query)))
-                        data = r.text
-                        data = json.loads(data)
-                        nadya.sendImageWithURL(to, data["result"])
-                elif "checkdate" in msg.text.lower():
-                    sep = msg.text.split(" ")
-                    tanggal = msg.text.replace(sep[0] + " ","")
-                    r=requests.get('https://script.google.com/macros/exec?service=AKfycbw7gKzP-WYV2F5mc9RaR7yE3Ve1yN91Tjs91hp_jHSE02dSv9w&nama=ervan&tanggal='+tanggal)
-                    data=r.text
-                    data=json.loads(data)
-                    ret_ = "╔══[ D A T E ]"
-                    ret_ += "\n╠ Date Of Birth : {}".format(str(data["data"]["lahir"]))
-                    ret_ += "\n╠ Age : {}".format(str(data["data"]["usia"]))
-                    ret_ += "\n╠ Birthday : {}".format(str(data["data"]["ultah"]))
-                    ret_ += "\n╠ Zodiak : {}".format(str(data["data"]["zodiak"]))
-                    ret_ += "\n╚══[ Success ]"
-                    nadya.sendMessage(to, str(ret_))
-                elif "instagraminfo" in msg.text.lower():
-                    sep = text.split(" ")
-                    search = text.replace(sep[0] + " ","")
-                    with requests.session() as web:
-                        web.headers["User-Agent"] = random.choice(settings["userAgent"])
-                        r = web.get("https://www.instagram.com/{}/?__a=1".format(search))
-                        try:
-                            data = json.loads(r.text)
-                            ret_ = "╔══[ Profile Instagram ]"
-                            ret_ += "\n╠ Nama : {}".format(str(data["user"]["full_name"]))
-                            ret_ += "\n╠ Username : {}".format(str(data["user"]["username"]))
-                            ret_ += "\n╠ Bio : {}".format(str(data["user"]["biography"]))
-                            ret_ += "\n╠ Pengikut : {}".format(format_number(data["user"]["followed_by"]["count"]))
-                            ret_ += "\n╠ Diikuti : {}".format(format_number(data["user"]["follows"]["count"]))
-                            if data["user"]["is_verified"] == True:
-                                ret_ += "\n╠ Verifikasi : Sudah"
-                            else:
-                                ret_ += "\n╠ Verifikasi : Belum"
-                            if data["user"]["is_private"] == True:
-                                ret_ += "\n╠ Akun Pribadi : Iya"
-                            else:
-                                ret_ += "\n╠ Akun Pribadi : Tidak"
-                            ret_ += "\n╠ Total Post : {}".format(format_number(data["user"]["media"]["count"]))
-                            ret_ += "\n╚══[ https://www.instagram.com/{} ]".format(search)
-                            path = data["user"]["profile_pic_url_hd"]
-                            nadya.sendImageWithURL(to, str(path))
-                            nadya.sendMessage(to, str(ret_))
-                        except:
-                            nadya.sendMessage(to, "Pengguna tidak ditemukan")
-                elif "instagrampost" in msg.text.lower():
-                    separate = msg.text.split(" ")
-                    user = msg.text.replace(separate[0] + " ","")
-                    profile = "https://www.instagram.com/" + user
-                    with requests.session() as x:
-                        x.headers['user-agent'] = 'Mozilla/5.0'
-                        end_cursor = ''
-                        for count in range(1, 999):
-                            print('PAGE: ', count)
-                            r = x.get(profile, params={'max_id': end_cursor})
-                        
-                            data = re.search(r'window._sharedData = (\{.+?});</script>', r.text).group(1)
-                            j    = json.loads(data)
-                        
-                            for node in j['entry_data']['ProfilePage'][0]['user']['media']['nodes']: 
-                                if node['is_video']:
-                                    page = 'https://www.instagram.com/p/' + node['code']
-                                    r = x.get(page)
-                                    url = re.search(r'"video_url": "([^"]+)"', r.text).group(1)
-                                    print(url)
-                                    nadya.sendVideoWithURL(msg.to,url)
-                                else:
-                                    print (node['display_src'])
-                                    nadya.sendImageWithURL(msg.to,node['display_src'])
-                            end_cursor = re.search(r'"end_cursor": "([^"]+)"', r.text).group(1)
-                elif "searchimage" in msg.text.lower():
-                    separate = msg.text.split(" ")
-                    search = msg.text.replace(separate[0] + " ","")
-                    with requests.session() as web:
-                        web.headers["User-Agent"] = random.choice(settings["userAgent"])
-                        r = web.get("http://rahandiapi.herokuapp.com/imageapi?key=betakey&q={}".format(urllib.parse.quote(search)))
-                        data = r.text
-                        data = json.loads(data)
-                        if data["result"] != []:
-                            items = data["result"]
-                            path = random.choice(items)
-                            a = items.index(path)
-                            b = len(items)
-                            nadya.sendImageWithURL(to, str(path))
-                elif "searchyoutube" in msg.text.lower():
-                    sep = text.split(" ")
-                    search = text.replace(sep[0] + " ","")
-                    params = {"search_query": search}
-                    with requests.session() as web:
-                        web.headers["User-Agent"] = random.choice(settings["userAgent"])
-                        r = web.get("https://www.youtube.com/results", params = params)
-                        soup = BeautifulSoup(r.content, "html5lib")
-                        ret_ = "╔══[ Youtube Result ]"
-                        datas = []
-                        for data in soup.select(".yt-lockup-title > a[title]"):
-                            if "&lists" not in data["href"]:
-                                datas.append(data)
-                        for data in datas:
-                            ret_ += "\n╠══[ {} ]".format(str(data["title"]))
-                            ret_ += "\n╠ https://www.youtube.com{}".format(str(data["href"]))
-                        ret_ += "\n╚══[ Total {} ]".format(len(datas))
-                        nadya.sendMessage(to, str(ret_))
-                elif "searchmusic" in msg.text.lower():
-                    sep = text.split(" ")
-                    search = text.replace(sep[0] + " ","")
-                    params = {'songname': search}
-                    with requests.session() as web:
-                        web.headers["User-Agent"] = random.choice(settings["userAgent"])
-                        r = web.get("https://ide.fdlrcn.com/workspace/yumi-apis/joox?" + urllib.parse.urlencode(params))
-                        try:
-                            data = json.loads(r.text)
-                            for song in data:
-                                ret_ = "╔══[ Music ]"
-                                ret_ += "\n╠ Nama lagu : {}".format(str(song[0]))
-                                ret_ += "\n╠ Durasi : {}".format(str(song[1]))
-                                ret_ += "\n╠ Link : {}".format(str(song[4]))
-                                ret_ += "\n╚══[ reading Audio ]"
-                                nadya.sendMessage(to, str(ret_))
-                                nadya.sendAudioWithURL(to, song[3])
-                        except:
-                            nadya.sendMessage(to, "Musik tidak ditemukan")
-                elif "searchlyric" in msg.text.lower():
-                    sep = text.split(" ")
-                    search = text.replace(sep[0] + " ","")
-                    params = {'songname': search}
-                    with requests.session() as web:
-                        web.headers["User-Agent"] = random.choice(settings["userAgent"])
-                        r = web.get("https://ide.fdlrcn.com/workspace/yumi-apis/joox?" + urllib.parse.urlencode(params))
-                        try:
-                            data = json.loads(r.text)
-                            for song in data:
-                                songs = song[5]
-                                lyric = songs.replace('ti:','Title - ')
-                                lyric = lyric.replace('ar:','Artist - ')
-                                lyric = lyric.replace('al:','Album - ')
-                                removeString = "[1234567890.:]"
-                                for char in removeString:
-                                    lyric = lyric.replace(char,'')
-                                ret_ = "╔══[ Lyric ]"
-                                ret_ += "\n╠ Nama lagu : {}".format(str(song[0]))
-                                ret_ += "\n╠ Durasi : {}".format(str(song[1]))
-                                ret_ += "\n╠ Link : {}".format(str(song[4]))
-                                ret_ += "\n╚══[ Finish ]\n{}".format(str(lyric))
-                                nadya.sendMessage(to, str(ret_))
-                        except:
-                            nadya.sendMessage(to, "Lirik tidak ditemukan")
-            elif msg.contentType == 7:
-                if settings["สติกเกอร์"] == True:
-                    stk_id = msg.contentMetadata['STKID']
-                    stk_ver = msg.contentMetadata['STKVER']
-                    pkg_id = msg.contentMetadata['STKPKGID']
-                    ret_ = "╔══( ข้อมูลสติกเกอร์ )"
-                    ret_ += "\n╠ สติกเกอร์ id : {}".format(stk_id)
-                    ret_ += "\n╠ แพคเกจสติกเกอร์ : {}".format(pkg_id)
-                    ret_ += "\n╠ เวอร์ชั่นสติกเกอร: {}".format(stk_ver)
-                    ret_ += "\n╠ ลิ้งสติกเกอร์ : line://shop/detail/{}".format(pkg_id)
-                    ret_ += "\n╚══( ข้อมูลสติกเกอร์ )"
-                    nadya.sendMessage(to, str(ret_))
-                    
-            elif msg.contentType == 13:
-                if settings["copy"] == True:
-                    _name = msg.contentMetadata["displayName"]
-                    copy = msg.contentMetadata["mid"]
-                    groups = nadya.getGroup(msg.to)
-                    targets = []
-                    for s in groups.members:
-                        if _name in s.displayName:
-                            print ("[Target] Copy")
-                            break                             
-                        else:
-                            targets.append(copy)
-                    if targets == []:
-                        nadya.sendText(msg.to, "Not Found...")
-                        pass
-                    else:
-                        for target in targets:
-                            try:
-                                nadya.cloneContactProfile(target)
-                                nadya.sendMessage(msg.to, "Berhasil clone member tunggu beberapa saat sampai profile berubah")
-                                settings['copy'] = False
-                                break
-                            except:
-                                     msg.contentMetadata = {'mid': target}
-                                     settings["copy"] = False
-                                     break                     
-                    
-                    
-#==============================================================================#
-        if op.type == 26:
-            print ("[ 26 ] RECEIVE MESSAGE")
-            msg = op.message
-            text = msg.text
-            msg_id = msg.id
-            receiver = msg.to
-            sender = msg._from
-            if msg.toType == 0:
-                if sender != nadya.profile.mid:
-                    to = sender
-                else:
-                    to = receiver
-            else:
-                to = receiver
-                if settings["autoRead"] == True:
-                    nadya.sendChatChecked(to, msg_id)
-                if to in read["readPoint"]:
-                    if sender not in read["ROM"][to]:
-                        read["ROM"][to][sender] = True
-                if sender in settings["mimic"]["target"] and settings["mimic"]["status"] == True and settings["mimic"]["target"][sender] == True:
-                    text = msg.text
-                    if text is not None:
-                        nadya.sendMessage(msg.to,text)
-                if msg.contentType == 0 and sender not in nadyaMID and msg.toType == 2:
-                    if "MENTION" in list(msg.contentMetadata.keys())!= None:
-                        if settings['Tag2'] == True:
-                             contact = nadya.getContact(msg._from)
-                             cName = contact.pictureStatus
-                             balas = ["http://dl.profile.line-cdn.net/" + cName]
-                             ret_ = random.choice(balas)
-                             mention = ast.literal_eval(msg.contentMetadata["MENTION"])
-                             mentionees = mention["MENTIONEES"]
-                             for mention in mentionees:
-                                   if mention["M"] in nadyaMID:
-                                          nadya.sendImageWithURL(to,ret_)
-                                          break
-                if msg.contentType == 0 and sender not in nadyaMID and msg.toType == 2:
-                    if "MENTION" in list(msg.contentMetadata.keys()) != None:
-                         if settings['detectMention'] == True:
-                             contact = nadya.getContact(msg._from)
-                             cName = contact.displayName
-                             balas = ["Selfbot Auto Replied: แทคทำไมเดะโบกเลย ☠"]
-                             ret_ = "" + random.choice(balas)
-                             name = re.findall(r'@(\w+)', msg.text)
-                             mention = ast.literal_eval(msg.contentMetadata["MENTION"])
-                             mentionees = mention['MENTIONEES']
-                             for mention in mentionees:
-                                   if mention['M'] in nadyaMID:
-                                          nadya.sendMessage(to,ret_)
-                                          sendMessageWithMention(to, contact.mid)
-                                          break
-            if msg.text in ["Speed","speed","Sp","sp",".Sp",".sp",".Speed",".speed","!sp","!Sp","!Speed","!speed"]:
-            	nadya.sendMessage(to, "แรงแล้วพี่แรงแล้ว 😜")
-            if msg.text in ["เทส","test"]:
-            	nadya.sendMessage(to, "เช็คจังเลยกลัวบอทหลุดหรอ 😜")
-            if msg.text in ["แตก","แตก1","แตก 1","แตก!","แตก !","แตก 1!"]:
-            	nadya.sendMessage(to, "สวยพี่สวย 😜")
-            if msg.text in ["โอม","โอมมี่","ohm"]:
-            	nadya.sendMessage(to, "Selfbot Auto Replied: โอมไม่อยู่ 😜")
-            if msg.text in ["บอท","bot"]:
-            	nadya.sendMessage(to, "บอทยังออนไลน์อยู่ 😜")
-#==============================================================================#
-            if msg.text in ["ohm:groupcreator"]:
-            	group = nadya.getGroup(to)
-            	GS = group.creator.mid
-            	nadya.sendContact(to, GS)
-            	nadya.sendMessage(to, "นี่ไงคนสร้างกลุ่ม")
-            if msg.text in ["ohm:online"]:
-            	timeNow = time.time()
-            	runtime = timeNow - botStart
-            	runtime = format_timespan(runtime)
-            	nadya.sendMessage(to, "ระยะเวลาการทำงานของบอท\n{}".format(str(runtime)))
-            if msg.text in ["ohm:test"]:
-                    nadya.sendMessage(to,"LOADING:▒...0%")
-                    nadya.sendMessage(to,"█▒... 10.0%")
-                    nadya.sendMessage(to,"██▒... 20.0%")
-                    nadya.sendMessage(to,"███▒... 30.0%")
-                    nadya.sendMessage(to,"████▒... 40.0%")
-                    nadya.sendMessage(to,"█████▒... 50.0%")
-                    nadya.sendMessage(to,"██████▒... 60.0%")
-                    nadya.sendMessage(to,"███████▒... 70.0%")
-                    nadya.sendMessage(to,"████████▒... 80.0%")
-                    nadya.sendMessage(to,"█████████▒... 90.0%")
-                    nadya.sendMessage(to,"███████████..100.0%")
-                    nadya.sendMessage(to,"บอทยังอยู่ดีไม่หลุด 😂")
-            if msg.text in ["ohm:sp"]:
-                    start = time.time()
-                    nadya.sendMessage(to, "⚡ความเร็วบอทอยู่ที่⚡")
-                    elapsed_time = time.time() - start
-                    nadya.sendMessage(to,format(str(elapsed_time)))
-            if msg.text in ["ohm:kick "]:
-                    targets = []
-                    key = eval(msg.contentMetadata["MENTION"])
-                    key["MENTIONEES"][0]["M"]
-                    for x in key["MENTIONEES"]:
-                        targets.append(x["M"])
-                    for target in targets:
-                        try:
-                            nadya.kickoutFromGroup(msg.to,[target])
-                        except:
-                            nadya.sendText(msg.to,"Error")
-            if msg.text in ["ohm:tagall"]:
-                    group = nadya.getGroup(msg.to)
-                    nama = [contact.mid for contact in group.members]
-                    k = len(nama)//100
-                    for a in range(k+1):
-                        txt = u''
-                        s=0
-                        b=[]
-                        for i in group.members[a*100 : (a+1)*100]:
-                            b.append({"S":str(s), "E" :str(s+6), "M":i.mid})
-                            s += 7
-                            txt += u'@Alin \n'
-                        nadya.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
-                        nadya.sendMessage(to, "จำนวนสมาชิก {} คน".format(str(len(nama))))          
-#==============================================================================#
-        if op.type == 26:
-            print ("[ 26 ] RECEIVE MESSAGE")
-            msg = op.message
-            text = msg.text
-            msg_id = msg.id
-            receiver = msg.to
-            sender = msg._from
-            if msg.toType == 0:
-                if sender != line.profile.mid:
-                    to = sender
-                else:
-                    to = receiver
-            else:
-                to = receiver
-                if settings["autoRead"] == True:
-                    nadya.sendChatChecked(to, msg_id)
-                if to in read["readPoint"]:
-                    if sender not in read["ROM"][to]:
-                        read["ROM"][to][sender] = True
-                if sender in settings["mimic"]["target"] and settings["mimic"]["status"] == True and settings["mimic"]["target"][sender] == True:
-                    text = msg.text
-                    if text is not None:
-                        nadya.sendMessage(msg.to,text)
-                if msg.contentType == 0 and sender not in nadyaMID and msg.toType == 2:
-                    if 'MENTION' in msg.contentMetadata.keys()!= None:
-                        names = re.findall(r'@(\w+)', text)
-                        mention = ast.literal_eval(msg.contentMetadata['MENTION'])
-                        mentionees = mention['MENTIONEES']
-                        lists = []
-                        for mention in mentionees:
-                            if nadyaMID in mention["M"]:
-                              if settings["detectMention"] == True:
-                                 sendMention(receiver, sender, "", "????")
 
-        if op.type == 17:
-           print ("MEMBER JOIN TO GROUP")
-           if settings["Sambutan"] == True:
-             if op.param2 in nadyaMID:
-                 return
-             ginfo = nadya.getGroup(op.param1)
-             contact = nadya.getContact(op.param2)
-             image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
-             nadya.sendMessage(op.param1,"Hi " + line.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\nTEST")
-             nadya.sendImageWithURL(op.param1,image)
-
-        if op.type == 15:
-           print ("MEMBER LEAVE TO GROUP")
-           if settings["Sambutan"] == True:
-             if op.param2 in nadyaMID:
-                 return
-             ginfo = nadya.getGroup(op.param1)
-             contact = nadya.getContact(op.param2)
-             image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
-             nadya.sendImageWithURL(op.param1,image)
-             nadya.sendMessage(op.param1,"Good Bye " + nadya.getContact(op.param2).displayName + "\nSee You Next Time")
 #==============================================================================#
         if op.type == 55:
             print ("[ 55 ] NOTIFIED READ MESSAGE")
