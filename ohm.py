@@ -78,7 +78,7 @@ def helpmessage():
     helpMessage = " ⚠คำสั่งช่วยเหลือ⚠" + "\n" + \
                   "⭐help ➠ จะแสดงคำสั่ง" + "\n" + \
                   "⭐help2 ➠ จะแสดงคำสั่งชุดที่ 2" + "\n" + \
-                  "⭐help3 ➠ จะแสดงคำสั่งชุดที่ 3" + "\n" + \
+                  "⭐!help ➠ จะแสดงคำสั่ง OHM" + "\n" + \
                   "⭐รีบอท ➠ บอทจะเริมทำงานใหม่" + "\n" + \
 		  " ⚠คำสั่งสถานะ⚠" + "\n" + \
                   "⭐sp ➠ จะแสดงความเร็วบอท" + "\n" + \
@@ -141,134 +141,23 @@ def helptexttospeech():
                          "⭐กลุ่ม on/off ➠ เข้ากลุ่มออโต้" + "\n" + \
                          "⭐อ่าน on/off ➠ อ่านออโต้" + "\n" + \
                          "⭐แชท on/off ➠ ออกแชทรวมออโต้" + "\n" + \
-                         "⭐Autoblock on/off ➠ ออโต้บล็อค" + "\n" + \
+                         "⭐block on/off ➠ ออโต้บล็อค" + "\n" + \
                          "⭐สติกเกอร์ on/off ➠ แชร์ลิ้งสติกเกอร์" + "\n" + \
                          "⭐เปิดลิ้ง/ปิดลิ้ง ➠ เปิดปิดลิ่งกลุ่ม" + "\n" + \
                   "Created by : ꧁OHM꧂ "
     return helpTextToSpeech
 
 def helpohm():
-    helpOhm =   " ⚠คำสั่งชุดที่ 3⚠" + "\n" + \
-                         "⭐ohm:groupcreator ➠ ผู้สร้างกลุ่ม" + "\n" + \
-                         "⭐ohm:online ➠ เวลาในการทำงาน" + "\n" + \
-                         "⭐ohm:sp ➠ ความเร็วบอท" + "\n" + \
-                         "⭐ohm:kick @ ➠ เตะ" + "\n" + \
-                         "⭐ohm:test ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
-                         "⭐ohm:tagall ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
+    helpOhm =   " ⚠ OHM HELP ⚠" + "\n" + \
+                         "⭐!help ➠ แสดงคำสั่ง" + "\n" + \
+                         "⭐!ohm ➠ แสดงคำสั่ง" + "\n" + \
+                         "⭐!groupcreator ➠ ผู้สร้างกลุ่ม" + "\n" + \
+                         "⭐!online ➠ เวลาในการทำงาน" + "\n" + \
+                         "⭐!sp ➠ ความเร็วบอท" + "\n" + \
+                         "⭐!test ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
+                         "⭐!tagall ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
                   "Created by : ꧁OHM꧂ "
     return helpOhm
-
-def helptranslate():
-    helpTranslate =    "╔══[ T R A N S L A T E ]" + "\n" + \
-                       "╠ af : afrikaans" + "\n" + \
-                       "╠ sq : albanian" + "\n" + \
-                       "╠ am : amharic" + "\n" + \
-                       "╠ ar : arabic" + "\n" + \
-                       "╠ hy : armenian" + "\n" + \
-                       "╠ az : azerbaijani" + "\n" + \
-                       "╠ eu : basque" + "\n" + \
-                       "╠ be : belarusian" + "\n" + \
-                       "╠ bn : bengali" + "\n" + \
-                       "╠ bs : bosnian" + "\n" + \
-                       "╠ bg : bulgarian" + "\n" + \
-                       "╠ ca : catalan" + "\n" + \
-                       "╠ ceb : cebuano" + "\n" + \
-                       "╠ ny : chichewa" + "\n" + \
-                       "╠ zh-cn : chinese (simplified)" + "\n" + \
-                       "╠ zh-tw : chinese (traditional)" + "\n" + \
-                       "╠ co : corsican" + "\n" + \
-                       "╠ hr : croatian" + "\n" + \
-                       "╠ cs : czech" + "\n" + \
-                       "╠ da : danish" + "\n" + \
-                       "╠ nl : dutch" + "\n" + \
-                       "╠ en : english" + "\n" + \
-                       "╠ eo : esperanto" + "\n" + \
-                       "╠ et : estonian" + "\n" + \
-                       "╠ tl : filipino" + "\n" + \
-                       "╠ fi : finnish" + "\n" + \
-                       "╠ fr : french" + "\n" + \
-                       "╠ fy : frisian" + "\n" + \
-                       "╠ gl : galician" + "\n" + \
-                       "╠ ka : georgian" + "\n" + \
-                       "╠ de : german" + "\n" + \
-                       "╠ el : greek" + "\n" + \
-                       "╠ gu : gujarati" + "\n" + \
-                       "╠ ht : haitian creole" + "\n" + \
-                       "╠ ha : hausa" + "\n" + \
-                       "╠ haw : hawaiian" + "\n" + \
-                       "╠ iw : hebrew" + "\n" + \
-                       "╠ hi : hindi" + "\n" + \
-                       "╠ hmn : hmong" + "\n" + \
-                       "╠ hu : hungarian" + "\n" + \
-                       "╠ is : icelandic" + "\n" + \
-                       "╠ ig : igbo" + "\n" + \
-                       "╠ id : indonesian" + "\n" + \
-                       "╠ ga : irish" + "\n" + \
-                       "╠ it : italian" + "\n" + \
-                       "╠ ja : japanese" + "\n" + \
-                       "╠ jw : javanese" + "\n" + \
-                       "╠ kn : kannada" + "\n" + \
-                       "╠ kk : kazakh" + "\n" + \
-                       "╠ km : khmer" + "\n" + \
-                       "╠ ko : korean" + "\n" + \
-                       "╠ ku : kurdish (kurmanji)" + "\n" + \
-                       "╠ ky : kyrgyz" + "\n" + \
-                       "╠ lo : lao" + "\n" + \
-                       "╠ la : latin" + "\n" + \
-                       "╠ lv : latvian" + "\n" + \
-                       "╠ lt : lithuanian" + "\n" + \
-                       "╠ lb : luxembourgish" + "\n" + \
-                       "╠ mk : macedonian" + "\n" + \
-                       "╠ mg : malagasy" + "\n" + \
-                       "╠ ms : malay" + "\n" + \
-                       "╠ ml : malayalam" + "\n" + \
-                       "╠ mt : maltese" + "\n" + \
-                       "╠ mi : maori" + "\n" + \
-                       "╠ mr : marathi" + "\n" + \
-                       "╠ mn : mongolian" + "\n" + \
-                       "╠ my : myanmar (burmese)" + "\n" + \
-                       "╠ ne : nepali" + "\n" + \
-                       "╠ no : norwegian" + "\n" + \
-                       "╠ ps : pashto" + "\n" + \
-                       "╠ fa : persian" + "\n" + \
-                       "╠ pl : polish" + "\n" + \
-                       "╠ pt : portuguese" + "\n" + \
-                       "╠ pa : punjabi" + "\n" + \
-                       "╠ ro : romanian" + "\n" + \
-                       "╠ ru : russian" + "\n" + \
-                       "╠ sm : samoan" + "\n" + \
-                       "╠ gd : scots gaelic" + "\n" + \
-                       "╠ sr : serbian" + "\n" + \
-                       "╠ st : sesotho" + "\n" + \
-                       "╠ sn : shona" + "\n" + \
-                       "╠ sd : sindhi" + "\n" + \
-                       "╠ si : sinhala" + "\n" + \
-                       "╠ sk : slovak" + "\n" + \
-                       "╠ sl : slovenian" + "\n" + \
-                       "╠ so : somali" + "\n" + \
-                       "╠ es : spanish" + "\n" + \
-                       "╠ su : sundanese" + "\n" + \
-                       "╠ sw : swahili" + "\n" + \
-                       "╠ sv : swedish" + "\n" + \
-                       "╠ tg : tajik" + "\n" + \
-                       "╠ ta : tamil" + "\n" + \
-                       "╠ te : telugu" + "\n" + \
-                       "╠ th : thai" + "\n" + \
-                       "╠ tr : turkish" + "\n" + \
-                       "╠ uk : ukrainian" + "\n" + \
-                       "╠ ur : urdu" + "\n" + \
-                       "╠ uz : uzbek" + "\n" + \
-                       "╠ vi : vietnamese" + "\n" + \
-                       "╠ cy : welsh" + "\n" + \
-                       "╠ xh : xhosa" + "\n" + \
-                       "╠ yi : yiddish" + "\n" + \
-                       "╠ yo : yoruba" + "\n" + \
-                       "╠ zu : zulu" + "\n" + \
-                       "╠ fil : Filipino" + "\n" + \
-                       "╠ he : Hebrew" + "\n" + \
-                       "╚══[ Jangan Typo ]" + "\n" + "\n\n" + \
-                         "Contoh : tr-id Nadya Cantik"
-    return helpTranslate
 #==============================================================================#
 def lineBot(op):
     try:
@@ -317,9 +206,6 @@ def lineBot(op):
                 elif text.lower() == 'help3':
                     helpOhm = helpohm()
                     nadya.sendMessage(to, str(helpOhm))
-                elif text.lower() == 'translate':
-                    helpTranslate = helptranslate()
-                    nadya.sendMessage(to, str(helpTranslate))
 #==============================================================================#
                 elif "ผส" == msg.text.lower():
                     nadya.sendMessage(to,"ผู้สร้างบอท\n ꧁OHM꧂  ")
@@ -394,9 +280,10 @@ def lineBot(op):
                     elapsed_time = time.time() - start
                     nadya.sendMessage(to,format(str(elapsed_time)))
                 elif text.lower() == 'รีบอท':
-                    nadya.sendMessage(to, "กำลังให้บอท Logout กรุณารอสักครู่.....")
+                    nadya.sendMessage(to, "กำลังรีบอทกรุณารอสักครู่.....")
                     time.sleep(5)
-                    nadya.sendMessage(to, "Logout เสร็จสิ้น..(｀・ω・´)")
+                    nadya.sendMessage(to, "รีบอทเสร็จสิ้น..(｀・ω・´)")
+                    nadya.sendMessage(to, "กรุณาให้บอทล็อกอินใหม่อีกครั้ง  (｀・ω・´)")
                     restartBot()
                 elif text.lower() == 'ออน':
                     timeNow = time.time()
@@ -442,10 +329,10 @@ def lineBot(op):
                         nadya.sendMessage(to, str(ret_))
                     except Exception as e:
                         nadya.sendMessage(msg.to, str(e))
-                elif text.lower() == 'autoblock on':
+                elif text.lower() == 'block on':
                     settings["autoAdd"] = True
                     nadya.sendMessage(to, "เปิดระบบออโต้บล็อคแล้ว(｀・ω・´)")
-                elif text.lower() == 'กลุ่ม off':
+                elif text.lower() == 'block off':
                     settings["autoAdd"] = False
                     nadya.sendMessage(to, "ปิดระบบออโต้บล็อคแล้ว(｀・ω・´)")
                 elif text.lower() == 'กลุ่ม on':
@@ -785,6 +672,7 @@ def lineBot(op):
                     group = nadya.getGroup(to)
                     GS = group.creator.mid
                     nadya.sendContact(to, GS)
+                    nadya.sendMessage(to, "นี่ไงคนสร้างกลุ่ม")
                 elif text.lower() == 'ไอดีกลุ่ม':
                     gid = nadya.getGroup(to)
                     nadya.sendMessage(to, "\n" + gid.id)
@@ -867,7 +755,7 @@ def lineBot(op):
                             group = nadya.getGroup(gid)
                             ret_ += "\n╠ {}. {} | {}".format(str(no), str(group.name), str(len(group.members)))
                             no += 1
-                        ret_ += "\n╚══[ จำนวน {} กลุ่ม ]".format(str(len(groups)))
+                        ret_ += "\n╚══[ มีกลุ่มทั้งหมด {} กลุ่ม ]".format(str(len(groups)))
                         nadya.sendMessage(to, str(ret_))
 #==============================================================================#          
                 elif text.lower() == 'tagall':
@@ -1017,1159 +905,6 @@ def lineBot(op):
                     else:
                         nadya.sendMessage(receiver,"Selfbot: ยังไม่ได้เปิดอ่าน")
 #==============================================================================#
-                elif msg.text.lower().startswith("say-af "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'af'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-        
-                elif msg.text.lower().startswith("say-sq "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'sq'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-ar "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'ar'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-hy "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'hy'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-bn "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'bn'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-ca "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'ca'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-zh "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'zh'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-zh-cn "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'zh-cn'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-zh-tw "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'zh-tw'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-zh-yue "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'zh-yue'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-hr "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'hr'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-cs "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'cs'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-da "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'da'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-nl "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'nl'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-en "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'en'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-en-au "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'en-au'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-en-uk "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'en-uk'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-en-us "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'en-us'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-eo "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'eo'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-fi "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'fi'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-fr "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'fr'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-de "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'de'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-el "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'el'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-hi "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'hi'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-hu "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'hu'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-is "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'is'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-id "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'id'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-it "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'it'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-ja "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'ja'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-km "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'km'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-ko "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'ko'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-la "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'la'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-lv "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'lv'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-mk "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'mk'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-no "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'no'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-pl "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'pl'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-pt "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'pt'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-do "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'ro'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-ru "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'ru'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-sr "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'sr'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-si "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'si'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-sk "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'sk'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-es "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'es'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-es-es "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'es-es'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-es-us "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'es-us'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-sw "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'sw'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-sv "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'sv'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-ta "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'ta'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("พูด "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'th'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-tr "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'tr'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-uk "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'uk'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-vi "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'vi'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-                    
-                elif msg.text.lower().startswith("say-cy "):
-                    sep = text.split(" ")
-                    say = text.replace(sep[0] + " ","")
-                    lang = 'cy'
-                    tts = gTTS(text=say, lang=lang)
-                    tts.save("hasil.mp3")
-                    nadya.sendAudio(msg.to,"hasil.mp3")
-#==============================================================================# 
-                elif msg.text.lower().startswith("tr-af "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='af')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-sq "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='sq')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-am "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='am')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ar "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ar')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-hy "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='hy')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-az "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='az')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-eu "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='eu')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-be "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='be')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-bn "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='bn')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-bs "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='bs')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-bg "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='bg')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ca "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ca')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ceb "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ceb')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ny "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ny')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-zh-cn "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='zh-cn')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-zh-tw "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='zh-tw')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-co "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='co')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-hr "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='hr')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-cs "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='cs')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-da "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='da')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-nl "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='nl')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-en "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='en')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-et "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='et')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-fi "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='fi')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-fr "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='fr')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-fy "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='fy')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-gl "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='gl')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ka "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ka')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-de "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='de')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-el "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='el')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-gu "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='gu')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ht "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ht')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ha "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ha')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-haw "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='haw')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-iw "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='iw')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-hi "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='hi')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-hmn "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='hmn')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-hu "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='hu')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-is "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='is')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ig "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ig')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-id "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='id')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ga "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ga')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-it "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='it')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ja "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ja')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-jw "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='jw')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-kn "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='kn')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-kk "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='kk')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-km "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='km')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ko "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ko')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ku "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ku')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ky "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ky')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-lo "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='lo')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-la "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='la')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-lv "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='lv')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-lt "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='lt')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-lb "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='lb')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-mk "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='mk')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-mg "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='mg')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ms "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ms')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ml "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ml')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-mt "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='mt')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-mi "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='mi')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-mr "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='mr')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-mn "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='mn')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-my "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='my')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ne "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ne')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-no "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='no')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ps "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ps')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-fa "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='fa')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-pl "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='pl')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-pt "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='pt')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-pa "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='pa')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ro "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ro')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ru "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ru')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-sm "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='sm')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-gd "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='gd')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-sr "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='sr')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-st "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='st')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-sn "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='sn')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-sd "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='sd')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-si "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='si')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-sk "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='sk')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-sl "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='sl')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-so "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='so')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-es "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='es')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-su "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='su')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-sw "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='sw')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-sv "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='sv')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-tg "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='tg')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ta "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ta')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-te "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='te')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-th "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='th')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-tr "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='tr')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-uk "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='uk')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-ur "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='ur')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-uz "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='uz')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-vi "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='vi')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-cy "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='cy')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-xh "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='xh')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-yi "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='yi')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-yo "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='yo')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-zu "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='zu')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-fil "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='fil')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-                elif msg.text.lower().startswith("tr-he "):
-                    sep = text.split(" ")
-                    isi = text.replace(sep[0] + " ","")
-                    translator = Translator()
-                    hasil = translator.translate(isi, dest='he')
-                    A = hasil.text
-                    nadya.sendMessage(msg.to, A)
-#==============================================================================#   
                 elif text.lower() == 'calender':
                     tz = pytz.timezone("Asia/Makassar")
                     timeNow = datetime.now(tz=tz)
@@ -2439,17 +1174,17 @@ def lineBot(op):
             if msg.text in ["บอท","bot"]:
             	nadya.sendMessage(to, "บอทยังออนไลน์อยู่ 😜")
 #==============================================================================#
-            if msg.text in ["ohm:groupcreator"]:
+            if msg.text in ["!groupcreator","!Groupcreator"]:
             	group = nadya.getGroup(to)
             	GS = group.creator.mid
             	nadya.sendContact(to, GS)
             	nadya.sendMessage(to, "นี่ไงคนสร้างกลุ่ม")
-            if msg.text in ["ohm:online"]:
+            if msg.text in ["!online","!Online"]:
             	timeNow = time.time()
             	runtime = timeNow - botStart
             	runtime = format_timespan(runtime)
             	nadya.sendMessage(to, "ระยะเวลาการทำงานของบอท\n{}".format(str(runtime)))
-            if msg.text in ["ohm:test"]:
+            if msg.text in ["!test","!Test"]:
                     nadya.sendMessage(to,"LOADING:▒...0%")
                     nadya.sendMessage(to,"█▒... 10.0%")
                     nadya.sendMessage(to,"██▒... 20.0%")
@@ -2462,23 +1197,12 @@ def lineBot(op):
                     nadya.sendMessage(to,"█████████▒... 90.0%")
                     nadya.sendMessage(to,"███████████..100.0%")
                     nadya.sendMessage(to,"บอทยังอยู่ดีไม่หลุด 😂")
-            if msg.text in ["ohm:sp"]:
+            if msg.text in ["!sp","!Sp"]:
                     start = time.time()
                     nadya.sendMessage(to, "⚡ความเร็วบอทอยู่ที่⚡")
                     elapsed_time = time.time() - start
                     nadya.sendMessage(to,format(str(elapsed_time)))
-            if msg.text in ["ohm:kick "]:
-                    targets = []
-                    key = eval(msg.contentMetadata["MENTION"])
-                    key["MENTIONEES"][0]["M"]
-                    for x in key["MENTIONEES"]:
-                        targets.append(x["M"])
-                    for target in targets:
-                        try:
-                            nadya.kickoutFromGroup(msg.to,[target])
-                        except:
-                            nadya.sendText(msg.to,"Error")
-            if msg.text in ["ohm:tagall"]:
+            if msg.text in ["!tagall","!Tagall"]:
                     group = nadya.getGroup(msg.to)
                     nama = [contact.mid for contact in group.members]
                     k = len(nama)//100
@@ -2491,7 +1215,24 @@ def lineBot(op):
                             s += 7
                             txt += u'@Alin \n'
                         nadya.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
-                        nadya.sendMessage(to, "จำนวนสมาชิก {} คน".format(str(len(nama))))          
+                        nadya.sendMessage(to, "จำนวนคนในการแทค {} คน".format(str(len(nama))))      
+            if msg.text in ["!help","!Help"]:
+                    helpOhm = helpohm()
+                    nadya.sendMessage(to, str(helpOhm))
+            if msg.text in ["!ohm","!Ohm"]:
+                    nadya.sendMessage(to, "ME")
+                    nadya.sendContact(to, nadyaMID)
+                    nadya.sendMessage(to, "STATUS")
+                    me = nadya.getContact(nadyaMID)
+                    nadya.sendMessage(msg.to,">" + me.statusMessage)
+                    nadya.sendMessage(to, "PICTURE PROFILE")
+                    me = nadya.getContact(nadyaMID)
+                    nadya.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
+                    nadya.sendMessage(to, "COVER PROFILE")
+                    me = nadya.getContact(nadyaMID)
+                    cover = nadya.getProfileCoverURL(nadyaMID)    
+                    nadya.sendImageWithURL(msg.to, cover)
+                    sendMessageWithMention(to, nadyaMID)
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
@@ -2535,7 +1276,7 @@ def lineBot(op):
              ginfo = nadya.getGroup(op.param1)
              contact = nadya.getContact(op.param2)
              image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
-             nadya.sendMessage(op.param1,"Hi " + line.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\nTEST")
+             nadya.sendMessage(op.param1,"Hi " + nadya.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\nTEST")
              nadya.sendImageWithURL(op.param1,image)
 
         if op.type == 15:
@@ -2548,7 +1289,7 @@ def lineBot(op):
              image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
              nadya.sendImageWithURL(op.param1,image)
              nadya.sendMessage(op.param1,"Good Bye " + nadya.getContact(op.param2).displayName + "\nSee You Next Time")
-#==============================================================================#
+#==============================================================================#   
         if op.type == 55:
             print ("[ 55 ] NOTIFIED READ MESSAGE")
             try:
