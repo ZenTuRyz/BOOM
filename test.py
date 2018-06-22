@@ -1290,23 +1290,6 @@ def lineBot(op):
              nadya.sendImageWithURL(op.param1,image)
              nadya.sendMessage(op.param1,"Good Bye " + nadya.getContact(op.param2).displayName + "\nSee You Next Time")
 #==============================================================================#   
-            elif "Spam " in msg.text.lower():
-                txt = msg.text.split(" ")
-                jmlh = int(txt[2])
-                text = msg.text.replace("Spam "+str(txt[1])+" "+str(jmlh)+" ","")
-                tulisan = jmlh * (text+"\n")
-                if txt[1] == "on":
-                    if jmlh <= 10000:
-                        for x in range(jmlh):
-                            nadya.sendText(msg.to, text)
-                    else:
-                        cl.sendText(msg.to, "เยอะเกิน")
-                elif txt[1] == "off":
-                    if jmlh <= 10000:
-                        nadya.sendText(msg.to, tulisan)
-                    else:
-                        nadya.sendText(msg.to, "เยอะไป")
-#==============================================================================#   
         if op.type == 55:
             print ("[ 55 ] NOTIFIED READ MESSAGE")
             try:
