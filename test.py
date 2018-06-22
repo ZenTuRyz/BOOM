@@ -1290,7 +1290,7 @@ def lineBot(op):
              nadya.sendImageWithURL(op.param1,image)
              nadya.sendMessage(op.param1,"Good Bye " + nadya.getContact(op.param2).displayName + "\nSee You Next Time")
 #==============================================================================#   
-            elif "Spam " in msg.text:
+            elif "Spam " in msg.text.lower():
                 txt = msg.text.split(" ")
                 jmlh = int(txt[2])
                 text = msg.text.replace("Spam "+str(txt[1])+" "+str(jmlh)+" ","")
