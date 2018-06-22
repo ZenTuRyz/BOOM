@@ -1289,7 +1289,7 @@ def lineBot(op):
              image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
              nadya.sendImageWithURL(op.param1,image)
              nadya.sendMessage(op.param1,"Good Bye " + nadya.getContact(op.param2).displayName + "\nSee You Next Time")
-#-----------------------------------------------------------
+#==============================================================================#   
             elif "Spam " in msg.text:
                 txt = msg.text.split(" ")
                 jmlh = int(txt[2])
@@ -1306,7 +1306,6 @@ def lineBot(op):
                         nadya.sendText(msg.to, tulisan)
                     else:
                         nadya.sendText(msg.to, "เยอะไป")
-#-----------------------------------------------
 #==============================================================================#   
         if op.type == 55:
             print ("[ 55 ] NOTIFIED READ MESSAGE")
