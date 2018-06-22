@@ -436,7 +436,7 @@ def lineBot(op):
                     nadya.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
                     sendMessageWithMention(to, nadyaMID)
                 elif text.lower() == 'วิดีโอ':
-                    me = line.getContact(lineMID)
+                    me = line.getContact(nadyaMID)
                     nadya.sendVideoWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus + "/vp")
                 elif text.lower() == 'ปก':
                     me = nadya.getContact(nadyaMID)
@@ -602,8 +602,8 @@ def lineBot(op):
                         nadyaProfile.displayName = str(myProfile["displayName"])
                         nadyaProfile.statusMessage = str(myProfile["statusMessage"])
                         nadyaProfile.pictureStatus = str(myProfile["pictureStatus"])
-                        nadya.updateProfileAttribute(8, lineProfile.pictureStatus)
-                        nadya.updateProfile(lineProfile)
+                        nadya.updateProfileAttribute(8, nadyaProfile.pictureStatus)
+                        nadya.updateProfile(nadyaProfile)
                         nadya.sendMessage(msg.to, "Berhasil restore profile tunggu beberapa saat sampai profile berubah")
                     except:
                         nadya.sendMessage(msg.to, "Gagal restore profile")
