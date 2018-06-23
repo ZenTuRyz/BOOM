@@ -992,7 +992,7 @@ def lineBot(op):
                                     nadya.sendVideoWithURL(msg.to,url)
                                 else:
                                     print (node['display_src'])
-                                    nadya.sendImageWithURL(msg.to,node['display_src'])
+                                    ZenTuRy.sendImageWithURL(msg.to,node['display_src'])
                             end_cursor = re.search(r'"end_cursor": "([^"]+)"', r.text).group(1)
                 elif "searchimage" in msg.text.lower():
                     separate = msg.text.split(" ")
@@ -1007,7 +1007,7 @@ def lineBot(op):
                             path = random.choice(items)
                             a = items.index(path)
                             b = len(items)
-                            nadya.sendImageWithURL(to, str(path))
+                            ZenTuRy.sendImageWithURL(to, str(path))
                 elif "searchyoutube" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
@@ -1025,7 +1025,7 @@ def lineBot(op):
                             ret_ += "\n╠══[ {} ]".format(str(data["title"]))
                             ret_ += "\n╠ https://www.youtube.com{}".format(str(data["href"]))
                         ret_ += "\n╚══[ Total {} ]".format(len(datas))
-                        nadya.sendMessage(to, str(ret_))
+                        ZenTuRy.sendMessage(to, str(ret_))
                 elif "searchmusic" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
@@ -1041,10 +1041,10 @@ def lineBot(op):
                                 ret_ += "\n╠ Durasi : {}".format(str(song[1]))
                                 ret_ += "\n╠ Link : {}".format(str(song[4]))
                                 ret_ += "\n╚══[ reading Audio ]"
-                                nadya.sendMessage(to, str(ret_))
-                                nadya.sendAudioWithURL(to, song[3])
+                                ZenTuRy.sendMessage(to, str(ret_))
+                                ZenTuRy.sendAudioWithURL(to, song[3])
                         except:
-                            nadya.sendMessage(to, "Musik tidak ditemukan")
+                            ZenTuRy.sendMessage(to, "Musik tidak ditemukan")
                 elif "searchlyric" in msg.text.lower():
                     sep = text.split(" ")
                     search = text.replace(sep[0] + " ","")
@@ -1069,7 +1069,7 @@ def lineBot(op):
                                 ret_ += "\n╚══[ Finish ]\n{}".format(str(lyric))
                                 nadya.sendMessage(to, str(ret_))
                         except:
-                            nadya.sendMessage(to, "Lirik tidak ditemukan")
+                            ZenTuRy.sendMessage(to, "Lirik tidak ditemukan")
             elif msg.contentType == 7:
                 if settings["สติกเกอร์"] == True:
                     stk_id = msg.contentMetadata['STKID']
@@ -1081,13 +1081,13 @@ def lineBot(op):
                     ret_ += "\n╠ เวอร์ชั่นสติกเกอร: {}".format(stk_ver)
                     ret_ += "\n╠ ลิ้งสติกเกอร์ : line://shop/detail/{}".format(pkg_id)
                     ret_ += "\n╚══( ข้อมูลสติกเกอร์ )"
-                    nadya.sendMessage(to, str(ret_))
+                    ZenTuRy.sendMessage(to, str(ret_))
                     
             elif msg.contentType == 13:
                 if settings["copy"] == True:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
-                    groups = nadya.getGroup(msg.to)
+                    groups = ZenTuRy.getGroup(msg.to)
                     targets = []
                     for s in groups.members:
                         if _name in s.displayName:
@@ -1096,13 +1096,13 @@ def lineBot(op):
                         else:
                             targets.append(copy)
                     if targets == []:
-                        nadya.sendText(msg.to, "Not Found...")
+                        ZenTuRy.sendText(msg.to, "Not Found...")
                         pass
                     else:
                         for target in targets:
                             try:
-                                nadya.cloneContactProfile(target)
-                                nadya.sendMessage(msg.to, "Berhasil clone member tunggu beberapa saat sampai profile berubah")
+                                ZenTuRy.cloneContactProfile(target)
+                                ZenTuRy.sendMessage(msg.to, "Berhasil clone member tunggu beberapa saat sampai profile berubah")
                                 settings['copy'] = False
                                 break
                             except:
@@ -1120,38 +1120,38 @@ def lineBot(op):
             receiver = msg.to
             sender = msg._from
             if msg.toType == 0:
-                if sender != nadya.profile.mid:
+                if sender != ZenTuRy.profile.mid:
                     to = sender
                 else:
                     to = receiver
             else:
                 to = receiver
                 if settings["autoRead"] == True:
-                    nadya.sendChatChecked(to, msg_id)
+                    ZenTuRy.sendChatChecked(to, msg_id)
                 if to in read["readPoint"]:
                     if sender not in read["ROM"][to]:
                         read["ROM"][to][sender] = True
                 if sender in settings["mimic"]["target"] and settings["mimic"]["status"] == True and settings["mimic"]["target"][sender] == True:
                     text = msg.text
                     if text is not None:
-                        nadya.sendMessage(msg.to,text)
-                if msg.contentType == 0 and sender not in nadyaMID and msg.toType == 2:
+                        ZenTuRy.sendMessage(msg.to,text)
+                if msg.contentType == 0 and sender not in ZenTuRyMID and msg.toType == 2:
                     if "MENTION" in list(msg.contentMetadata.keys())!= None:
                         if settings['Tag2'] == True:
-                             contact = nadya.getContact(msg._from)
+                             contact = ZenTuRy.getContact(msg._from)
                              cName = contact.pictureStatus
                              balas = ["http://dl.profile.line-cdn.net/" + cName]
                              ret_ = random.choice(balas)
                              mention = ast.literal_eval(msg.contentMetadata["MENTION"])
                              mentionees = mention["MENTIONEES"]
                              for mention in mentionees:
-                                   if mention["M"] in nadyaMID:
-                                          nadya.sendImageWithURL(to,ret_)
+                                   if mention["M"] in ZenTuRyMID:
+                                          ZenTuRy.sendImageWithURL(to,ret_)
                                           break
-                if msg.contentType == 0 and sender not in nadyaMID and msg.toType == 2:
+                if msg.contentType == 0 and sender not in ZenTuRyMID and msg.toType == 2:
                     if "MENTION" in list(msg.contentMetadata.keys()) != None:
                          if settings['detectMention'] == True:
-                             contact = nadya.getContact(msg._from)
+                             contact = ZenTuRy.getContact(msg._from)
                              cName = contact.displayName
                              balas = ["Selfbot Auto Replied: แทคทำไมเดะโบกเลย ☠"]
                              ret_ = "" + random.choice(balas)
@@ -1159,51 +1159,51 @@ def lineBot(op):
                              mention = ast.literal_eval(msg.contentMetadata["MENTION"])
                              mentionees = mention['MENTIONEES']
                              for mention in mentionees:
-                                   if mention['M'] in nadyaMID:
-                                          nadya.sendMessage(to,ret_)
+                                   if mention['M'] in ZenTuRyMID:
+                                          ZenTuRy.sendMessage(to,ret_)
                                           sendMessageWithMention(to, contact.mid)
                                           break
             if msg.text in ["Speed","speed","Sp","sp",".Sp",".sp",".Speed",".speed","!sp","!Sp","!Speed","!speed"]:
-            	nadya.sendMessage(to, "แรงแล้วพี่แรงแล้ว 😜")
+            	ZenTuRy.sendMessage(to, "แรงแล้วพี่แรงแล้ว 😜")
             if msg.text in ["เทส","test"]:
-            	nadya.sendMessage(to, "เช็คจังเลยกลัวบอทหลุดหรอ 😜")
+            	ZenTuRy.sendMessage(to, "เช็คจังเลยกลัวบอทหลุดหรอ 😜")
             if msg.text in ["แตก","แตก1","แตก 1","แตก!","แตก !","แตก 1!"]:
-            	nadya.sendMessage(to, "สวยพี่สวย 😜")
+            	ZenTuRy.sendMessage(to, "สวยพี่สวย 😜")
             if msg.text in ["โอม","โอมมี่","ohm"]:
-            	nadya.sendMessage(to, "Selfbot Auto Replied: โอมไม่อยู่ 😜")
+            	ZenTuRy.sendMessage(to, "Selfbot Auto Replied: โอมไม่อยู่ 😜")
             if msg.text in ["บอท","bot"]:
-            	nadya.sendMessage(to, "บอทยังออนไลน์อยู่ 😜")
+            	ZenTuRy.sendMessage(to, "บอทยังออนไลน์อยู่ 😜")
 #==============================================================================#
             if msg.text in ["!groupcreator","!Groupcreator"]:
-            	group = nadya.getGroup(to)
+            	group = ZenTuRy.getGroup(to)
             	GS = group.creator.mid
-            	nadya.sendContact(to, GS)
-            	nadya.sendMessage(to, "นี่ไงคนสร้างกลุ่ม")
+            	ZenTuRy.sendContact(to, GS)
+            	ZenTuRy.sendMessage(to, "นี่ไงคนสร้างกลุ่ม")
             if msg.text in ["!online","!Online"]:
             	timeNow = time.time()
             	runtime = timeNow - botStart
             	runtime = format_timespan(runtime)
-            	nadya.sendMessage(to, "ระยะเวลาการทำงานของบอท\n{}".format(str(runtime)))
+            	ZenTuRy.sendMessage(to, "ระยะเวลาการทำงานของบอท\n{}".format(str(runtime)))
             if msg.text in ["!test","!Test"]:
-                    nadya.sendMessage(to,"LOADING:▒...0%")
-                    nadya.sendMessage(to,"█▒... 10.0%")
-                    nadya.sendMessage(to,"██▒... 20.0%")
-                    nadya.sendMessage(to,"███▒... 30.0%")
-                    nadya.sendMessage(to,"████▒... 40.0%")
-                    nadya.sendMessage(to,"█████▒... 50.0%")
-                    nadya.sendMessage(to,"██████▒... 60.0%")
-                    nadya.sendMessage(to,"███████▒... 70.0%")
-                    nadya.sendMessage(to,"████████▒... 80.0%")
-                    nadya.sendMessage(to,"█████████▒... 90.0%")
-                    nadya.sendMessage(to,"███████████..100.0%")
-                    nadya.sendMessage(to,"บอทยังอยู่ดีไม่หลุด 😂")
+                    ZenTuRy.sendMessage(to,"LOADING:▒...0%")
+                    ZenTuRy.sendMessage(to,"█▒... 10.0%")
+                    ZenTuRy.sendMessage(to,"██▒... 20.0%")
+                    ZenTuRy.sendMessage(to,"███▒... 30.0%")
+                    ZenTuRy.sendMessage(to,"████▒... 40.0%")
+                    ZenTuRy.sendMessage(to,"█████▒... 50.0%")
+                    ZenTuRy.sendMessage(to,"██████▒... 60.0%")
+                    ZenTuRy.sendMessage(to,"███████▒... 70.0%")
+                    ZenTuRy.sendMessage(to,"████████▒... 80.0%")
+                    ZenTuRy.sendMessage(to,"█████████▒... 90.0%")
+                    ZenTuRy.sendMessage(to,"███████████..100.0%")
+                    ZenTuRy.sendMessage(to,"บอทยังอยู่ดีไม่หลุด 😂")
             if msg.text in ["!sp","!Sp"]:
                     start = time.time()
-                    nadya.sendMessage(to, "⚡ความเร็วบอทอยู่ที่⚡")
+                    ZenTuRy.sendMessage(to, "⚡ความเร็วบอทอยู่ที่⚡")
                     elapsed_time = time.time() - start
-                    nadya.sendMessage(to,format(str(elapsed_time)))
+                    ZenTuRy.sendMessage(to,format(str(elapsed_time)))
             if msg.text in ["!tagall","!Tagall"]:
-                    group = nadya.getGroup(msg.to)
+                    group = ZenTuRy.getGroup(msg.to)
                     nama = [contact.mid for contact in group.members]
                     k = len(nama)//100
                     for a in range(k+1):
@@ -1214,25 +1214,24 @@ def lineBot(op):
                             b.append({"S":str(s), "E" :str(s+6), "M":i.mid})
                             s += 7
                             txt += u'@Alin \n'
-                        nadya.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
-                        nadya.sendMessage(to, "จำนวนคนในการแทค {} คน".format(str(len(nama))))      
+                        ZenTuRy.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
+                        ZenTuRy.sendMessage(to, "จำนวนคนในการแทค {} คน".format(str(len(nama))))      
             if msg.text in ["!help","!Help"]:
                     helpOhm = helpohm()
-                    nadya.sendMessage(to, str(helpOhm))
+                    ZenTuRy.sendMessage(to, str(helpOhm))
             if msg.text in ["!ohm","!Ohm"]:
-                    nadya.sendMessage(to, "ME")
-                    nadya.sendContact(to, nadyaMID)
-                    nadya.sendMessage(to, "STATUS")
-                    me = nadya.getContact(nadyaMID)
-                    nadya.sendMessage(msg.to,">" + me.statusMessage)
-                    nadya.sendMessage(to, "PICTURE PROFILE")
-                    me = nadya.getContact(nadyaMID)
-                    nadya.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
-                    nadya.sendMessage(to, "COVER PROFILE")
-                    me = nadya.getContact(nadyaMID)
-                    cover = nadya.getProfileCoverURL(nadyaMID)    
-                    nadya.sendImageWithURL(msg.to, cover)
-                    sendMessageWithMention(to, nadyaMID)
+                    ZenTuRy.sendMessage(to, "ME")
+                    ZenTuRy.sendContact(to, ZenTuRyMID)
+                    ZenTuRy.sendMessage(to, "STATUS")
+                    me = ZenTuRy.getContact(ZenTuRyMID)
+                    ZenTuRy.sendMessage(msg.to,">" + me.statusMessage)
+                    ZenTuRy.sendMessage(to, "PICTURE PROFILE")
+                    me = ZenTuRy.getContact(ZenTuRyMID)
+                    ZenTuRy.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
+                    ZenTuRy.sendMessage(to, "COVER PROFILE")
+                    me = ZenTuRy.getContact(ZenTuRyMID)
+                    cover = ZenTuRy.getProfileCoverURL(ZenTuRyMID)    
+                    ZenTuRy.sendImageWithURL(msg.to, cover)
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
@@ -1249,15 +1248,15 @@ def lineBot(op):
             else:
                 to = receiver
                 if settings["autoRead"] == True:
-                    nadya.sendChatChecked(to, msg_id)
+                    ZenTuRy.sendChatChecked(to, msg_id)
                 if to in read["readPoint"]:
                     if sender not in read["ROM"][to]:
                         read["ROM"][to][sender] = True
                 if sender in settings["mimic"]["target"] and settings["mimic"]["status"] == True and settings["mimic"]["target"][sender] == True:
                     text = msg.text
                     if text is not None:
-                        nadya.sendMessage(msg.to,text)
-                if msg.contentType == 0 and sender not in nadyaMID and msg.toType == 2:
+                        ZenTuRy.sendMessage(msg.to,text)
+                if msg.contentType == 0 and sender not in ZenTuRyMID and msg.toType == 2:
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
                         names = re.findall(r'@(\w+)', text)
                         mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1271,24 +1270,24 @@ def lineBot(op):
         if op.type == 17:
            print ("MEMBER JOIN TO GROUP")
            if settings["Sambutan"] == True:
-             if op.param2 in nadyaMID:
+             if op.param2 in ZenTuRyMID:
                  return
-             ginfo = nadya.getGroup(op.param1)
-             contact = nadya.getContact(op.param2)
+             ginfo = ZenTuRy.getGroup(op.param1)
+             contact = ZenTuRy.getContact(op.param2)
              image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
-             nadya.sendMessage(op.param1,"Hi " + nadya.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\nTEST")
-             nadya.sendImageWithURL(op.param1,image)
+             ZenTuRy.sendMessage(op.param1,"Hi " + nadya.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\nTEST")
+             ZenTuRy.sendImageWithURL(op.param1,image)
 
         if op.type == 15:
            print ("MEMBER LEAVE TO GROUP")
            if settings["Sambutan"] == True:
-             if op.param2 in nadyaMID:
+             if op.param2 in ZenTuRyMID:
                  return
-             ginfo = nadya.getGroup(op.param1)
-             contact = nadya.getContact(op.param2)
+             ginfo = ZenTuRy.getGroup(op.param1)
+             contact = ZenTuRy.getContact(op.param2)
              image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
-             nadya.sendImageWithURL(op.param1,image)
-             nadya.sendMessage(op.param1,"Good Bye " + nadya.getContact(op.param2).displayName + "\nSee You Next Time")
+             ZenTuRy.sendImageWithURL(op.param1,image)
+             ZenTuRy.sendMessage(op.param1,"Good Bye " + ZenTuRy.getContact(op.param2).displayName + "\nSee You Next Time")
 #==============================================================================#   
         if op.type == 55:
             print ("[ 55 ] NOTIFIED READ MESSAGE")
