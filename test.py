@@ -1235,22 +1235,44 @@ def lineBot(op):
                     ZenTuRy.sendImageWithURL(msg.to, cover)
 		
 #==============================================================================#
-            elif "Spam " in msg.text:
+            elif "Spamtag @" in msg.text:
               if msg.from_ in admin:
-                   txt = msg.text.split(" ")
-                   jmlh = int(txt[2])
-                   teks = msg.text.replace("Up "+str(txt[1])+" "+str(jmlh)+ " ","")
-                   tulisan = jmlh * (teks+"\n")
-                   if txt[1] == "on":
-                        if jmlh <= 9999:
-                             for x in range(jmlh):
-                               ZenTuRy.sendText(msg.to,teks)
-                   elif txt[1] == "off":
-                         if jmlh <= 9999:
-                               ZenTuRy.sendText(msg.to, tulisan)
-                         else:
-                               ZenTuRy.sendText(msg.to, "Out of range! ")
-			
+                _name = msg.text.replace("Spamtag @","")
+                _nametarget = _name.rstrip(' ')
+                gs = ZenTuRy.getGroup(msg.to)
+                for g in gs.members:
+                    if _nametarget == g.displayName:
+                        xname = g.displayName
+                        xlen = str(len(xname)+1)
+                        msg.contentType = 0
+                        msg.text = "@"+xname+" "
+                        msg.contentMetadata ={'MENTION':'{"MENTIONEES":[{"S":"0","E":'+json.dumps(xlen)+',"M":'+json.dumps(g.mid)+'}]}','EMTVER':'4'}
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                        ZenTuRy.sendMessage(msg)
+                    else:
+                        pass
+
+
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
