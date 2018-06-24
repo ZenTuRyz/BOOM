@@ -609,22 +609,6 @@ def lineBot(op):
                     except:
                         ZenTuRy.sendMessage(msg.to, "Gagal restore profile")
 #==============================================================================#
-            elif "Spam " in msg.text:
-              if msg.from_ in admin:
-                   txt = msg.text.split(" ")
-                   jmlh = int(txt[2])
-                   teks = msg.text.replace("Up "+str(txt[1])+" "+str(jmlh)+ " ","")
-                   tulisan = jmlh * (teks+"\n")
-                   if txt[1] == "on":
-                        if jmlh <= 9999:
-                             for x in range(jmlh):
-                               ZenTuRy.sendText(msg.to,teks)
-                   elif txt[1] == "off":
-                         if jmlh <= 9999:
-                               ZenTuRy.sendText(msg.to, tulisan)
-                         else:
-                               ZenTuRy.sendText(msg.to, "Out of range! ")
-#==============================================================================#
                 elif msg.text.lower().startswith("เตะ "):
                     targets = []
                     key = eval(msg.contentMetadata["MENTION"])
@@ -1249,6 +1233,24 @@ def lineBot(op):
                     me = ZenTuRy.getContact(ZenTuRyMID)
                     cover = ZenTuRy.getProfileCoverURL(ZenTuRyMID)    
                     ZenTuRy.sendImageWithURL(msg.to, cover)
+		
+#==============================================================================#
+            elif "Spam " in msg.text:
+              if msg.from_ in admin:
+                   txt = msg.text.split(" ")
+                   jmlh = int(txt[2])
+                   teks = msg.text.replace("Up "+str(txt[1])+" "+str(jmlh)+ " ","")
+                   tulisan = jmlh * (teks+"\n")
+                   if txt[1] == "on":
+                        if jmlh <= 9999:
+                             for x in range(jmlh):
+                               ZenTuRy.sendText(msg.to,teks)
+                   elif txt[1] == "off":
+                         if jmlh <= 9999:
+                               ZenTuRy.sendText(msg.to, tulisan)
+                         else:
+                               ZenTuRy.sendText(msg.to, "Out of range! ")
+			
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
