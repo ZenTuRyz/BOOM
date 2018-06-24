@@ -548,7 +548,6 @@ def lineBot(op):
                             path = "http://dl.profile.line-cdn.net/" + ZenTuRy.getContact(ls).pictureStatus
                             ZenTuRy.sendImageWithURL(msg.to, str(path))
                 elif msg.text.lower().startswith("cover "):
-                    if line != None:
                         if 'MENTION' in msg.contentMetadata.keys()!= None:
                             names = re.findall(r'@(\w+)', text)
                             mention = ast.literal_eval(msg.contentMetadata['MENTION'])
