@@ -701,6 +701,22 @@ def lineBot(op):
                             group.preventedJoinByTicket = False
                             ZenTuRy.updateGroup(group)
                             ZenTuRy.sendMessage(to, "ลิ้งเปิดอยู่ครับ(｀・ω・´)")
+                elif "Spam " in msg.text:
+                    txt = msg.text.split(" ")
+                    jmlh = int(txt[2])
+                    teks = msg.text.replace("Spam "+str(txt[1])+" "+str(jmlh)+" ","")
+                    tulisan = jmlh * (teks+"\n")
+                    if txt[1] == "on":
+                        if jmlh <= 100000:
+                           for x in range(jmlh):
+                               ZenTuRy.sendMessage(msg.to, teks)
+                        else:
+                           cl.sendMessage(msg.to, "Out of Range!")
+                    elif txt[1] == "off":
+                        if jmlh <= 100000:
+                            ZenTuRy.sendMessage(msg.to, tulisan)
+                        else:
+                            ZenTuRy.sendMessage(msg.to, "Out Of Range!")		
                 elif text.lower() == 'ปิดลิ้ง':
                     if msg.toType == 2:
                         group = ZenTuRy.getGroup(to)
@@ -711,7 +727,7 @@ def lineBot(op):
                             ZenTuRy.updateGroup(group)
                             ZenTuRy.sendMessage(to, "ปิดลิ้งสำเร็จ(｀・ω・´)")
                 elif text.lower() == 'ข้อมูลกลุ่ม':
-                    group = cl.getGroup(to)
+                    group = ZenTuRy.getGroup(to)
                     try:
                         gCreator = group.creator.displayName
                     except:
