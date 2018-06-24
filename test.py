@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from humanfriendly import format_timespan, format_size, format_number, format_length
 import time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, pytz, urllib, urllib.parse
 import youtube_dl
+import html5lib
 from gtts import gTTS
 from googletrans import Translator
 #==============================================================================#
@@ -393,7 +394,7 @@ def lineBot(op):
                     gs = ZenTuRy.getGroup(to)
                     lists = []
                     for g in gs.members:
-                        if g.displayName in "":
+                    if g.displayName in "":
                             lists.append(g.mid)
                     if lists == []:
                         ZenTuRy.sendMessage(to, "🤗ไม่มีmidคนใส่ร่องหน🤗")
@@ -668,6 +669,22 @@ def lineBot(op):
                             settings["mimic"]["status"] = False
                             ZenTuRy.sendMessage(msg.to,"Reply Message off")
 #==============================================================================#
+                elif "Spam " in msg.text:
+                    if msg.from_ in admin:
+                         txt = msg.text.split(" ")
+                    jmlh = int(txt[2])
+                    teks = msg.text.replace("Up "+str(txt[1])+" "+str(jmlh)+ " ","")
+                    tulisan = jmlh * (teks+"\n")
+                    if txt[1] == "on":
+                         if jmlh <= 9999:
+                           for x in range(jmlh):
+                               ZenTyRy.sendText(msg.to,teks)
+                    elif txt[1] == "off":
+                         if jmlh <= 9999:
+                               ZenTuRy.sendText(msg.to, tulisan)
+                         else:
+                               ZenTuRy.sendText(msg.to, "Out of range! ")
+#==============================================================================#
                 elif text.lower() == 'groupcreator':
                     group = ZenTuRy.getGroup(to)
                     GS = group.creator.mid
@@ -905,6 +922,7 @@ def lineBot(op):
                     else:
                         ZenTuRy.sendMessage(receiver,"Selfbot: ยังไม่ได้เปิดอ่าน")
 #==============================================================================#
+
                 elif text.lower() == 'calender':
                     tz = pytz.timezone("Asia/Makassar")
                     timeNow = datetime.now(tz=tz)
