@@ -47,6 +47,7 @@ def main():
     message = input("What message do you want to spam? ")
     for _ in range(number_of_times):
         print(message)
+	print((message + '\n') * number_of_times)
 
 def restartBot():
     print ("[ INFO ] BOT RESETTED")
@@ -1278,7 +1279,7 @@ def lineBot(op):
                     else:
                         pass
 
-print((message + '\n') * number_of_times)
+
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
