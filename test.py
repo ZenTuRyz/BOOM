@@ -47,7 +47,8 @@ def main():
     message = input("What message do you want to spam? ")
     for _ in range(number_of_times):
         print((message + '\n')
-
+	      
+#==============================================================================#
 def restartBot():
     print ("[ INFO ] BOT RESETTED")
     backupData()
