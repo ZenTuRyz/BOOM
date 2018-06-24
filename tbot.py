@@ -439,7 +439,7 @@ def lineBot(op):
                     me = line.getContact(ZenTuRyMID)
                     ZenTuRy.sendVideoWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus + "/vp")
                 elif text.lower() == 'ปก':
-                    me = nadya.getContact(ZenTuRyMID)
+                    me = ZenTuRy.getContact(ZenTuRyMID)
                     cover = nadya.getProfileCoverURL(ZenTuRyMID)    
                     ZenTuRy.sendImageWithURL(msg.to, cover)
                     sendMessageWithMention(to, ZenTuRyMID)
@@ -540,7 +540,7 @@ def lineBot(op):
                         ret_ = ">"
                         for ls in lists:
                             ret_ += ls
-                        nadya.sendMessage(msg.to, str(ret_))
+                        ZenTuRy.sendMessage(msg.to, str(ret_))
                         for mention in mentionees:
                             if mention["M"] not in lists:
                                 lists.append(mention["M"])
@@ -669,7 +669,7 @@ def lineBot(op):
                             ZenTuRy.sendMessage(msg.to,"Reply Message off")
 #==============================================================================#
                 elif text.lower() == 'groupcreator':
-                    group = nadya.getGroup(to)
+                    group = ZenTuRy.getGroup(to)
                     GS = group.creator.mid
                     ZenTuRy.sendContact(to, GS)
                     ZenTuRy.sendMessage(to, "นี่ไงคนสร้างกลุ่ม")
@@ -759,7 +759,7 @@ def lineBot(op):
                         ZenTuRy.sendMessage(to, str(ret_))
 #==============================================================================#          
                 elif text.lower() == 'tagall':
-                    group = nadya.getGroup(msg.to)
+                    group = ZenTuRy.getGroup(msg.to)
                     nama = [contact.mid for contact in group.members]
                     k = len(nama)//100
                     for a in range(k+1):
@@ -882,7 +882,7 @@ def lineBot(op):
                             chiya = []
                             for rom in read["ROM"][receiver].items():
                                 chiya.append(rom[1])
-                            cmem = nadya.getContacts(chiya) 
+                            cmem = ZenTuRy.getContacts(chiya) 
                             zx = ""
                             zxc = ""
                             zx2 = []
@@ -989,7 +989,7 @@ def lineBot(op):
                                     r = x.get(page)
                                     url = re.search(r'"video_url": "([^"]+)"', r.text).group(1)
                                     print(url)
-                                    nadya.sendVideoWithURL(msg.to,url)
+                                    ZenTuRy.sendVideoWithURL(msg.to,url)
                                 else:
                                     print (node['display_src'])
                                     ZenTuRy.sendImageWithURL(msg.to,node['display_src'])
@@ -1067,7 +1067,7 @@ def lineBot(op):
                                 ret_ += "\n╠ Durasi : {}".format(str(song[1]))
                                 ret_ += "\n╠ Link : {}".format(str(song[4]))
                                 ret_ += "\n╚══[ Finish ]\n{}".format(str(lyric))
-                                nadya.sendMessage(to, str(ret_))
+                                ZenTuRy.sendMessage(to, str(ret_))
                         except:
                             ZenTuRy.sendMessage(to, "Lirik tidak ditemukan")
             elif msg.contentType == 7:
@@ -1263,7 +1263,7 @@ def lineBot(op):
                         mentionees = mention['MENTIONEES']
                         lists = []
                         for mention in mentionees:
-                            if nadyaMID in mention["M"]:
+                            if ZenTuRyMID in mention["M"]:
                               if settings["detectMention"] == True:
                                  sendMention(receiver, sender, "", "????")
 
@@ -1275,7 +1275,7 @@ def lineBot(op):
              ginfo = ZenTuRy.getGroup(op.param1)
              contact = ZenTuRy.getContact(op.param2)
              image = "http://dl.profile.line.naver.jp/" + contact.pictureStatus
-             ZenTuRy.sendMessage(op.param1,"Hi " + nadya.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\nTEST")
+             ZenTuRy.sendMessage(op.param1,"Hi " + ZenTuRy.getContact(op.param2).displayName + "\nWelcome To ☞ " + str(ginfo.name) + " ☜" + "\nTEST")
              ZenTuRy.sendImageWithURL(op.param1,image)
 
         if op.type == 15:
