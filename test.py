@@ -42,13 +42,6 @@ myProfile["displayName"] = ZenTuRyProfile.displayName
 myProfile["statusMessage"] = ZenTuRyProfile.statusMessage
 myProfile["pictureStatus"] = ZenTuRyProfile.pictureStatus
 #==============================================================================#
-def main():
-    number_of_times = int(input("Choose the number of times you want to spam. "))
-    message = input("What message do you want to spam? ")
-    for _ in range(number_of_times):
-        print((message + '\n')
-	      
-#==============================================================================#
 def restartBot():
     print ("[ INFO ] BOT RESETTED")
     backupData()
@@ -1279,7 +1272,12 @@ def lineBot(op):
                     else:
                         pass
 
-
+#==============================================================================#
+def main():
+    number_of_times = int(input("Choose the number of times you want to spam. "))
+    message = input("What message do you want to spam? ")
+    for _ in range(number_of_times):
+        print((message + '\n')
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
