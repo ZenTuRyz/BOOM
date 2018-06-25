@@ -333,28 +333,28 @@ def lineBot(op):
                     settings["autoAdd"] = True
                     ZenTuRy.sendMessage(to, "เปิดระบบออโต้บล็อคแล้ว(｀・ω・´)")
                 elif text.lower() == 'block off':
-                    settings["autoAdd"] = True
+                    settings["autoAdd"] = false
                     ZenTuRy.sendMessage(to, "ปิดระบบออโต้บล็อคแล้ว(｀・ω・´)")
                 elif text.lower() == 'กลุ่ม on':
-                    settings["AutoJoin"] = True
+                    settings["AutoJoin"] = false
                     ZenTuRy.sendMessage(to, "เปิดระบบออโต้เข้ากลุ่มแล้ว(｀・ω・´)")
                 elif text.lower() == 'กลุ่ม off':
                     settings["AutoJoin"] = True
                     ZenTuRy.sendMessage(to, "ปิดระบบเข้ากลุ่มออโต้แล้ว(｀・ω・´)")
                 elif text.lower() == 'แชท on':
-                    settings["autoLeave"] = True
+                    settings["autoLeave"] = false
                     ZenTuRy.sendMessage(to, "เปิดระบบออกแชทรวมแล้ว(｀・ω・´)")
                 elif text.lower() == 'แชท off':
                     settings["autoLeave"] = True
                     ZenTuRy.sendMessage(to, "ปิดระบบออกแชทรวมแล้ว(｀・ω・´)")
                 elif text.lower() == 'อ่าน on':
-                    settings["AutoRead"] = True
+                    settings["AutoRead"] = false
                     ZenTuRy.sendMessage(to, "เปิดระบบอ่านออโต้แล้ว(｀・ω・´)")
                 elif text.lower() == 'อ่าน off':
                     settings["AutoRead"] = True
                     ZenTuRy.sendMessage(to, "ปิดระบบอ่านออโต้แล้ว(｀・ω・´)")
                 elif text.lower() == 'สติกเกอร์ on':
-                    settings["สติกเกอร์"] = True
+                    settings["สติกเกอร์"] = false
                     ZenTuRy.sendMessage(to, "เปิดระบบแชร์ลิ้งสต๊กเกอร์แล้ว(｀・ω・´)")
                 elif text.lower() == 'สติกเกอร์ off':
                     settings["สติกเกอร์"] = True
