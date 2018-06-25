@@ -282,8 +282,8 @@ def lineBot(op):
                 elif text.lower() == 'รีบอท':
                     ZenTuRy.sendMessage(to, "กำลังรีบอทกรุณารอสักครู่.....")
                     time.sleep(5)
-                    ZenTuRy.sendMessage(to, "รีบอทเสร็จสิ้น..(｀・ω・´)")
-                    ZenTuRy.sendMessage(to, "กรุณาให้บอทล็อกอินใหม่อีกครั้ง  (｀・ω・´)")
+                    ZenTuRy.sendMessage(to, "รีบอทเสร็จสิ้น")
+                    ZenTuRy.sendMessage(to, "กรุณาให้บอทล็อกอินใหม่อีกครั้ง")
                     restartBot()
                 elif text.lower() == 'ออน':
                     timeNow = time.time()
