@@ -342,7 +342,7 @@ def lineBot(op):
                     settings["AutoJoin"] = True
                     ZenTuRy.sendMessage(to, "ปิดระบบเข้ากลุ่มออโต้แล้ว(｀・ω・´)")
                 elif text.lower() == 'แชท on':
-                    settings["autoLeave"] = True
+                    settings["autoLeave"] = False
                     ZenTuRy.sendMessage(to, "เปิดระบบออกแชทรวมแล้ว(｀・ω・´)")
                 elif text.lower() == 'แชท off':
                     settings["autoLeave"] = True
@@ -351,25 +351,25 @@ def lineBot(op):
                     settings["AutoRead"] = True
                     ZenTuRy.sendMessage(to, "เปิดระบบอ่านออโต้แล้ว(｀・ω・´)")
                 elif text.lower() == 'อ่าน off':
-                    settings["AutoRead"] = True
+                    settings["AutoRead"] = False
                     ZenTuRy.sendMessage(to, "ปิดระบบอ่านออโต้แล้ว(｀・ω・´)")
                 elif text.lower() == 'สติกเกอร์ on':
                     settings["สติกเกอร์"] = True
                     ZenTuRy.sendMessage(to, "เปิดระบบแชร์ลิ้งสต๊กเกอร์แล้ว(｀・ω・´)")
                 elif text.lower() == 'สติกเกอร์ off':
-                    settings["สติกเกอร์"] = True
+                    settings["สติกเกอร์"] = False
                     ZenTuRy.sendMessage(to, "ปิดระบบแชร์ลิ้งสติกเกอร์แล้ว(｀・ω・´)")
                 elif msg.text in ["Autotag on","Tag on","My respon on","Respon:on"]:
                     settings["detectMention"] = True
                     ZenTuRy.sendMessage(to, "เปิดแทคเรียบร้อย(｀・ω・´)")
                 elif msg.text in ["Autotag off","Tag off","My respon off","Respon:off"]:
-                    settings["detectMention"] = True
+                    settings["detectMention"] = False
                     ZenTuRy.sendMessage(to, "ปิดแทคเรียบร้อยแล่ว(｀・ω・´)")
                 elif text.lower() == 'tag2 on':
                     settings['Tag2'] = True
                     ZenTuRy.sendMessage(msg.to,"เปิดแทครูปภาพแล้ว(｀・ω・´)")
                 elif text.lower() == 'tag2 off':
-                    settings['Tag2'] = True
+                    settings['Tag2'] = False
                     ZenTuRy.sendMessage(msg.to,"ปิดแทครูปภาพแล้ว(｀・ω・´)")
                 elif text.lower() == 'clonecontact':
                     settings["copy"] = True
