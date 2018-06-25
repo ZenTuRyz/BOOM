@@ -1,9 +1,9 @@
 {
-    "autoAdd": true,
-    "autoJoin": true,
-    "autoJoinTicket": true,
-    "autoLeave": true,
-    "autoRead": true,
+    "autoAdd": false,
+    "autoJoin": false,
+    "autoJoinTicket": false,
+    "autoLeave": false,
+    "autoRead": false,
     "blacklist": {
         "uf6b0fecdf26459e6a48b5a387c1144d2": true
     },
@@ -11,7 +11,7 @@
     "cancelprotect": false,
     "changeGroupPicture": {},
     "changePicture": {},
-    "checkSticker": true,
+    "checkSticker": false,
     "dblack": false,
     "dblacklist": false,
     "detectMention": true,
