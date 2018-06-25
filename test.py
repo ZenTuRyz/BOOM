@@ -6,8 +6,6 @@ from time import sleep
 from bs4 import BeautifulSoup
 from humanfriendly import format_timespan, format_size, format_number, format_length
 import time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, pytz, urllib, urllib.parse
-import youtube_dl
-import html5lib
 from gtts import gTTS
 from googletrans import Translator
 #==============================================================================#
@@ -284,8 +282,8 @@ def lineBot(op):
                 elif text.lower() == 'รีบอท':
                     ZenTuRy.sendMessage(to, "กำลังรีบอทกรุณารอสักครู่.....")
                     time.sleep(5)
-                    ZenTuRy.sendMessage(to, "รีบอทเสร็จสิ้น..(｀・ω・´)")
-                    ZenTuRy.sendMessage(to, "กรุณาให้บอทล็อกอินใหม่อีกครั้ง  (｀・ω・´)")
+                    ZenTuRy.sendMessage(to, "รีบอทเสร็จสิ้น")
+                    ZenTuRy.sendMessage(to, "กรุณาให้บอทล็อกอินใหม่อีกครั้ง")
                     restartBot()
                 elif text.lower() == 'ออน':
                     timeNow = time.time()
@@ -332,31 +330,31 @@ def lineBot(op):
                     except Exception as e:
                         ZenTuRy.sendMessage(msg.to, str(e))
                 elif text.lower() == 'block on':
-                    settings["autoAdd"] = False
+                    settings["autoAdd"] = True
                     ZenTuRy.sendMessage(to, "เปิดระบบออโต้บล็อคแล้ว(｀・ω・´)")
                 elif text.lower() == 'block off':
-                    settings["autoAdd"] = False
+                    settings["autoAdd"] = True
                     ZenTuRy.sendMessage(to, "ปิดระบบออโต้บล็อคแล้ว(｀・ω・´)")
                 elif text.lower() == 'กลุ่ม on':
-                    settings["AutoJoin"] = False
+                    settings["AutoJoin"] = True
                     ZenTuRy.sendMessage(to, "เปิดระบบออโต้เข้ากลุ่มแล้ว(｀・ω・´)")
                 elif text.lower() == 'กลุ่ม off':
-                    settings["AutoJoin"] = False
+                    settings["AutoJoin"] = True
                     ZenTuRy.sendMessage(to, "ปิดระบบเข้ากลุ่มออโต้แล้ว(｀・ω・´)")
                 elif text.lower() == 'แชท on':
                     settings["autoLeave"] = False
                     ZenTuRy.sendMessage(to, "เปิดระบบออกแชทรวมแล้ว(｀・ω・´)")
                 elif text.lower() == 'แชท off':
-                    settings["autoLeave"] = False
+                    settings["autoLeave"] = True
                     ZenTuRy.sendMessage(to, "ปิดระบบออกแชทรวมแล้ว(｀・ω・´)")
                 elif text.lower() == 'อ่าน on':
-                    settings["AutoRead"] = False
+                    settings["AutoRead"] = True
                     ZenTuRy.sendMessage(to, "เปิดระบบอ่านออโต้แล้ว(｀・ω・´)")
                 elif text.lower() == 'อ่าน off':
                     settings["AutoRead"] = False
                     ZenTuRy.sendMessage(to, "ปิดระบบอ่านออโต้แล้ว(｀・ω・´)")
                 elif text.lower() == 'สติกเกอร์ on':
-                    settings["สติกเกอร์"] = False
+                    settings["สติกเกอร์"] = True
                     ZenTuRy.sendMessage(to, "เปิดระบบแชร์ลิ้งสต๊กเกอร์แล้ว(｀・ω・´)")
                 elif text.lower() == 'สติกเกอร์ off':
                     settings["สติกเกอร์"] = False
@@ -365,13 +363,13 @@ def lineBot(op):
                     settings["detectMention"] = True
                     ZenTuRy.sendMessage(to, "เปิดแทคเรียบร้อย(｀・ω・´)")
                 elif msg.text in ["Autotag off","Tag off","My respon off","Respon:off"]:
-                    settings["detectMention"] = True
+                    settings["detectMention"] = False
                     ZenTuRy.sendMessage(to, "ปิดแทคเรียบร้อยแล่ว(｀・ω・´)")
                 elif text.lower() == 'tag2 on':
                     settings['Tag2'] = True
                     ZenTuRy.sendMessage(msg.to,"เปิดแทครูปภาพแล้ว(｀・ω・´)")
                 elif text.lower() == 'tag2 off':
-                    settings['Tag2'] = True
+                    settings['Tag2'] = False
                     ZenTuRy.sendMessage(msg.to,"ปิดแทครูปภาพแล้ว(｀・ω・´)")
                 elif text.lower() == 'clonecontact':
                     settings["copy"] = True
@@ -571,9 +569,9 @@ def lineBot(op):
                             break
                         try:
                             ZenTuRy.cloneContactProfile(contact)
-                            ZenTuRy.sendMessage(msg.to, "Berhasil clone member tunggu beberapa saat sampai profile berubah")
+                            ZenTuRy.sendMessage(msg.to, "...")
                         except:
-                            ZenTuRy.sendMessage(msg.to, "Gagal clone member")
+                            ZenTuRy.sendMessage(msg.to, "ก็อบปกเสร็จสิ้น")
                             
                 elif text.lower() == 'restore':
                     try:
@@ -584,30 +582,7 @@ def lineBot(op):
                         ZenTuRy.updateProfile(ZenTuRyProfile)
                         ZenTuRy.sendMessage(msg.to, "Berhasil restore profile tunggu beberapa saat sampai profile berubah")
                     except:
-                        ZenTuRy.sendMessage(msg.to, "Gagal restore profile")
-                elif msg.text.lower().startswith("cloneprofile "):
-                    if 'MENTION' in msg.contentMetadata.keys()!= None:
-                        names = re.findall(r'@(\w+)', text)
-                        mention = ast.literal_eval(msg.contentMetadata['MENTION'])
-                        mentionees = mention['MENTIONEES']
-                        for mention in mentionees:
-                            contact = mention["M"]
-                            break
-                        try:
-                            ZenTuRy.cloneContactProfile(contact)
-                            ZenTuRy.sendMessage(msg.to, "Berhasil clone member tunggu beberapa saat sampai profile berubah")
-                        except:
-                            ZenTuRy.sendMessage(msg.to, "Gagal clone member")
-                elif text.lower() == 'restoreprofile':
-                    try:
-                        ZenTuRyProfile.displayName = str(myProfile["displayName"])
-                        ZenTuRyProfile.statusMessage = str(myProfile["statusMessage"])
-                        ZenTuRyProfile.pictureStatus = str(myProfile["pictureStatus"])
-                        ZenTuRy.updateProfileAttribute(8, ZenTuRyProfile.pictureStatus)
-                        ZenTuRy.updateProfile(ZenTuRyProfile)
-                        ZenTuRy.sendMessage(msg.to, "Berhasil restore profile tunggu beberapa saat sampai profile berubah")
-                    except:
-                        ZenTuRy.sendMessage(msg.to, "Gagal restore profile")
+                        ZenTuRy.sendMessage(msg.to, "คืนค่าเสร็จสิ้น")
 #==============================================================================#
                 elif msg.text.lower().startswith("เตะ "):
                     targets = []
@@ -701,22 +676,6 @@ def lineBot(op):
                             group.preventedJoinByTicket = False
                             ZenTuRy.updateGroup(group)
                             ZenTuRy.sendMessage(to, "ลิ้งเปิดอยู่ครับ(｀・ω・´)")
-                elif "Spam " in msg.text:
-                    txt = msg.text.split(" ")
-                    jmlh = int(txt[2])
-                    teks = msg.text.replace("Spam "+str(txt[1])+" "+str(jmlh)+" ","")
-                    tulisan = jmlh * (teks+"\n")
-                    if txt[1] == "on":
-                        if jmlh <= 100000:
-                           for x in range(jmlh):
-                               ZenTuRy.sendMessage(msg.to, teks)
-                        else:
-                           cl.sendMessage(msg.to, "Out of Range!")
-                    elif txt[1] == "off":
-                        if jmlh <= 100000:
-                            ZenTuRy.sendMessage(msg.to, tulisan)
-                        else:
-                            ZenTuRy.sendMessage(msg.to, "Out Of Range!")		
                 elif text.lower() == 'ปิดลิ้ง':
                     if msg.toType == 2:
                         group = ZenTuRy.getGroup(to)
@@ -727,7 +686,7 @@ def lineBot(op):
                             ZenTuRy.updateGroup(group)
                             ZenTuRy.sendMessage(to, "ปิดลิ้งสำเร็จ(｀・ω・´)")
                 elif text.lower() == 'ข้อมูลกลุ่ม':
-                    group = ZenTuRy.getGroup(to)
+                    group = cl.getGroup(to)
                     try:
                         gCreator = group.creator.displayName
                     except:
@@ -957,60 +916,6 @@ def lineBot(op):
                     ret_ += "\n╠ Zodiak : {}".format(str(data["data"]["zodiak"]))
                     ret_ += "\n╚══[ Success ]"
                     ZenTuRy.sendMessage(to, str(ret_))
-                elif "instagraminfo" in msg.text.lower():
-                    sep = text.split(" ")
-                    search = text.replace(sep[0] + " ","")
-                    with requests.session() as web:
-                        web.headers["User-Agent"] = random.choice(settings["userAgent"])
-                        r = web.get("https://www.instagram.com/{}/?__a=1".format(search))
-                        try:
-                            data = json.loads(r.text)
-                            ret_ = "╔══[ Profile Instagram ]"
-                            ret_ += "\n╠ Nama : {}".format(str(data["user"]["full_name"]))
-                            ret_ += "\n╠ Username : {}".format(str(data["user"]["username"]))
-                            ret_ += "\n╠ Bio : {}".format(str(data["user"]["biography"]))
-                            ret_ += "\n╠ Pengikut : {}".format(format_number(data["user"]["followed_by"]["count"]))
-                            ret_ += "\n╠ Diikuti : {}".format(format_number(data["user"]["follows"]["count"]))
-                            if data["user"]["is_verified"] == True:
-                                ret_ += "\n╠ Verifikasi : Sudah"
-                            else:
-                                ret_ += "\n╠ Verifikasi : Belum"
-                            if data["user"]["is_private"] == True:
-                                ret_ += "\n╠ Akun Pribadi : Iya"
-                            else:
-                                ret_ += "\n╠ Akun Pribadi : Tidak"
-                            ret_ += "\n╠ Total Post : {}".format(format_number(data["user"]["media"]["count"]))
-                            ret_ += "\n╚══[ https://www.instagram.com/{} ]".format(search)
-                            path = data["user"]["profile_pic_url_hd"]
-                            ZenTuRy.sendImageWithURL(to, str(path))
-                            ZenTuRy.sendMessage(to, str(ret_))
-                        except:
-                            ZenTuRy.sendMessage(to, "Pengguna tidak ditemukan")
-                elif "instagrampost" in msg.text.lower():
-                    separate = msg.text.split(" ")
-                    user = msg.text.replace(separate[0] + " ","")
-                    profile = "https://www.instagram.com/" + user
-                    with requests.session() as x:
-                        x.headers['user-agent'] = 'Mozilla/5.0'
-                        end_cursor = ''
-                        for count in range(1, 999):
-                            print('PAGE: ', count)
-                            r = x.get(profile, params={'max_id': end_cursor})
-                        
-                            data = re.search(r'window._sharedData = (\{.+?});</script>', r.text).group(1)
-                            j    = json.loads(data)
-                        
-                            for node in j['entry_data']['ProfilePage'][0]['user']['media']['nodes']: 
-                                if node['is_video']:
-                                    page = 'https://www.instagram.com/p/' + node['code']
-                                    r = x.get(page)
-                                    url = re.search(r'"video_url": "([^"]+)"', r.text).group(1)
-                                    print(url)
-                                    ZenTuRy.sendVideoWithURL(msg.to,url)
-                                else:
-                                    print (node['display_src'])
-                                    ZenTuRy.sendImageWithURL(msg.to,node['display_src'])
-                            end_cursor = re.search(r'"end_cursor": "([^"]+)"', r.text).group(1)
                 elif "searchimage" in msg.text.lower():
                     separate = msg.text.split(" ")
                     search = msg.text.replace(separate[0] + " ","")
@@ -1186,8 +1091,6 @@ def lineBot(op):
             	ZenTuRy.sendMessage(to, "เช็คจังเลยกลัวบอทหลุดหรอ 😜")
             if msg.text in ["แตก","แตก1","แตก 1","แตก!","แตก !","แตก 1!"]:
             	ZenTuRy.sendMessage(to, "สวยพี่สวย 😜")
-            if msg.text in ["โอม","โอมมี่","ohm"]:
-            	ZenTuRy.sendMessage(to, "Selfbot Auto Replied: โอมไม่อยู่ 😜")
             if msg.text in ["บอท","bot"]:
             	ZenTuRy.sendMessage(to, "บอทยังออนไลน์อยู่ 😜")
 #==============================================================================#
@@ -1249,46 +1152,6 @@ def lineBot(op):
                     me = ZenTuRy.getContact(ZenTuRyMID)
                     cover = ZenTuRy.getProfileCoverURL(ZenTuRyMID)    
                     ZenTuRy.sendImageWithURL(msg.to, cover)
-		
-#==============================================================================#
-            elif "Spamtag @" in msg.text:
-              if msg.from_ in admin:
-                _name = msg.text.replace("Spamtag @","")
-                _nametarget = _name.rstrip(' ')
-                gs = ZenTuRy.getGroup(msg.to)
-                for g in gs.members:
-                    if _nametarget == g.displayName:
-                        xname = g.displayName
-                        xlen = str(len(xname)+1)
-                        msg.contentType = 0
-                        msg.text = "@"+xname+" "
-                        msg.contentMetadata ={'MENTION':'{"MENTIONEES":[{"S":"0","E":'+json.dumps(xlen)+',"M":'+json.dumps(g.mid)+'}]}','EMTVER':'4'}
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                        ZenTuRy.sendMessage(msg)
-                    else:
-                        pass
-
-
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
