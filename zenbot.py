@@ -80,6 +80,7 @@ def helpmessage():
                   "⭐help2 ➠ จะแสดงคำสั่งชุดที่ 2" + "\n" + \
                   "⭐!help ➠ จะแสดงคำสั่ง OHM" + "\n" + \
                   "⭐รีบอท ➠ บอทจะเริมทำงานใหม่" + "\n" + \
+                  "⭐ผส ➠ ผู้สร้างบอท" + "\n" + \
 		  " ⚠คำสั่งสถานะ⚠" + "\n" + \
                   "⭐sp ➠ จะแสดงความเร็วบอท" + "\n" + \
                   "⭐เช็คค่า ➠ จะแสดงคำสั่งตั่งค่า" + "\n" + \
@@ -148,7 +149,7 @@ def helptexttospeech():
     return helpTextToSpeech
 
 def helpohm():
-    helpOhm =   " ⚠ OHM HELP ⚠" + "\n" + \
+    helpOhm =   " ⚠ คำสั่งที่คนอื่นใช้ได้ ⚠" + "\n" + \
                          "⭐!help ➠ แสดงคำสั่ง" + "\n" + \
                          "⭐!ohm ➠ ดูสถานะโอม" + "\n" + \
                          "⭐!groupcreator ➠ ผู้สร้างกลุ่ม" + "\n" + \
@@ -198,14 +199,15 @@ def lineBot(op):
                 if text.lower() == 'help':
                     helpMessage = helpmessage()
                     ZenTuRy.sendMessage(to, str(helpMessage))
-                    ZenTuRy.sendContact(to, "")
-                    ZenTuRy.sendMessage(to, "")
+                    ZenTuRy.sendContact(to, ZenTuRyMID)
                 elif text.lower() == 'help2':
                     helpTextToSpeech = helptexttospeech()
                     ZenTuRy.sendMessage(to, str(helpTextToSpeech))
+                    ZenTuRy.sendContact(to, ZenTuRyMID)
                 elif text.lower() == 'help3':
                     helpOhm = helpohm()
                     ZenTuRy.sendMessage(to, str(helpOhm))
+                    ZenTuRy.sendContact(to, ZenTuRyMID)
 #==============================================================================#
                 elif "ผส" == msg.text.lower():
                     ZenTuRy.sendMessage(to,"ผู้สร้างบอท\n ꧁OHM꧂  ")
