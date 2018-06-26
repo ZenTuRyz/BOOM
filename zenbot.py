@@ -436,7 +436,7 @@ def lineBot(op):
                     ZenTuRy.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
                     sendMessageWithMention(to, ZenTuRyMID)
                 elif text.lower() == 'วิดีโอ':
-                    me = line.getContact(ZenTuRyMID)
+                    me = ZenTuRy.getContact(ZenTuRyMID)
                     ZenTuRy.sendVideoWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus + "/vp")
                 elif text.lower() == 'ปก':
                     me = ZenTuRy.getContact(ZenTuRyMID)
