@@ -333,19 +333,19 @@ def lineBot(op):
                     settings["autoAdd"] = True
                     ZenTuRy.sendMessage(to, "เปิดระบบออโต้บล็อคแล้ว(｀・ω・´)")
                 elif text.lower() == 'block off':
-                    settings["autoAdd"] = True
+                    settings["autoAdd"] = False
                     ZenTuRy.sendMessage(to, "ปิดระบบออโต้บล็อคแล้ว(｀・ω・´)")
                 elif text.lower() == 'กลุ่ม on':
                     settings["AutoJoin"] = True
                     ZenTuRy.sendMessage(to, "เปิดระบบออโต้เข้ากลุ่มแล้ว(｀・ω・´)")
                 elif text.lower() == 'กลุ่ม off':
-                    settings["AutoJoin"] = True
+                    settings["AutoJoin"] = False
                     ZenTuRy.sendMessage(to, "ปิดระบบเข้ากลุ่มออโต้แล้ว(｀・ω・´)")
                 elif text.lower() == 'แชท on':
-                    settings["autoLeave"] = False
+                    settings["autoLeave"] = True
                     ZenTuRy.sendMessage(to, "เปิดระบบออกแชทรวมแล้ว(｀・ω・´)")
                 elif text.lower() == 'แชท off':
-                    settings["autoLeave"] = True
+                    settings["autoLeave"] = False
                     ZenTuRy.sendMessage(to, "ปิดระบบออกแชทรวมแล้ว(｀・ω・´)")
                 elif text.lower() == 'อ่าน on':
                     settings["AutoRead"] = True
