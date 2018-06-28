@@ -1143,7 +1143,7 @@ def lineBot(op):
             if msg.text in ["!help","!Help"]:
                     helpOhm = helpohm()
                     ZenTuRy.sendMessage(to, str(helpOhm))
-            if msg.text in ["!ohm","!Ohm"]:
+            if msg.text in ["!me","!Me"]:
                     ZenTuRy.sendMessage(to, "ME")
                     ZenTuRy.sendContact(to, ZenTuRyMID)
                     ZenTuRy.sendMessage(to, "STATUS")
