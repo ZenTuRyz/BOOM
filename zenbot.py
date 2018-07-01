@@ -442,7 +442,7 @@ def lineBot(op):
                     ZenTuRy.sendVideoWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus + "/vp")
                 elif text.lower() == 'ปก':
                     me = ZenTuRy.getContact(ZenTuRyMID)
-                    cover = nadya.getProfileCoverURL(ZenTuRyMID)    
+                    cover = ZenTuRy.getProfileCoverURL(ZenTuRyMID)    
                     ZenTuRy.sendImageWithURL(msg.to, cover)
                     sendMessageWithMention(to, ZenTuRyMID)
                 elif msg.text.lower().startswith("me "):
