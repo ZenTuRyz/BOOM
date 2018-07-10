@@ -148,13 +148,16 @@ def helptexttospeech():
 
 def helpohm():
     helpOhm =   " ⚠ คำสั่งที่คนอื่นใช้ได้ ⚠" + "\n" + \
-                         "⭐คำสั่ง ➠ แสดงคำสั่ง" + "\n" + \
-                         "⭐!me ➠ ดูสถานะทั้งหมดของตัวนี้" + "\n" + \
+                         "⭐!help ➠ แสดงคำสั่ง" + "\n" + \
+                         "⭐!รูป ➠ ดูรูป" + "\n" + \
+                         "⭐!ตัส ➠ ดูสถานะ" + "\n" + \
+                         "⭐!ปก ➠ ดูรูปปก" + "\n" + \
+                         "⭐!วิดีโอ ➠ ดูรูปวิดีโอ" + "\n" + \
                          "⭐!groupcreator ➠ ผู้สร้างกลุ่ม" + "\n" + \
                          "⭐!online ➠ เวลาในการทำงาน" + "\n" + \
                          "⭐!sp ➠ ความเร็วบอท" + "\n" + \
                          "⭐!test ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
-                         "⭐!tagall ➠ แทคทุกคนในกลุ่ม (แทคได้แค่ 100 คน)" + "\n" + \
+                         "⭐!tagall ➠ แทคทุกคนในกลุ่ม" + "\n" + \
                   "Created by : ꧁OHM꧂ "
     return helpOhm
 #==============================================================================#
@@ -1075,7 +1078,7 @@ def lineBot(op):
                          if settings['detectMention'] == True:
                              contact = ZenTuRy.getContact(msg._from)
                              cName = contact.displayName
-                             balas = ["Selfbot Auto Replied: ตอนนี้โอมไม่อยู่ 😜"]
+                             balas = ["Selfbot Auto Replied: โอมไม่อยู่ 😜"]
                              ret_ = "" + random.choice(balas)
                              name = re.findall(r'@(\w+)', msg.text)
                              mention = ast.literal_eval(msg.contentMetadata["MENTION"])
@@ -1136,22 +1139,25 @@ def lineBot(op):
                             txt += u'@Alin \n'
                         ZenTuRy.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
                         ZenTuRy.sendMessage(to, "จำนวนคนในการแทค {} คน".format(str(len(nama))))      
-            if msg.text in ["คำสั่ง"]:
+            if msg.text in ["!help","!Help"]:
                     helpOhm = helpohm()
                     ZenTuRy.sendMessage(to, str(helpOhm))
-            if msg.text in ["!me","!Me"]:
-                    ZenTuRy.sendMessage(to, "ME")
-                    ZenTuRy.sendContact(to, ZenTuRyMID)
-                    ZenTuRy.sendMessage(to, "STATUS")
-                    me = ZenTuRy.getContact(ZenTuRyMID)
-                    ZenTuRy.sendMessage(msg.to,">" + me.statusMessage)
-                    ZenTuRy.sendMessage(to, "PICTURE PROFILE")
+            if msg.text in ["!รูป","!pic"]:
                     me = ZenTuRy.getContact(ZenTuRyMID)
                     ZenTuRy.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
-                    ZenTuRy.sendMessage(to, "COVER PROFILE")
+                    sendMessageWithMention(to, ZenTuRyMID)
+            if msg.text in ["!ตัส","!stats"]:
+                    me = ZenTuRy.getContact(ZenTuRyMID)
+                    ZenTuRy.sendMessage(msg.to,">" + me.statusMessage)
+                    sendMessageWithMention(to, ZenTuRyMID)
+            if msg.text in ["!วิดีโอ","!vid"]:
+                    me = ZenTuRy.getContact(ZenTuRyMID)
+                    ZenTuRy.sendVideoWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus + "/vp")
+            if msg.text in ["!ปก","!cover"]:
                     me = ZenTuRy.getContact(ZenTuRyMID)
                     cover = ZenTuRy.getProfileCoverURL(ZenTuRyMID)    
                     ZenTuRy.sendImageWithURL(msg.to, cover)
+                    sendMessageWithMention(to, ZenTuRyMID)
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
