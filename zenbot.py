@@ -148,13 +148,13 @@ def helptexttospeech():
 
 def helpohm():
     helpOhm =   " ⚠ คำสั่งที่คนอื่นใช้ได้ ⚠" + "\n" + \
-                         "⭐!help ➠ แสดงคำสั่ง" + "\n" + \
-                         "⭐!me ➠ ดูสถานะโอม" + "\n" + \
+                         "⭐คำสั่ง ➠ แสดงคำสั่ง" + "\n" + \
+                         "⭐!me ➠ ดูสถานะทั้งหมดของตัวนี้" + "\n" + \
                          "⭐!groupcreator ➠ ผู้สร้างกลุ่ม" + "\n" + \
                          "⭐!online ➠ เวลาในการทำงาน" + "\n" + \
                          "⭐!sp ➠ ความเร็วบอท" + "\n" + \
                          "⭐!test ➠ เช็คว่าบอทหลุดไหม" + "\n" + \
-                         "⭐!tagall ➠ แทคทุกคนในกลุ่ม" + "\n" + \
+                         "⭐!tagall ➠ แทคทุกคนในกลุ่ม (แทคได้แค่ 100 คน)" + "\n" + \
                   "Created by : ꧁OHM꧂ "
     return helpOhm
 #==============================================================================#
@@ -1075,7 +1075,7 @@ def lineBot(op):
                          if settings['detectMention'] == True:
                              contact = ZenTuRy.getContact(msg._from)
                              cName = contact.displayName
-                             balas = ["Selfbot Auto Replied: แทคทำไมเดะโบกเลย ☠"]
+                             balas = ["Selfbot Auto Replied: ตอนนี้โอมไม่อยู่ 😜"]
                              ret_ = "" + random.choice(balas)
                              name = re.findall(r'@(\w+)', msg.text)
                              mention = ast.literal_eval(msg.contentMetadata["MENTION"])
@@ -1136,7 +1136,7 @@ def lineBot(op):
                             txt += u'@Alin \n'
                         ZenTuRy.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
                         ZenTuRy.sendMessage(to, "จำนวนคนในการแทค {} คน".format(str(len(nama))))      
-            if msg.text in ["!help","!Help"]:
+            if msg.text in ["คำสั่ง"]:
                     helpOhm = helpohm()
                     ZenTuRy.sendMessage(to, str(helpOhm))
             if msg.text in ["!me","!Me"]:
