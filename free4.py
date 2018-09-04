@@ -1161,7 +1161,7 @@ def lineBot(op):
             receiver = msg.to
             sender = msg._from
             if msg.toType == 0:
-                if sender != line.profile.mid:
+                if sender != ZenTuRy.profile.mid:
                     to = sender
                 else:
                     to = receiver
