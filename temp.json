@@ -1,6 +1,6 @@
 {
     "autoAdd": false,
-    "autoJoin": true,
+    "autoJoin": false,
     "autoJoinTicket": false,
     "autoLeave": false,
     "autoRead": false,
@@ -14,7 +14,7 @@
     "checkSticker": false,
     "dblack": false,
     "dblacklist": false,
-    "detectMention": true,
+    "detectMention": false,
     "inviteprotect": false,
     "keyCommand": "",
     "kickjoin": false,
