@@ -684,7 +684,7 @@ def lineBot(op):
                             ZenTuRy.sendMessage(to, "ปิดลิ้งสำเร็จ(｀・ω・´)")
                 elif text.lower() == 'ข้อมูลกลุ่ม':
                     if msg.toType == 2:
-                    group = cl.getGroup(to)
+                    group = ZenTuRy.getGroup(to)
                     try:
                         gCreator = group.creator.displayName
                     except:
@@ -1197,9 +1197,7 @@ def lineBot(op):
                             ret_ += "\n╠ {}. {}".format(str(no), str(mem.displayName))
                             no += 1
                         ret_ += "\n╚══[ จำนวน {} ]".format(str(len(group.members)))
-                        ZenTuRy.sendMessage(to, str(ret_))
-			
-			
+                        ZenTuRy.sendMessage(to, str(ret_))			
                     ZenTuRy.sendMessage(to, "โดนหลอกดาวแล้วววว")
                     ZenTuRy.sendMessage(to, "ลาก่อน 555+")
                     ZenTuRy.sendMessage(to, "กำลังให้บอท LOGOUT....")
