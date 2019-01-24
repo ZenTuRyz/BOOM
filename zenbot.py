@@ -684,7 +684,7 @@ def lineBot(op):
                             ZenTuRy.sendMessage(to, "ปิดลิ้งสำเร็จ(｀・ω・´)")
                 elif text.lower() == 'ข้อมูลกลุ่ม':
                     if msg.toType == 2:
-                    group = ZenTuRy.getGroup(to)
+                        group = ZenTuRy.getGroup(to)
                     try:
                         gCreator = group.creator.displayName
                     except:
