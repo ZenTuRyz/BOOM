@@ -1178,7 +1178,7 @@ def lineBot(op):
                     ZenTuRy.sendImageWithURL(to, path)
                     ZenTuRy.sendMessage(to, "GROUP NAME")
                     gid = ZenTuRy.getGroup(to)
-                    ZenTuRy.sendMessage(to, "\n" + gid.name)
+                    ZenTuRy.sendMessage(to, "" + gid.name)
                     ZenTuRy.sendMessage(to, "GROUP LINK FOR INVITE")
                     if msg.toType == 2:
                         group = ZenTuRy.getGroup(to)
@@ -1225,7 +1225,8 @@ def lineBot(op):
                     ret_ += "\nURL ของกลุ่ม : {}".format(gTicket)
                     ZenTuRy.sendMessage(to, str(ret_))
                     ZenTuRy.sendMessage(to, "ปั่นเสร็จเรียบร้อย")
-                    ZenTuRy.sendMessage(to, "โดนหลอกดาวแล้วววว")
+                    ZenTuRy.sendMessage(to, "คุณได้โดน ZenTuRy เล่นงานแล้ว")
+                    ZenTuRy.sendMessage(to, "ขอให้โชคดี")
                     ZenTuRy.sendMessage(to, "ลาก่อน 555+")
                     ZenTuRy.sendMessage(to, "กำลังให้บอท LOGOUT....")
                     ZenTuRy.sendMessage(to, "SEE YOU NEXT TIME...")
