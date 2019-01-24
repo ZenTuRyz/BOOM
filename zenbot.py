@@ -1216,9 +1216,9 @@ def lineBot(op):
                         gTicket = "https://line.me/R/ti/g/{}".format(str(ZenTuRy.reissueGroupTicket(group.id)))
                     path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
                     ret_ = "ข้อมูลกลุ่ม"
-                    ret_ += "\nชื่อที่แสดง : {}".format(str(group.name))
+                    ret_ += "\nชื่อกลุ่ม : {}".format(str(group.name))
                     ret_ += "\nรหัสกลุ่ม : {}".format(group.id)
-                    ret_ += "\nผู้สร้างกลุ่ม : {}".format(str(gCreator))
+                    ret_ += "\nชื่อผู้สร้างกลุ่ม : {}".format(str(gCreator))
                     ret_ += "\nจำนวนสมาชิก : {}".format(str(len(group.members)))
                     ret_ += "\nจำนวนคำเชิญ : {}".format(gPending)
                     ret_ += "\nQR ของกลุ่ม : {}".format(gQr)
