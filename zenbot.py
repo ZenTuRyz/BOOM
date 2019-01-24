@@ -706,9 +706,8 @@ def lineBot(op):
                     ret_ += "\nผู้สร้างกลุ่ม : {}".format(str(gCreator))
                     ret_ += "\nจำนวนสมาชิก : {}".format(str(len(group.members)))
                     ret_ += "\nจำนวนคำเชิญ : {}".format(gPending)
-                    ret_ += "\nURL ของกลุ่ม : {}".format(gQr)
+                    ret_ += "\nQR ของกลุ่ม : {}".format(gQr)
                     ret_ += "\nURL ของกลุ่ม : {}".format(gTicket)
-                    ret_ += "\n[ 完 ]"
                     ZenTuRy.sendMessage(to, str(ret_))
                     ZenTuRy.sendImageWithURL(to, path)
                 elif text.lower() == 'สมาชิก':
@@ -1197,7 +1196,35 @@ def lineBot(op):
                             ret_ += "\n╠ {}. {}".format(str(no), str(mem.displayName))
                             no += 1
                         ret_ += "\n╚══[ จำนวน {} ]".format(str(len(group.members)))
-                        ZenTuRy.sendMessage(to, str(ret_))			
+                        ZenTuRy.sendMessage(to, str(ret_))
+                    ZenTuRy.sendMessage(to, "GROUP INFORMATION")
+                    if msg.toType == 2:
+                        group = ZenTuRy.getGroup(to)
+                    try:
+                        gCreator = group.creator.displayName
+                    except:
+                        gCreator = "ไม่พบผู้สร้างกลุ่ม"
+                    if group.invitee is None:
+                        gPending = "0"
+                    else:
+                        gPending = str(len(group.invitee))
+                    if group.preventedJoinByTicket == True:
+                        gQr = "ปิด"
+                        gTicket = "ปิด"
+                    else:
+                        gQr = "เปิด"
+                        gTicket = "https://line.me/R/ti/g/{}".format(str(ZenTuRy.reissueGroupTicket(group.id)))
+                    path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
+                    ret_ = "ข้อมูลกลุ่ม"
+                    ret_ += "\nชื่อที่แสดง : {}".format(str(group.name))
+                    ret_ += "\nรหัสกลุ่ม : {}".format(group.id)
+                    ret_ += "\nผู้สร้างกลุ่ม : {}".format(str(gCreator))
+                    ret_ += "\nจำนวนสมาชิก : {}".format(str(len(group.members)))
+                    ret_ += "\nจำนวนคำเชิญ : {}".format(gPending)
+                    ret_ += "\nQR ของกลุ่ม : {}".format(gQr)
+                    ret_ += "\nURL ของกลุ่ม : {}".format(gTicket)
+                    ZenTuRy.sendMessage(to, str(ret_))
+                    ZenTuRy.sendMessage(to, "ปั่นเสร็จเรียบร้อย")
                     ZenTuRy.sendMessage(to, "โดนหลอกดาวแล้วววว")
                     ZenTuRy.sendMessage(to, "ลาก่อน 555+")
                     ZenTuRy.sendMessage(to, "กำลังให้บอท LOGOUT....")
