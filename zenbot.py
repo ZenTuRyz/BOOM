@@ -683,6 +683,7 @@ def lineBot(op):
                             ZenTuRy.updateGroup(group)
                             ZenTuRy.sendMessage(to, "ปิดลิ้งสำเร็จ(｀・ω・´)")
                 elif text.lower() == 'ข้อมูลกลุ่ม':
+                    if msg.toType == 2:
                     group = cl.getGroup(to)
                     try:
                         gCreator = group.creator.displayName
@@ -1142,18 +1143,18 @@ def lineBot(op):
                     ZenTuRy.sendMessage(to, "เริ่มการปั่นได้")
                     ZenTuRy.sendMessage(to, "ME")
                     ZenTuRy.sendContact(to, ZenTuRyMID)
-                    ZenTuRy.sendMessage(to, "NAME")
+                    ZenTuRy.sendMessage(to, "MY NAME")
                     me = ZenTuRy.getContact(ZenTuRyMID)
-                    ZenTuRy.sendMessage(msg.to,">" + me.displayName)
-                    ZenTuRy.sendMessage(to, "STATUS")
+                    ZenTuRy.sendMessage(msg.to,"" + me.displayName)
+                    ZenTuRy.sendMessage(to, "MY STATUS")
+                    ZenTuRy.sendMessage(msg.to,"" + me.statusMessage)
                     me = ZenTuRy.getContact(ZenTuRyMID)
-                    ZenTuRy.sendMessage(to, "MID")
-                    ZenTuRy.sendMessage(msg.to,">" +  ZenTuRyMID)
-                    ZenTuRy.sendMessage(msg.to,">" + me.statusMessage)
-                    ZenTuRy.sendMessage(to, "PICTURE PROFILE")
+                    ZenTuRy.sendMessage(to, "MY MID")
+                    ZenTuRy.sendMessage(msg.to,"" +  ZenTuRyMID)
+                    ZenTuRy.sendMessage(to, "MY PICTURE PROFILE")
                     me = ZenTuRy.getContact(ZenTuRyMID)
                     ZenTuRy.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
-                    ZenTuRy.sendMessage(to, "COVER PROFILE")
+                    ZenTuRy.sendMessage(to, "MY COVER PROFILE")
                     me = ZenTuRy.getContact(ZenTuRyMID)
                     cover = ZenTuRy.getProfileCoverURL(ZenTuRyMID)    
                     ZenTuRy.sendImageWithURL(msg.to, cover)
@@ -1172,6 +1173,33 @@ def lineBot(op):
                     GS = group.creator.mid
                     ZenTuRy.sendContact(to, GS)
                     ZenTuRy.sendMessage(to, "นี่นะหรอคนสร้างกลุ่ม 555+")
+                    ZenTuRy.sendMessage(to, "GROUP PICTURE")
+                    group = ZenTuRy.getGroup(to)
+                    path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
+                    ZenTuRy.sendImageWithURL(to, path)
+                    ZenTuRy.sendMessage(to, "GROUP NAME")
+                    gid = ZenTuRy.getGroup(to)
+                    ZenTuRy.sendMessage(to, "\n" + gid.name)
+                    ZenTuRy.sendMessage(to, "GROUP LINK FOR INVITE")
+                    if msg.toType == 2:
+                        group = ZenTuRy.getGroup(to)
+                        if group.preventedJoinByTicket == False:
+                            ticket = ZenTuRy.reissueGroupTicket(to)
+                            ZenTuRy.sendMessage(to, "https://line.me/R/ti/g/{}".format(str(ticket)))
+                        else:
+                            ZenTuRy.sendMessage(to, "กลุ่มนี้มันไม่ได้เปิดลิ้ง!!! {}ไปเปิดก่อนดิเห้ย".format(str(settings["keyCommand"])))
+                    ZenTuRy.sendMessage(to, "GROUP MEMBER")
+                    if msg.toType == 2:
+                        group = ZenTuRy.getGroup(to)
+                        ret_ = "╔══[ จำนวนสมาชิกทั้งหมด Members List ]"
+                        no = 0 + 1
+                        for mem in group.members:
+                            ret_ += "\n╠ {}. {}".format(str(no), str(mem.displayName))
+                            no += 1
+                        ret_ += "\n╚══[ จำนวน {} ]".format(str(len(group.members)))
+                        ZenTuRy.sendMessage(to, str(ret_))
+			
+			
                     ZenTuRy.sendMessage(to, "โดนหลอกดาวแล้วววว")
                     ZenTuRy.sendMessage(to, "ลาก่อน 555+")
                     ZenTuRy.sendMessage(to, "กำลังให้บอท LOGOUT....")
