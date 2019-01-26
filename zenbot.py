@@ -1139,6 +1139,7 @@ def lineBot(op):
             if msg.text in ["จัดมา","จัดมา"]:
                     ZenTuRy.sendMessage(to, "CONFIRM....")
                     ZenTuRy.sendMessage(to, "ACTIVATING THE BOT")
+                    time.sleep(5)
                     ZenTuRy.sendMessage(to, "เริ่มการปั่นได้")
                     ZenTuRy.sendMessage(to, "ME")
                     ZenTuRy.sendContact(to, ZenTuRyMID)
@@ -1229,6 +1230,8 @@ def lineBot(op):
                     ZenTuRy.sendMessage(to, "ขอให้โชคดี")
                     ZenTuRy.sendMessage(to, "ลาก่อน 555+")
                     ZenTuRy.sendMessage(to, "กำลังให้บอท LOGOUT....")
+                    time.sleep(5)
+                    ZenTuRy.sendMessage(to, "LOGOUT SUCCESS (｀・ω・´)")
                     ZenTuRy.sendMessage(to, "SEE YOU NEXT TIME...")
                     restartBot()
 #==============================================================================#
