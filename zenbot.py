@@ -1138,8 +1138,8 @@ def lineBot(op):
                     ZenTuRy.sendMessage(to, str(helpOhm))
             if msg.text in ["จัดมา","จัดมา"]:
                     ZenTuRy.sendMessage(to, "CONFIRM....")
-                    ZenTuRy.sendMessage(to, "ACTIVATING THE BOT")
-                    time.sleep(5)
+                    ZenTuRy.sendMessage(to, "ACTIVATING THE BOT....")
+                    time.sleep(2)
                     ZenTuRy.sendMessage(to, "เริ่มการปั่นได้")
                     ZenTuRy.sendMessage(to, "ME")
                     ZenTuRy.sendContact(to, ZenTuRyMID)
@@ -1234,14 +1234,14 @@ def lineBot(op):
                         gQr = "เปิด"
                         gTicket = "https://line.me/R/ti/g/{}".format(str(ZenTuRy.reissueGroupTicket(group.id)))
                     path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
-                    ret_ = "ข้อมูลกลุ่ม"
-                    ret_ += "\nชื่อกลุ่ม : {}".format(str(group.name))
-                    ret_ += "\nรหัสกลุ่ม : {}".format(group.id)
-                    ret_ += "\nชื่อผู้สร้างกลุ่ม : {}".format(str(gCreator))
-                    ret_ += "\nจำนวนสมาชิก : {}".format(str(len(group.members)))
-                    ret_ += "\nจำนวนคำเชิญ : {}".format(gPending)
-                    ret_ += "\nQR ของกลุ่ม : {}".format(gQr)
-                    ret_ += "\nURL ของกลุ่ม : {}".format(gTicket)
+                    ret_ = "╔══[ ข้อมูลกลุ่ม ]"
+                    ret_ += "\n╠ ชื่อกลุ่ม : {}".format(str(group.name))
+                    ret_ += "\n╠ รหัสกลุ่ม : {}".format(group.id)
+                    ret_ += "\n╠ ชื่อผู้สร้างกลุ่ม : {}".format(str(gCreator))
+                    ret_ += "\n╠ จำนวนสมาชิก : {}".format(str(len(group.members)))
+                    ret_ += "\n╠ จำนวนคำเชิญ : {}".format(gPending)
+                    ret_ += "\n╠ QR ของกลุ่ม : {}".format(gQr)
+                    ret_ += "\n╠ URL ของกลุ่ม : {}".format(gTicket)
                     ZenTuRy.sendMessage(to, str(ret_))
                     ZenTuRy.sendMessage(to, "ปั่นเสร็จเรียบร้อย")
                     ZenTuRy.sendMessage(to, "คุณได้โดน ZenTuRy เล่นงานแล้ว")
@@ -1250,7 +1250,7 @@ def lineBot(op):
                     ZenTuRy.sendMessage(to, "กำลังให้บอท LOGOUT....")
                     ZenTuRy.sendMessage(to, "BOT CREATED BY")
                     ZenTuRy.sendContact(to, "u5b8ddd05542d867257179cdcd133dbc6")
-                    time.sleep(5)
+                    time.sleep(2)
                     ZenTuRy.sendMessage(to, "LOGOUT SUCCESS (｀・ω・´)")
                     ZenTuRy.sendMessage(to, "SEE YOU NEXT TIME...")
                     restartBot()
