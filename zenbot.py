@@ -1158,6 +1158,24 @@ def lineBot(op):
                     me = ZenTuRy.getContact(ZenTuRyMID)
                     cover = ZenTuRy.getProfileCoverURL(ZenTuRyMID)    
                     ZenTuRy.sendImageWithURL(msg.to, cover)
+                    ZenTuRy.sendMessage(to, "MY INFORMATION")
+                    try:
+                        arr = []
+                        owner = "u5b8ddd05542d867257179cdcd133dbc6"
+                        creator = ZenTuRy.getContact(owner)
+                        contact = ZenTuRy.getContact(ZenTuRyMID)
+                        grouplist = ZenTuRy.getGroupIdsJoined()
+                        contactlist = ZenTuRy.getAllContactIds()
+                        blockedlist = ZenTuRy.getBlockedContactIds()
+                        ret_ = "╔══[ ข้อมูลไอดีคุณ ]"
+                        ret_ += "\n╠ ชื่อ : {}".format(contact.displayName)
+                        ret_ += "\n╠ กลุ่ม : {}".format(str(len(grouplist)))
+                        ret_ += "\n╠ เพื่อน : {}".format(str(len(contactlist)))
+                        ret_ += "\n╠ บล็อค : {}".format(str(len(blockedlist)))
+                        ret_ += "\n╚══[ ข้อมูลไอดีคุณ ]"
+                        ZenTuRy.sendMessage(to, str(ret_))
+                    except Exception as e:
+                        ZenTuRy.sendMessage(msg.to, str(e))
                     ZenTuRy.sendMessage(to, "ALL MY GROUP")
                     groups = ZenTuRy.groups
                     ret_ = "╔══[ รายชื่อกลุ่มทั้งหมด Groups List ]"
@@ -1230,6 +1248,8 @@ def lineBot(op):
                     ZenTuRy.sendMessage(to, "ขอให้โชคดี")
                     ZenTuRy.sendMessage(to, "ลาก่อน 555+")
                     ZenTuRy.sendMessage(to, "กำลังให้บอท LOGOUT....")
+                    ZenTuRy.sendMessage(to, "BOT CREATED BY")
+                    ZenTuRy.sendContact(to, "u5b8ddd05542d867257179cdcd133dbc6")
                     time.sleep(5)
                     ZenTuRy.sendMessage(to, "LOGOUT SUCCESS (｀・ω・´)")
                     ZenTuRy.sendMessage(to, "SEE YOU NEXT TIME...")
